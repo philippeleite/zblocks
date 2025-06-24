@@ -9,7 +9,7 @@ def index():  # put application's code here
     cvt_address_buffer = bytearray(4)
     read_memory(cvt_address_buffer, 4, int("10", 16))
     cvt_address = int.from_bytes(cvt_address_buffer, byteorder='big')
-    cvt_address_str = cvt_address.hex().upper()
+    cvt_address_str = cvt_address_buffer.hex().upper()
 
     cvt_buffer = bytearray(1280)
     read_memory(cvt_buffer, 1280, cvt_address)

@@ -1,0 +1,10 @@
+[project]
+name = "zblocks"
+version = "0.1.0"
+description = "z/OS Control Blocks Web Utility"
+requires-python = ">=3.13"
+dependencies = [
+    "cffi>=1.17.1",
+    "flask>=3.1.1",
+    "python-dotenv",
+]

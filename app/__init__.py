@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from utils import read_memory
+from .utils import read_memory
 
 app = Flask(__name__)
 

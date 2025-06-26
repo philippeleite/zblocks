@@ -18,4 +18,3 @@ void read_memory(char *buffer,
 }                                                             
 ''')
 
-ffi.compile(verbose=True)

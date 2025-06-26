@@ -1,10 +1,4 @@
-from cffi import FFI
-
-ffi = FFI()
-ffi.cdef('''
-void read_memory(char* buffer, int length, intptr_t address);
- ''')
-C = ffi.dlopen('src/zblocks.so')
+from .zutils import lib, ffi
 
 def read_memory(buffer: bytearray, size: int, address: int):
-    C.read_memory(ffi.from_buffer(buffer), size, address)
+    lib.read_memory(ffi.from_buffer(buffer), size, address)

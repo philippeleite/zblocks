@@ -14,6 +14,7 @@ cvt_pattern = Struct(
     "4s"     # CVTPCNVT
     "4s"     # CVTPRLVT
     "4s"     # CVTLLCB
+    
     "4s"     # CVTLLTRM
     "4s"     # CVTXTLER
     "4s"     # CVTSYSAD

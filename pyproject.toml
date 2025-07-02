@@ -7,4 +7,5 @@ dependencies = [
     "cffi>=1.17.1",
     "flask>=3.0.0",
     "python-dotenv",
+    "networkx",
 ]

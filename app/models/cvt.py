@@ -121,4 +121,4 @@ class CVT:
         self.fields = cvt_field_names
         self.info = cvt_info._asdict()
         content = cvt_fields._make(cvt_pattern.unpack(get_cvt()))
-        self.content = content
+        self.content = content._asdict()

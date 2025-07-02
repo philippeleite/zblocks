@@ -15,12 +15,16 @@
             {% for field in block.fields %}
             <tr>
                 <td>
+                    <code>
                     {{ block.info[field].offset }}
                     {{ "(%X)"|format(block.info[field].offset) }}
+                    </code>
                 </td>
                 <td>{{ block.info[field].length }}</td>
                 <td>{{ field }}</td>
-                <td>{{ block.content[field].hex().upper() }}</td>
+                <td>
+                    <code>{{ block.content[field].hex().upper() }}</code>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

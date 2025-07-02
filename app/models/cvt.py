@@ -3,7 +3,7 @@ from app.utils import read_memory
 from struct import Struct
 from collections import namedtuple
 
-zblocks_list.append('cvt')
+zblocks_list.append('CVT')
 
 cvt_pattern = Struct(
     ">"

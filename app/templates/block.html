@@ -14,10 +14,13 @@
             </tr>
             {% for field in block.fields %}
             <tr>
-                <td>{{block.info[field].offset}}</td>
-                <td>{{block.info[field].length}}</td>
-                <td>{{field}}</td>
-                <td>{{block.content[field].hex().upper()}}</td>
+                <td>
+                    {{ block.info[field].offset }}
+                    ({{ "{:X}"|format(block.info[field].offset) }})
+                </td>
+                <td>{{ block.info[field].length }}</td>
+                <td>{{ field }}</td>
+                <td>{{ block.content[field].hex().upper() }}</td>
             </tr>
             {% endfor %}
         </tbody>

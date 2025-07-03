@@ -116,6 +116,7 @@ cvt_pattern = Struct(
     "1s"  # CVTSPVLK
     "1s"  # CVTCTLFG
     "1s"  # CVTAPG
+    "4x"  # Undocumented
     "4s"  # CVTRSCN
     "4s"  # CVTTAS
     "4s"  # CVTTRCRM

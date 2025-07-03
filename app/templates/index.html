@@ -4,7 +4,7 @@
     <h1>zBlocks</h1>
     <ul>
     {% for block in blocks %}
-        <li><a href="/{{ block }}">{{ block }}</a></li>
+        <li><a href="/{{ block.lower() }}">{{ block }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

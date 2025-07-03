@@ -673,7 +673,7 @@
             </td>
             <td class="nrule tdleft"
                 data-bs-toggle="tooltip"
-                data-bs-title="{{ block.content["CVTCVT"].decode("cp037") }}">
+                data-bs-title='EBCDIC: "{{ block.content["CVTCVT"].decode("cp037") }}"'>
                 <code class="text-primary"> {{ block.content["CVTCVT"].hex().upper() }} </code>
             </td>
             <td class="nrule tdleft">
@@ -3300,7 +3300,9 @@
             <td class="nrule tdright">
                 CVTSNAME
             </td>
-            <td class="nrule tdleft">
+            <td class="nrule tdleft"
+                data-bs-toggle="tooltip"
+                data-bs-title='EBCDIC: "{{ block.content["CVTSNAME"].decode("cp037") }}"'>
                 <code class="text-primary"> {{ block.content["CVTSNAME"].hex().upper() }} </code>
             </td>
             <td class="nrule tdleft">

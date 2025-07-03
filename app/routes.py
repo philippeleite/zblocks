@@ -26,7 +26,7 @@ def pcca():
 @app.route('/cvt')
 def cvt_address():
     cvt = CVT()
-    return render_template("block.html", block=cvt)
+    return render_template("cvt.html", block=cvt)
 
 @app.route('/ecvt')
 def ecvt():

@@ -3,7 +3,9 @@
 {% block content %}
     <ul>
     {% for block in blocks %}
-        <li><a href="/{{ block.lower() }}">{{ block }}</a></li>
+        <li>
+            <a href="/{{ block.lower() }}">{{ block }}</a>
+        </li>
     {% endfor %}
     </ul>
 {% endblock %}

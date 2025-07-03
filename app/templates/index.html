@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>zBlocks</h1>
     <ul>
     {% for block in blocks %}
         <li><a href="/{{ block.lower() }}">{{ block }}</a></li>

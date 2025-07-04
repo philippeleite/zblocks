@@ -1038,9 +1038,9 @@ def get_cvt() -> bytearray:
 
 class CVT:
     def __init__(self):
-        self.name = "CVT"
-        self.long_name = "Communications Vector Table"
-        self.fields = cvt_field_names
-        self.info = cvt_info._asdict()
+        name = "CVT"
+        long_name = "Communications Vector Table"
+        fields = cvt_field_names
+        info = cvt_info
         content = cvt_fields._make(cvt_pattern.unpack(get_cvt()))
-        self.content = content._asdict()
+        self.content = content

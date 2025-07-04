@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from app import app
 from app.models.base import zblocks_list
-# from app.models.psa import PSA
+from app.models.psa import PSA
 from app.models.cvt import CVT
 
 @app.route('/')
@@ -14,9 +14,8 @@ def index():
 
 @app.route('/psa')
 def psa():
-    pass
-    # psa = PSA()
-    #return render_template("psa.html", block=psa)
+    psa = PSA()
+    return render_template("psa.html", block=psa)
 
 @app.route('/lcca')
 def lcca():

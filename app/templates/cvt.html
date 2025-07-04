@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ block.name }}</h1>
-    <h2>{{ block.long_name }}</h2>
-    <table class="table table-striped table-hover table-bordered">
-        <thead>
+<h1>{{ block.name }}</h1>
+<h2>{{ block.long_name }}</h2>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
         <tr>
             <th class="nrule thright" id="CVT__CVT-map__entry__1">
                 <div class="cds--table-header-label">
                     <samp>
                         Offset
-                        <br/>
+                        <br />
                         Dec(Hex)
                     </samp>
                 </div>
@@ -36,8 +36,8 @@
                 </div>
             </th>
         </tr>
-        </thead>
-        <tbody class="table-group-divider">
+    </thead>
+    <tbody class="table-group-divider">
         <tr>
             <td class="nrule tdright">
                 0 (0)
@@ -671,8 +671,7 @@
             <td class="nrule tdright">
                 CVTCVT
             </td>
-            <td class="nrule tdleft"
-                data-bs-toggle="tooltip"
+            <td class="nrule tdleft" data-bs-toggle="tooltip"
                 data-bs-title='EBCDIC: "{{ block.content.CVTCVT.decode("cp037") }}"'>
                 <code class="text-primary"> {{ block.content.CVTCVT.hex().upper() }} </code>
             </td>
@@ -3300,8 +3299,7 @@
             <td class="nrule tdright">
                 CVTSNAME
             </td>
-            <td class="nrule tdleft"
-                data-bs-toggle="tooltip"
+            <td class="nrule tdleft" data-bs-toggle="tooltip"
                 data-bs-title='EBCDIC: "{{ block.content.CVTSNAME.decode("cp037") }}"'>
                 <code class="text-primary"> {{ block.content.CVTSNAME.hex().upper() }} </code>
             </td>
@@ -13016,10 +13014,6 @@
 
             </td>
         </tr>
-        </tbody>
-    </table>
-    <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
+    </tbody>
+</table>
 {% endblock %}

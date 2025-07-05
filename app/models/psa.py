@@ -1052,10 +1052,10 @@ def get_psa() -> bytearray:
     return cvt_buffer
 
 class PSA:
+    name = "PSA"
+    long_name = "Prefix Save Area"
+    fields = psa_field_names
+    info = cvt_info
     def __init__(self):
-        name = "PSA"
-        long_name = "Prefix Save Area"
-        fields = psa_field_names
-        info = cvt_info
         content = psa_fields._make(psa_pattern.unpack(get_psa()))
         self.content = content

@@ -23,6 +23,9 @@
         max-width: 100%;
         margin: 0 auto;
     }
+    main {
+        padding-top: 5rem;
+    }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
@@ -38,7 +41,9 @@
         </div>
     </div>
 </nav>
-{% block content %}{% endblock %}
+<main>
+    {% block content %}{% endblock %}
+</main>
 <script>
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

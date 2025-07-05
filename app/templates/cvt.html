@@ -3,7 +3,16 @@
 {% block content %}
 <h1>{{ block.name }}</h1>
 <h2>{{ block.long_name }}</h2>
+<div class="table-container">
+<div class="table-responsive">
 <table class="table table-striped table-hover table-bordered">
+    <colgroup>
+        <col style="width: 10%;">
+        <col style="width: 5%;">
+        <col style="width: 15%;">
+        <col style="width: 30%;">
+        <col style="width: 40%;">
+    </colgroup>
     <thead>
         <tr>
             <th class="nrule thright" id="CVT__CVT-map__entry__1">
@@ -13016,4 +13025,6 @@
         </tr>
     </tbody>
 </table>
+</div>
+</div>
 {% endblock %}

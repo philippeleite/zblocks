@@ -1023,17 +1023,17 @@ cvt_info = cvt_fields._make(cvt_offset_length)
 
 
 def get_cvt_address() -> int:
-    cvt_address_buffer = bytearray(4)
-    read_memory(cvt_address_buffer, len(cvt_address_buffer), int("10", 16))
-    cvt_address = int.from_bytes(cvt_address_buffer, byteorder='big')
-    return cvt_address
+    address_buffer = bytearray(4)
+    read_memory(address_buffer, len(address_buffer), 16)
+    address = int.from_bytes(address_buffer, byteorder='big')
+    return address
 
 
 def get_cvt() -> bytearray:
-    cvt_buffer = bytearray(cvt_pattern.size)
-    cvt_address = get_cvt_address()
-    read_memory(cvt_buffer, len(cvt_buffer), cvt_address)
-    return cvt_buffer
+    buffer = bytearray(cvt_pattern.size)
+    address = get_cvt_address()
+    read_memory(buffer, len(buffer), address)
+    return buffer
 
 
 class CVT:

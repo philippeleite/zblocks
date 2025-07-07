@@ -2,7 +2,12 @@ from flask import render_template, request, redirect, url_for
 from app import app
 from app.models.base import zblocks_list
 from app.models.psa import PSA
+from app.models.lcca import LCCA
 from app.models.cvt import CVT
+
+@app.template_test()
+def flag(value, flags) -> bool:
+    return value & flags != 0
 
 @app.route('/')
 def index():
@@ -19,7 +24,8 @@ def psa():
 
 @app.route('/lcca')
 def lcca():
-    pass
+    lcca = LCCA()
+    return render_template("lcca.html", block=lcca)
 
 @app.route('/pcca')
 def pcca():

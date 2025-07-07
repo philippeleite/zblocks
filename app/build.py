@@ -12,9 +12,11 @@ ffi.set_source("zutils", '''
 #pragma export(read_memory)                                   
 void read_memory(char *buffer,                                
                  int length,                                  
-                 intptr_t address) {                          
+                 intptr_t address) {
+    __asm(" MODESET MODE=SUP,KEY=ZERO\n");                           
     char * data = (char *)address;                            
     memcpy(buffer, data, length);                             
+    __asm(" MODESET MODE=PROB,KEY=NZERO\n");                           
 }                                                             
 ''')
 

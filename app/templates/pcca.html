@@ -1,0 +1,3767 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ block.name }}</h1>
+<h2>{{ block.long_name }}</h2>
+<div class="table-container">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            {% include "_colgroup.html" %}
+            <thead>
+            <tr>
+                <th>
+                    <div>
+                        <samp>
+                            Offset
+                            <br/>
+                            Dec(Hex)
+                        </samp>
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Len
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Name
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Content
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Description
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr>
+                <td>
+                    0 (0)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAPCCA
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAPCCA.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - CONTROL BLOCK ACRONYM IN EBCDIC
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4 (4)
+                </td>
+                <td>
+                    12
+                </td>
+                <td>
+                    PCCACPID
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACPID.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - CPU ID (CONTAINS SERIAL NUMBER)
+                        Contains the first 6 bytes of the STIDP
+                        (STORE CPU ID) instruction results
+                        translated to EBCDIC.
+                        While it was common to check the first
+                        two bytes of PCCACPID to determine if
+                        z/OS is running under VM, it is
+                        recommended to check CVT bits instead:
+                        CVTUNDzVM (CVTUNDVM) for z/VM,
+                        CVTUNDAltVM for an alternate virtual
+                        machine such as IBM Wazi as a Service,
+                        or CVTVMENV for a system running under
+                        any virtual environment.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    16 (10)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCACPUA
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACPUA.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - PHYSICAL CPU ADDRESS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    18 (12)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCACAFM
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACAFM.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - BIT MASK CORRESPONDING TO PHYSICAL CPU
+                        ADDRESS. This mask covers only CPUs 0-15
+                        and can be used only for CPU affinity
+                        checking.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    20 (14)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCATQEP
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATQEP.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TQE POINTER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    24 (18)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAPSAV
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAPSAV.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - VIRTUAL ADDRESS OF PSA
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    28 (1C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAPSAR
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAPSAR.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - ABSOLUTE ADDRESS OF PSA
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    32 (20)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAISCE
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAISCE[0:].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - INTERRUPT SUB-CLASSES TO ENABLE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    33 (21)
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    PCCAMCHF
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAMCHF.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - MACHINE CHECK FLAGS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    33 (21)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAMCHF[:1].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCASMCH
+
+                </td>
+                <td>
+
+                        "X'80'" - A SOFTWARE-SIMULATED MACHINE CHECK
+                        OCCURRED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    36 (24)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCACRG6
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACRG6.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - CONTROL REGISTER 6
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    36 (24)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAISCM
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACRG6[:1].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - INTERRUPTION SUBCLASS MASK
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    37 (25)
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    PCCACR6L
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCACRG6[1:].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - LOW-ORDER THREE BYTES OF CR 6
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    40 (28)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCASLIH
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCASLIH.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - NUMBER OF ENTRIES TO THE I/O SLIH
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    44 (2C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCASTPI
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCASTPI.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - NUMBER OF TPI WITH CC=1
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    48 (30)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAXSLF
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCAXSLF.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - EXCESSIVE SPIN LENGTH FACTOR.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    52 (34)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARSPR
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARSPR.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RELATIVE SPEED (X4096) OF THIS
+                        PROCESSOR.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    56 (38)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCATRW1
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATRW1.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TRAP WORD 1. FLAG AND DATA,
+                        SET BY SCIXL.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    56 (38)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCATRDA
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATRW1[:2].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TRAP DATA
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    58 (3A)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCATRFL
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATRW1[2:3].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TRAP FLAG
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    59 (3B)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATRW1[3:].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    60 (3C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV88
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV88.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    64 (40)
+                </td>
+                <td>
+                    8
+                </td>
+                <td>
+                    PCCA_PARTIALCPUMASK
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCA_PARTIALCPUMASK.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        64-BIT partial CPU BIT MASK, USE WITH
+                        PCCA_PartialCpuMaskOffset TO OBTAIN
+                        A COMPLETE MASK
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    64 (40)
+                </td>
+                <td>
+                    8
+                </td>
+                <td>
+                    PCCA_CPU_ADDRESS_MASK
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        64-BIT CPU BIT MASK, USE WITH
+                        PCCA_CPU_ADDRESS_MASK_OFFSET TO OBTAIN
+                        A COMPLETE MASK
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        64 (40)
+
+                </td>
+                <td>
+
+                        0
+
+                </td>
+                <td>
+
+                        PCCA_CPU_ADDRESS_MASK32
+
+                </td>
+                <td>
+
+                        X'40'
+
+                </td>
+                <td>
+
+                        "PCCA_CPU_ADDRESS_MASK,4,C'X'" 32-bit
+                        mask for CPUs 0-31
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        64 (40)
+
+                </td>
+                <td>
+
+                        0
+
+                </td>
+                <td>
+
+                        PCCA_CPU_AFFINITY_MASK
+
+                </td>
+                <td>
+
+                        X'40
+
+                </td>
+                <td>
+
+                        "PCCA_CPU_ADDRESS_MASK,2,C'X'" 16-bit mask
+                        for CPUs 0-15 for affinity checking
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    72 (48)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCA_TQEAID
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCA_TQEAID.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        Value of TQEAID when PCCATQEP non-0.
+                        Residual otherwise.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    74 (4A)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCARV91
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV91.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        Reserved
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    76 (4C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV92
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV92.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    80 (50)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV93
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV93.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    84 (54)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV94
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV94.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    88 (58)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV95
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV95.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    92 (5C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV96
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV96.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    96 (60)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV97
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV97.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    100 (64)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV98
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV98.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    104 (68)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV99
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV99.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    108 (6C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV9A
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV9A.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    112 (70)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV9B
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV9B.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    116 (74)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV9C
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV9C.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    120 (78)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV9D
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV9D.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    124 (7C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARV9E
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCARV9E.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    128 (80)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCATMST
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATMST.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TIMER STATUS BYTES
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    128 (80)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCATMFL
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATMST[:1].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - FIRST BYTE OF PCCATMST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCAINIT
+
+                </td>
+                <td>
+
+                        "X'80'" - ENTRY HAS BEEN INITIALIZED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCASYNC
+
+                </td>
+                <td>
+
+                        "X'40'" - CLOCK OUT OF SYNCHRONIZATION
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCAVKIL
+
+                </td>
+                <td>
+
+                        "X'20'" - CONFIG CPU SHOULD BE CANCELLED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCAMCC
+
+                </td>
+                <td>
+
+                        "X'10'" - PROCESSING FOR PERMANENTLY DAMAGED CLOCK
+                        COMPARATOR MUST BE DONE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCAMINT
+
+                </td>
+                <td>
+
+                        "X'08'" - PROCESSING FOR CPU TIMER MUST BE DONE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCARV02
+
+                </td>
+                <td>
+
+                        "X'04',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCARV03
+
+                </td>
+                <td>
+
+                        "X'02',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCARV04
+
+                </td>
+                <td>
+
+                        "X'01',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    129 (81)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCATODE
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATMST[1:2].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - TOD CLOCK ERROR FLAGS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCANUTD
+
+                </td>
+                <td>
+
+                        "X'80'" - CLOCK CANNOT BE USED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCANFTD
+
+                </td>
+                <td>
+
+                        "X'40'" - CLOCK SHOULD NOT BE RESET
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..11 1111
+
+                </td>
+                <td>
+
+                        PCCACTTD
+
+                </td>
+                <td>
+
+                        "X'3F'" - ERROR COUNT (6 BITS)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    130 (82)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCACCE
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATMST[2:3].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - FLAGS FOR CLOCK COMPARATOR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCANUCC
+
+                </td>
+                <td>
+
+                        "X'80'" - CLOCK COMPARATOR CANNOT BE USED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCANFCC
+
+                </td>
+                <td>
+
+                        "X'40'" - CLOCK COMPARATOR SHOULD NOT BE RESET
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..11 1111
+
+                </td>
+                <td>
+
+                        PCCACTCC
+
+                </td>
+                <td>
+
+                        "X'3F'" - ERROR COUNT (6 BITS)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    131 (83)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAINTE
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.PCCATMST[3:].hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - FLAGS FOR CPU TIMER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCANUIN
+
+                </td>
+                <td>
+
+                        "X'80'" - CPU TIMER CANNOT BE USED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCANFIN
+
+                </td>
+                <td>
+
+                        "X'40'" - CPU TIMER SHOULD NOT BE RESET
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..11 1111
+
+                </td>
+                <td>
+
+                        PCCACTIN
+
+                </td>
+                <td>
+
+                        "X'3F'" - ERROR COUNT (6 BITS)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    132 (84)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCARPB
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCARPB.hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - EXTERNAL CALL SIGP BUFFER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCASWTH
+
+                </td>
+                <td>
+
+                        "X'80'" SWITCH REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCAIOQC
+
+                </td>
+                <td>
+
+                        "X'40'" IOQ compresseion request
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCARQCK
+
+                </td>
+                <td>
+
+                        "X'20'" RQCHECK REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCAGTFR
+
+                </td>
+                <td>
+
+                        "X'10'" GTF REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCAIOSE
+
+                </td>
+                <td>
+
+                        "X'08'" I/O enable/disable request
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCAMODE
+
+                </td>
+                <td>
+
+                        "X'04'" MODE REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCASTCP
+
+                </td>
+                <td>
+
+                        "X'02'" STOPCP REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCAMEMS
+
+                </td>
+                <td>
+
+                        "X'01'" MEMSWT REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCAPPSA
+
+                </td>
+                <td>
+
+                        "X'80'" PrimePSA request
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    136 (88)
+                </td>
+                <td>
+                    16
+                </td>
+                <td>
+                    PCCAEMSB(0)
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        - EMERGENCY SIGNAL SIGP BUFFER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    136 (88)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAEMSI(0)
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCAEMSI.hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - FIRST WORD OF EMS BUFFER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    136 (88)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCARISP
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCAEMSI[:1].hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - CONTAINS PARALLEL/SERIAL REQUEST
+                        INDICATOR FOR REMOTE IMMEDIATE SIGNAL
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCAPARL
+
+                </td>
+                <td>
+
+                        "X'80'" - PARALLEL REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCASERL
+
+                </td>
+                <td>
+
+                        "X'40'" - SERIAL REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCABCST
+
+                </td>
+                <td>
+
+                        "X'20'" - BROADCAST REQUEST
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCARV07
+
+                </td>
+                <td>
+
+                        "X'10',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCARV08
+
+                </td>
+                <td>
+
+                        "X'08',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCARV09
+
+                </td>
+                <td>
+
+                        "X'04',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCARV10
+
+                </td>
+                <td>
+
+                        "X'02',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCARV11
+
+                </td>
+                <td>
+
+                        "X'01',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    137 (89)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAEMS2
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCAEMSI[1:2].hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - SECOND BYTE OF PCCAEMSI
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCASERP
+
+                </td>
+                <td>
+
+                        "X'80'" - SERIAL PENDING INDICATOR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCARV13
+
+                </td>
+                <td>
+
+                        "X'40',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCARV14
+
+                </td>
+                <td>
+
+                        "X'20',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCARV15
+
+                </td>
+                <td>
+
+                        "X'10',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCARV16
+
+                </td>
+                <td>
+
+                        "X'08',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCARV17
+
+                </td>
+                <td>
+
+                        "X'04',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCARV18
+
+                </td>
+                <td>
+
+                        "X'02',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCARV19
+
+                </td>
+                <td>
+
+                        "X'01',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    138 (8A)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAEMS3
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCAEMSI[2:3].hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - THIRD BYTE OF PCCAEMSI
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCASERF
+
+                </td>
+                <td>
+
+                        "X'80'" - SERIAL REQUEST FAILED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCARV21
+
+                </td>
+                <td>
+
+                        "X'40',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCARV22
+
+                </td>
+                <td>
+
+                        "X'20',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCARV23
+
+                </td>
+                <td>
+
+                        "X'10',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCARV24
+
+                </td>
+                <td>
+
+                        "X'08',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCARV25
+
+                </td>
+                <td>
+
+                        "X'04',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCARV26
+
+                </td>
+                <td>
+
+                        "X'02',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCARV27
+
+                </td>
+                <td>
+
+                        "X'01',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    139 (8B)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCARMSB
+                </td>
+                <td>
+                   <code class="text-primary"> 
+                       {{ block.content.PCCAEMSI[3:].hex().upper() }} 
+                   </code>
+                </td>
+                <td>
+
+                        - CONTAINS RMS INDICATOR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCARV28
+
+                </td>
+                <td>
+
+                        "X'80',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCARV29
+
+                </td>
+                <td>
+
+                        "X'40',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCARV30
+
+                </td>
+                <td>
+
+                        "X'20',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCARV31
+
+                </td>
+                <td>
+
+                        "X'10',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCARV32
+
+                </td>
+                <td>
+
+                        "X'08',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCARV33
+
+                </td>
+                <td>
+
+                        "X'04',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCARV34
+
+                </td>
+                <td>
+
+                        "X'02',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCARMS
+
+                </td>
+                <td>
+
+                        "X'01'" - SIGP WAS ISSUED VIA RMS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    140 (8C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAEMSP
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAEMSP.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - REMOTE IMMEDIATE SIGNAL PARAMETER ADDRESS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    144 (90)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAEMSE
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAEMSE.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - REMOTE IMMEDIATE SIGNAL RECEIVING ROUTINE
+                        ENTRY POINT ADDRESS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    148 (94)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAEMSA
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAEMSA.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - PCCA ADDRESS OF THE RECEIVING ROUTINE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    152 (98)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAPWAV
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAPWAV.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - VIRTUAL ADDRESS OF MCH PROCESSOR WORK
+                        AREA
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    156 (9C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCAPWAR
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAPWAR.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - REAL ADDRESS OF MCH PROCESSOR WORK AREA
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    160 (A0)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCALRBV
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCALRBV.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - VIRTUAL ADDRESS OF MCH LOGREC BUFFER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    164 (A4)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    PCCALRBR
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCALRBR.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - REAL ADDRESS OF MCH LOGREC BUFFER
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    168 (A8)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCARIOS(208)
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCARIOS(208).hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - RESERVED FOR IOS USE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    376 (178)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAATTR
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAATTR.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - PROCESSOR ATTRIBUTES
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCACPUM
+
+                </td>
+                <td>
+
+                        "X'80'" - INDICATOR THAT DEAD CPU HAD A MALFUNCTION
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .1.. ....
+
+                </td>
+                <td>
+
+                        PCCAIO
+
+                </td>
+                <td>
+
+                        "X'40'" - PROCESSOR HAS I/O CAPABILITY
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ..1. ....
+
+                </td>
+                <td>
+
+                        PCCANPFA
+
+                </td>
+                <td>
+
+                        "X'20'" - WHEN SET, PAGE FAULT ASSIST SHOULD NOT
+                        BE USED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCAR101
+
+                </td>
+                <td>
+
+                        "X'10',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCAR102
+
+                </td>
+                <td>
+
+                        "X'08',,C'X'" - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCAZIIP
+
+                </td>
+                <td>
+
+                        "X'04'" - zIIP
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCA_BYLPAR_ZIIP
+
+                </td>
+                <td>
+
+                        "X'04'" - zIIP
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCASUP
+
+                </td>
+                <td>
+
+                        "X'04'" - zIIP
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCA_BYLPAR_SUP
+
+                </td>
+                <td>
+
+                        "X'04'" - zIIP
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCADSCR
+
+                </td>
+                <td>
+
+                        "X'02'" - Discretionary Processor
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCAIFA
+
+                </td>
+                <td>
+
+                        "X'01'" - Special Processor
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCA_BYLPAR_ZCBP
+
+                </td>
+                <td>
+
+                        "X'01'" -
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCA_BYLPAR_ZAAP
+
+                </td>
+                <td>
+
+                        "X'01'" -
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCA_BYLPAR_IFA
+
+                </td>
+                <td>
+
+                        "X'01'" -
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    377 (179)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAMFA
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAMFA.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - MALFUNCTION ALERT FLAGS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCASMFA
+
+                </td>
+                <td>
+
+                        "X'80'" - SIMULATED MALFUNCTION ALERT
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    378 (17A)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAACRN
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAACRN.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - CAUSE OF ACR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ....
+
+                </td>
+                <td>
+
+                        PCCAKUKN
+
+                </td>
+                <td>
+
+                        "X'00'" UNKNOWN ERROR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ...1
+
+                </td>
+                <td>
+
+                        PCCAKMFA
+
+                </td>
+                <td>
+
+                        "X'01'" MALFUNCTION ALERT, CPU CHECKSTOPPED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..1.
+
+                </td>
+                <td>
+
+                        PCCAKIPT
+
+                </td>
+                <td>
+
+                        "X'02'" INSTRUCTION PROCESSING DAMAGE
+                        THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... ..11
+
+                </td>
+                <td>
+
+                        PCCAKSDT
+
+                </td>
+                <td>
+
+                        "X'03'" SYSTEM DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1..
+
+                </td>
+                <td>
+
+                        PCCAKIVT
+
+                </td>
+                <td>
+
+                        "X'04'" INVALID REGISTER OR PSW THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .1.1
+
+                </td>
+                <td>
+
+                        PCCAKTCT
+
+                </td>
+                <td>
+
+                        "X'05'" TIME OF DAY CLOCK DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .11.
+
+                </td>
+                <td>
+
+                        PCCAKPTT
+
+                </td>
+                <td>
+
+                        "X'06'" PROCESSOR TIMER DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... .111
+
+                </td>
+                <td>
+
+                        PCCAKCCT
+
+                </td>
+                <td>
+
+                        "X'07'" CLOCK COMPARATOR DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1...
+
+                </td>
+                <td>
+
+                        PCCAKPST
+
+                </td>
+                <td>
+
+                        "X'08'" PRIMARY SYNC DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1..1
+
+                </td>
+                <td>
+
+                        PCCAKADT
+
+                </td>
+                <td>
+
+                        "X'09'" ETR ATTACHMENT DAMAGE THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1.1.
+
+                </td>
+                <td>
+
+                        PCCAKSLT
+
+                </td>
+                <td>
+
+                        "X'0A'" SWITCH TO LOCAL THRESHOLD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1.11
+
+                </td>
+                <td>
+
+                        PCCAKESL
+
+                </td>
+                <td>
+
+                        "X'0B'" EXCESSIVE SPIN LOOP
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 11..
+
+                </td>
+                <td>
+
+                        PCCAKTCF
+
+                </td>
+                <td>
+
+                        "X'0C'" TOD CLOCK SYNCHRONIZATION FAILURE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 11.1
+
+                </td>
+                <td>
+
+                        PCCAKDAT
+
+                </td>
+                <td>
+
+                        "X'0D'" MALFUNCTION OF DAT HARDWARE
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 111.
+
+                </td>
+                <td>
+
+                        PCCAKSCF
+
+                </td>
+                <td>
+
+                        "X'0E'" TOD CLOCK COULD NOT BE SYNCHRONIZED
+                        TO ETR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        .... 1111
+
+                </td>
+                <td>
+
+                        PCCAKUME
+
+                </td>
+                <td>
+
+                        "X'0F'" UNRECOVERABLE MACHINE ERROR
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ....
+
+                </td>
+                <td>
+
+                        PCCAKFHS
+
+                </td>
+                <td>
+
+                        "X'10'" The CPU failed to handle the STP
+                        synch-check machine check
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ...1
+
+                </td>
+                <td>
+
+                        PCCAKMCF
+
+                </td>
+                <td>
+
+                        "X'11'" The master CPU processing an STP
+                        synch-check machine check failed
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ..1.
+
+                </td>
+                <td>
+
+                        PCCAKPIR
+
+                </td>
+                <td>
+
+                        "X'12'" Recursive program checks
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 ..11
+
+                </td>
+                <td>
+
+                        PCCAKPCM
+
+                </td>
+                <td>
+
+                        "X'13'" Program check during MCH processing
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 .1..
+
+                </td>
+                <td>
+
+                        PCCAKMRM
+
+                </td>
+                <td>
+
+                        "X'14'" Multiple restarts during MCH processing
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        ...1 .1.1
+
+                </td>
+                <td>
+
+                        PCCAKRMC
+
+                </td>
+                <td>
+
+                        "X'15'" Recursive machine checks
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    379 (17B)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCARCFF
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCARCFF.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        Reconfig flags. Serialized by
+                        reconfig ENQ
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        PCCACWLM
+
+                </td>
+                <td>
+
+                        "X'80'" CPU on/offline initiated by WLM
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    380 (17C)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCA_PHYSICAL_CPUID
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCA_PHYSICAL_CPUID.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        Valid only when not LPAR or when
+                        dedicated processors. IBM recommends
+                        using PCCACPUA.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    381 (17D)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content..hex().upper() }} </code>
+                </td>
+                <td>
+
+                        RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    382 (17E)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCAPROCCLASS
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAPROCCLASS.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        The class of processor for this CPU.
+                        Possible values are defined by
+                        equates in IHAPSA beginning with
+                        PsaProcClass_
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    382 (17E)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCA_BYLPAR_PROCCLASS
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCA_BYLPAR_PROCCLASS.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        The class of processor for this CPU.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    382 (17E)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAPROCCLASS_BYTE0
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAPROCCLASS_BYTE0.hex().upper() }} </code>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    383 (17F)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    PCCAPROCCLASS_BYTE1
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAPROCCLASS_BYTE1.hex().upper() }} </code>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        382
+
+                </td>
+                <td>
+
+                        (17E)
+
+                </td>
+                <td>
+
+                        BITSTRING
+
+                </td>
+                <td>
+
+                        1
+
+                </td>
+                <td colspan="2" headers="PCCA__PCCA-map__entry__5 PCCA__PCCA-map__entry__6">
+
+                        PCCA_BYLPAR_PROCCLASS_BYTE0
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        383
+
+                </td>
+                <td>
+
+                        (17F)
+
+                </td>
+                <td>
+
+                        BITSTRING
+
+                </td>
+                <td>
+
+                        1
+
+                </td>
+                <td colspan="2" headers="PCCA__PCCA-map__entry__5 PCCA__PCCA-map__entry__6">
+
+                        PCCA_BYLPAR_PROCCLASS_BYTE1
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    384 (180)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCAR180
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCAR180.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        Reserved
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    386 (182)
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    PCCA_PARTIALCPUMASKOFFSET
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content.PCCA_PARTIALCPUMASKOFFSET.hex().upper() }} </code>
+                </td>
+                <td>
+
+                        THE BYTE OFFSET INTO A FULL CPU
+                        MASK THIS 8 BYTE MASK BLOCK
+                        (PCCA_CPU_ADDRESS_MASK) IS IN. WILL BE
+                        A MULTIPLE OF 8, WITH A MACIMUM VALUE
+                        (ECVTMaxMPNumBytesInMask-8)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        386
+
+                </td>
+                <td>
+
+                        (182)
+
+                </td>
+                <td>
+
+                        SIGNED
+
+                </td>
+                <td>
+
+                        2
+
+                </td>
+                <td colspan="2" headers="PCCA__PCCA-map__entry__5 PCCA__PCCA-map__entry__6">
+
+                        PCCA_CPU_ADDRESS_MASK_OFFSET
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        THE BYTE OFFSET INTO A FULL CPU
+                        MASK THIS 8 BYTE MASK BLOCK
+                        (PCCA_CPU_ADDRESS_MASK) IS IN. WILL BE
+                        A MULTIPLE OF 8, WITH A MACIMUM VALUE
+                        (ECVTMaxMPNumBytesInMask-8)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    388 (184)
+                </td>
+                <td>
+                    196
+                </td>
+                <td>
+                </td>
+                <td>
+                   <code class="text-primary"> {{ block.content..hex().upper() }} </code>
+                </td>
+                <td>
+
+                        - RESERVED
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                        388
+
+                </td>
+                <td>
+
+                        (184)
+
+                </td>
+                <td>
+
+                        X'248'
+
+                </td>
+                <td>
+
+                        0
+
+                </td>
+                <td>
+
+                        PCCAEND
+
+                </td>
+                <td>
+
+                        "*" End of PCCA
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

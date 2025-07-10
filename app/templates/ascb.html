@@ -1,0 +1,5946 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Len
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBASCB
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ASCBASCB.decode("cp037") }}"'>
+                        <code class="text-primary"> {{ block.content.ASCBASCB.hex().upper() }} </code>
+                    </td>
+                    <td>
+
+                        - ACRONYM IN EBCDIC -ASCB-
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4 (4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFWDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/ascb/{{ block.content.ASCBFWDP.hex().upper() }}">
+                                {{ block.content.ASCBFWDP.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF NEXT ASCB ON ASCB READY
+                        QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 (8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBBWDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/ascb/{{ block.content.ASCBBWDP.hex().upper() }}">
+                                {{ block.content.ASCBBWDP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF PREVIOUS ASCB ON ASCB
+                        READY QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        12 (C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLTCS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLTCS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TCB and preemptable-class SRB
+                        Local lock suspend service queue.
+                        Serialization: ASCB CML promotion
+                        WEB lock.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBDIAG010(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        IBM use only
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBSUPC_PREZOS12(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - SUPERVISOR CELL FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSVRB_PREZOS12
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSVRB_PREZOS12.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SVRB POOL ADDRESS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSYNC_PREZOS12
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSYNC_PREZOS12.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - COUNT USED TO SYNCHRONIZE SVRB POOL.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        24 (18)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBIOSP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBIOSP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO IOS PURGE INTERFACE
+                        CONTROL BLOCK (IPIB)
+                        (MDC308)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBWQLK
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBWQLK.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        WEB QUEUE LOCK WORD
+                        SERIALIZATION: COMPARE AND SWAP
+                        OWNERSHIP: SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBR01C
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBWQLK[:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        RESERVED, MUST BE ZERO
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        30 (1E)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBWQID
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBWQLK[2:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        LOGICAL CPU ID OF THE PROCESSOR
+                        HOLDING THE WEB QUEUE LOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCB_JOB_STEP_SEQNUM(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - Sequence number incremented at job
+                        step change, when ASSB and ASCB time
+                        and counts fields are reset. Used
+                        to sequence resets of the time and
+                        count fields
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSAWQ_PREZOS11
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSAWQ_PREZOS11.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF ADDRESS SPACE SRB WEB
+                        QUEUE
+                        SERIALIZATION: WEB QUEUE LOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+                        Not set as of z/OS 1.11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBURRQ_PREZOS11
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SYSEVENT USER READY REQUIRED
+                        SERIALIZATION: WEB QUEUE LOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+                        Not set as of z/OS 1.11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        36 (24)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBASN(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - SAME AS ASCBASID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        36 (24)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBASID
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBASID.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS SPACE IDENTIFIER FOR THE
+                        ASCB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        38 (26)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBDIAG026
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBDIAG026[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - IBM use only
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        39 (27)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRMFLAGS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRMFLAGS[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SRM flags
+                        Ownership: SRM
+                        Serialization: SRMLOCK
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBVCMOVERRIDE
+
+                    </td>
+                    <td>
+
+                        "X'80'" - This bit indicates that this
+                        address space should not follow
+                        the standard SRM management in
+                        an VCM=on environment.
+                        Instead of trying to assign the
+                        work this address space to the
+                        same affinity node for cache
+                        efficiency concerns, assign this
+                        work to any affinity node, ignore
+                        any cache concerns.
+                        Ownership: SRM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBBROKENUP
+
+                    </td>
+                    <td>
+
+                        "X'40'" - This bit indicates that this
+                        address space has been broken up
+                        by SRM.
+                        Ownership: SRM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBVCMGIVEPREEMPTION
+
+                    </td>
+                    <td>
+
+                        "X'20'" - This bit indicates that this
+                        address space should get full
+                        preemption.
+                        Ownership: SRM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBVCMGIVESIGPANY
+
+                    </td>
+                    <td>
+
+                        "X'10'" - This bit indicates that this
+                        address space can SIGP any
+                        waiting CPUs to process its work.
+                        Ownership: SRM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBINELIGHONORPRIORITY
+
+                    </td>
+                    <td>
+
+                        "X'08'" When on, specialty engine eligible
+                        work in this address space will not
+                        be offloaded to CPs for help
+                        processing.
+                        Ownership: SRM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .11.
+
+                    </td>
+                    <td>
+
+                        ASCBSRMFLAGSDIAG
+
+                    </td>
+                    <td>
+
+                        "X'06'" Diagnostic data for IBM use only
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        40 (28)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLL5
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLL5[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FLAGS. SERIALIZATION - LOCAL
+                        LOCK
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBS3S
+
+                    </td>
+                    <td>
+
+                        "X'20'" - STAGE II EXIT EFECTOR HAS
+                        SCHEDULED AN RQE OR IQE AND
+                        STAGE III EXIT EFFECTOR
+                        SHOULD BE INVOKED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        41 (29)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBHLHI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBHLHI[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INDICATION OF SUSPEND LOCKS
+                        HELD AT TASK SUSPENSION
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        42 (2A)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBDPH
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBDPH.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - HALFWORD DISPATCHING PRIORITY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        42 (2A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBDPHI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBDPH[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - HIGH ORDER BYTE OF HALFWORD
+                        DISPATCHING PRIORITY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        43 (2B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBDPH[1:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - DISPATCHING PRIORITY RANGE FROM
+                        0-255
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        44 (2C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTCBE
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTCBE.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Count of ready tcbs in the
+                        space that are in an enclave.
+                        Ownership: Task Management
+                        Serialization: Compare and Swap and
+                        WEB Lock of TCB for which this count
+                        is being manipulated.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        48 (30)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLDA
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLDA.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO LOCAL DATA AREA PART OF
+                        LSQA FOR VSM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        52 (34)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBRSMF
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRSMF[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RSM ADDRESS SPACE FLAGS
+                        (MDC368)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCB2LPU
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SECOND LEVEL PREFERRED USER. THIS
+                        OFFSET FIXED BY ARCHITECTURE.
+                        (MDC369)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCB1LPU
+
+                    </td>
+                    <td>
+
+                        "X'40'" - FIRST LEVEL PREFERRED USER
+                        (MDC370)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBN2LP
+
+                    </td>
+                    <td>
+
+                        "X'20'" - SRM IN SYSEVENT TRANSWAP SHOULD NOT
+                        SET ASCB2LPU BIT - HOWEVER IT MAY
+                        ALREADY BE ON AND WILL STAY ON
+                        (MDC371)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBVEQR
+
+                    </td>
+                    <td>
+
+                        "X'10'" - V=R ADDRESS SPACE (MDC372)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        53 (35)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBFLG3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFLG3[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Flags needing no serialization. This
+                        byte is a programming interface
+                        only for bit ASCBzCX
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBCNIP
+
+                    </td>
+                    <td>
+
+                        "X'80'" - Address space created during NIP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBREUS
+
+                    </td>
+                    <td>
+
+                        "X'40'" - This is a reusable ASID. It may be
+                        given out only to a reusable ASID
+                        requestor
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBM881
+
+                    </td>
+                    <td>
+
+                        "X'20'" This address space went through
+                        IEEMB881
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBSINGLESTEPSTARTEDTASK
+
+                    </td>
+                    <td>
+
+                        "X'10'" This address space is a single step
+                        started task
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBZCX
+
+                    </td>
+                    <td>
+
+                        "X'08'" This address space is a zCX
+                        address space
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        54 (36)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBR036(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        Reserved as of z/OS 1.11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        54 (36)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBHASI_PREZOS11
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBHASI_PREZOS11.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Local lock owning ASID.
+                        Not set as of z/OS 1.11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBCSCB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSCB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF CSCB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60 (3C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTSB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTSB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF TSB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        64 (40)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBEJST
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBEJST.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Accumulated job step CPU time.
+                        Non-enclave TCB time only.
+                        Unsigned 64-bit binary number
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        72 (48)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBEWST
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBEWST.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME OF DAY WHENEVER I-STREAM IS
+                        SWITCHED FROM A MEMORY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        80 (50)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBJSTL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBJSTL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CPU TIME LIMIT FOR THE JOB STEP
+                        UNSIGNED 32 BIT BINARY NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        84 (54)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBECB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBECB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RCT'S WORK ECB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBUBET
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBUBET.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME STAMP WHEN USER BECOMES READY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        92 (5C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTLCH
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTLCH.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CHAIN FIELD FOR TIME LIMIT EXCEEDED
+                        QUEUE (MDC329)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        96 (60)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBDUMP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/tcb/{{ block.content.ASCBDUMP.hex().upper() }}">
+                                {{ block.content.ASCBDUMP.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - SVC DUMP TASK TCB ADDRESS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFW1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW1.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FULL-WORD LABEL TO BE USED FOR
+                        COMPARE AND SWAP FOR ANY BIT IN
+                        THIS WORD MDC026
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBAFFN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW1[:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CPU AFFINITY INDICATOR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        102 (66)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBRCTF
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW1[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FLAGS FOR RCT SERIALIZED BY COMPARE
+                        AND SWAP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBTMNO
+
+                    </td>
+                    <td>
+
+                        "X'80'" - MEMORY IS BEING QUIESCED, IS
+                        QUIESCED, OR IS BEING RESTORED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBFRS
+
+                    </td>
+                    <td>
+
+                        "X'40'" - RESTORE REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBFQU
+
+                    </td>
+                    <td>
+
+                        "X'20'" - QUIESCE REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBJSTE
+
+                    </td>
+                    <td>
+
+                        "X'10'" - JOB STEP TIME EXCEEDED. NOT USED BY
+                        RCT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBWAIT
+
+                    </td>
+                    <td>
+
+                        "X'08'" - LONG WAIT INDICATOR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBOUT
+
+                    </td>
+                    <td>
+
+                        "X'04'" - ADDRESS SPACE CONSIDERED SWAPPED OUT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBTMLW
+
+                    </td>
+                    <td>
+
+                        "X'02'" - MEMORY IS IN A LONG WAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBTOFF
+
+                    </td>
+                    <td>
+
+                        "X'01'" - MEMORY SHOULD NOT BE CHECKED FOR JOB
+                        STEP TIMING. NOT USED BY RCT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        103 (67)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBFLG1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW1[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FLAG FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBLSAS
+
+                    </td>
+                    <td>
+
+                        "X'80'" - ADDRESS SPACE IS LOGICALLY SWAPPED
+                        OUT
+                        SERIALIZATION - WHEN SETTING, CPU
+                        LOCK, AND THE SWAP INTERSECT
+                        - WHEN RESETTING,
+                        NONE REQUIRED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSTK
+
+                    </td>
+                    <td>
+
+                        "X'40'" - SRM REQUIRES A TIME STAMP TO
+                        DETERMINE WHEN THE ADDRESS SPACE
+                        GOES INTO LONG WAIT. ASCBEWST WILL
+                        BE UPDATED WHEN THIS BIT IS ON.
+                        NOTE: If this bit moves position
+                        the bit constant ASCBDSTZ must also
+                        be changed.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSTZ
+
+                    </td>
+                    <td>
+
+                        "X'40'" - Bit constant for bit position
+                        ASCBDSTK. PL/X cannot map bit
+                        positions in generated code, so
+                        this bit constant allows PL/X to
+                        set the bit in generated assembler.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBTERM
+
+                    </td>
+                    <td>
+
+                        "X'10'" - ADDRESS SPACE TERMINATING NORMALLY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBABNT
+
+                    </td>
+                    <td>
+
+                        "X'08'" - ADDRESS SPACE TERMINATING ABNORMALLY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBMEMP
+
+                    </td>
+                    <td>
+
+                        "X'04'" - Memory Termination PURGEDQ flag
+                        Serialization: none
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        104 (68)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTMCH
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTMCH.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TERMINATION QUEUE CHAIN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        108 (6C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBASXB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/asxb/{{ block.content.ASCBASXB.hex().upper() }}">
+                                {{ block.content.ASCBASXB.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO ADDRESS SPACE EXTENSION
+                        CONTROL BLOCK (ASXB)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        112 (70)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFW2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FULLWORD LABEL TO ADDRESS BITS IN
+                        THIS WORD (MDC330)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        112 (70)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBSWCT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2[:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF TIMES MEMORY ENTERS SHORT
+                        WAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        114 (72)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBDSP1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NONDISPATCHABILITY FLAGS.
+                        SERIALIZATION - GLOBAL INTERSECT.
+                        (MDC388)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBSSND
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SYSTEM SET NONDISPATCHABLE AND THIS
+                        ASCB IS NOT EXEMPT (MDC331)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBFAIL
+
+                    </td>
+                    <td>
+
+                        "X'40'" - A FAILURE HAS OCCURRED WITHIN THE
+                        ADDRESS SPACE. THE MEMORY IS
+                        NONDISPATCHABLE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBSNQS
+
+                    </td>
+                    <td>
+
+                        "X'20'" - STATUS STOP NON-QUIESCABLE LEVEL
+                        SRB'S (MDC323)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBSSSS
+
+                    </td>
+                    <td>
+
+                        "X'10'" - STATUS STOP SRB SUMMARY
+                        (MDC332)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBSTND
+
+                    </td>
+                    <td>
+
+                        "X'08'" - TCB'S NONDISPATCHABLE
+                        (MDC322)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBUWND
+
+                    </td>
+                    <td>
+
+                        "X'04'" - STATUS SET UNLOCKED WORKUNITS
+                        NONDISPATCHABLE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBNOQ
+
+                    </td>
+                    <td>
+
+                        "X'02'" - ASCB NOT ON SWAPPED IN QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        115 (73)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBFLG2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FLAG BYTE.
+                        SERIALIZATION - GLOBAL INTERSECT
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMPT
+
+                    </td>
+                    <td>
+
+                        "X'80'" - ASCB EXEMPT FROM SYSTEM
+                        NONDISPATCHABLE MDC013
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBPXMT
+
+                    </td>
+                    <td>
+
+                        "X'40'" - ASCB PERMANENTLY EXEMPT FROM SYSTEM
+                        NONDISPATCHABLE MDC014
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBCEXT
+
+                    </td>
+                    <td>
+
+                        "X'20'" - CANCEL TIMER EXTENSION BECAUSE EOT
+                        PROCESSING IS STARTED FOR THE JOB
+                        STEP TCB MDC021
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBS2S
+
+                    </td>
+                    <td>
+
+                        "X'10'" - FOR LOCK MANAGER, ENTRY MADE TO
+                        STAGE II EXIT EFFECTOR WITHOUT
+                        CORRESPONDING ENTRY TO STAGE III
+                        EXIT EFFECTOR MDC020
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBNCML
+
+                    </td>
+                    <td>
+
+                        "X'08'" - ASCB NOT ELIGIBLE FOR CML LOCK
+                        REQUESTS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBNOMT
+
+                    </td>
+                    <td>
+
+                        "X'04'" - ADDRESS SPACE MUST NOT BE MEMTERMED
+                        UNLESS A DAT ERROR HAS OCCURRED.
+                        IF A DAT ERROR HAS OCCURRED, ACTION
+                        IS CONTROLLED BY ASCBNOMD.
+                        OWNERSHIP - SCHEDULER
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBNOMD
+
+                    </td>
+                    <td>
+
+                        "X'02'" - IF ON,ADDRESS SPACE CANNOT BE
+                        MEMTERMED ON A DAT ERROR.
+                        IF OFF, PROCESS MEMTERM ON A DAT
+                        ERROR.
+                        OWNERSHIP - SCHEDULER
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        116 (74)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSCNT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSCNT.hex().upper() }} </code>
+                    </td>
+                    <td>
+
+                        - FULLWORD LABEL FOR COMPARE AND SWAP
+                        (CS) (MDC333)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        116 (74)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSCNT[:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FIRST HALFWORD OF ASCBSCNT MUST BE
+                        ZERO (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        118 (76)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBSRBS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSCNT[2:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - COUNT OF SRB'S SUSPENDED IN THIS
+                        MEMORY (MDC325)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        120 (78)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLLWQ
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLLWQ.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS SPACE LOCAL LOCK
+                        SUSPEND SERVICE WEB QUEUE
+                        SERIALIZATION: WEB QUEUE LOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        124 (7C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRCTP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/tcb/{{ block.content.ASCBRCTP.hex().upper() }}">
+                                {{ block.content.ASCBRCTP.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO REGION CONTROL TASK (RCT)
+                        TCB (MDC334)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        128 (80)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBLKGP(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - LOCK GROUP (MDC306)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        128 (80)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLOCK
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLOCK.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - LOCAL LOCK. THIS OFFSET FIXED BY
+                        ARCHITECTURE. (MDC305)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        132 (84)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLSWQ
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLSWQ.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS SPACE LOCAL LOCK WEB
+                        SUSPEND QUEUE
+                        THIS OFFSET FIXED BY ARCHITECTURE.
+                        (MDC307)
+                        SERIALIZATION: CDS WITH ASCBLOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBS3NL
+
+                    </td>
+                    <td>
+
+                        "X'80'" - THE LOCAL LOCK IS NEEDED BY THE
+                        STAGE 3 EXIT EFFECTOR TO QUEUE
+                        ASYNCHRONOUS EXITS E
+                        SERIALIZATION: CDS WITH ASCBLOCK
+                        OWNERSHIP: SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBLTCL
+
+                    </td>
+                    <td>
+
+                        "X'01'" - THE LOCAL LOCK IS NEEDED BY SOME
+                        TCB or preemptable-class SRB
+                        WHEN SET IN BIT 31 OF ASCBLSWQ.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        136 (88)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBQECB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBQECB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - QUIESCE ECB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        140 (8C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBMECB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBMECB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - MEMORY CREATE/DELETE ECB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        144 (90)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBOUCB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBOUCB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SYSTEM RESOURCES MANAGER (SRM) USER
+                        CONTROL BLOCK POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        148 (94)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBOUXB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBOUXB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SYSTEM RESOURCES MANAGER (SRM) USER
+                        EXTENSION BLOCK POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        152 (98)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFW2A
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2A.hex().upper() }} </code>
+                    </td>
+                    <td>
+
+                        - FULLWORD LABEL TO ADDRESS
+                        BITS IN THIS WORD.
+                        SERIALIZATION - CS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        152 (98)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBFMCT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2A[:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RESERVED. ALLOCATED PAGE FRAME
+                        COUNT NOW RESIDES IN THE RAX
+                        (MAPPING MACRO IARRAX).
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        154 (9A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLEVL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2A[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - LEVEL NUMBER OF ASCB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ....
+
+                    </td>
+                    <td>
+
+                        ASCBVS00
+
+                    </td>
+                    <td>
+
+                        "X'00'" - HBB2102 (NOT IN BASE)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBVS01
+
+                    </td>
+                    <td>
+
+                        "X'01'" - JBB2110
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBVS02
+
+                    </td>
+                    <td>
+
+                        "X'02'" - JBB2133
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..11
+
+                    </td>
+                    <td>
+
+                        ASCBVS03
+
+                    </td>
+                    <td>
+
+                        "X'03'" - HBB4410
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..11
+
+                    </td>
+                    <td>
+
+                        ASCBVERS
+
+                    </td>
+                    <td>
+
+                        "X'03'" - LEVEL OF THIS MAPPING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        155 (9B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBFL2A
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW2A[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FLAG BYTE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBNOPR
+
+                    </td>
+                    <td>
+
+                        "X'80'" - NO PREEMPTION FLAG
+                        1=DO NOT SIGP ANOTHER PROCESSOR TO
+                        EXECUTE READY WORK IN THIS SPACE
+                        0=DO SIGP ANOTHER PROCESSOR
+                        OWNERSHIP: SRM
+                        SERIALIZATION: CS ON ASCBFW2A
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        156 (9C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBHREQ_PREZOS11(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - Local lock requestor address
+                        Not set as of z/OS 1.11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        156 (9C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBEJST_DISPS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBEJST_DISPS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Count of task dispatches.
+                        Incremented and cache aligned with
+                        ASCBEJST.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - SUPERVISOR.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        160 (A0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBIQEA
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBIQEA.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO IQE FOR ATCAM
+                        ASYNCHRONOUS PROCESSING MDC010
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        164 (A4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRTMC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRTMC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ANCHOR FOR SQA SDWA QUEUE
+                        (MDC388)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        168 (A8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBMCC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBMCC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - USED TO HOLD A MEMORY TERMINATION
+                        COMPLETION CODE ON ABNORMAL MEMORY
+                        TERMINATION MDC012
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        172 (AC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBJBNI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBJBNI.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO JOBNAME FIELD FOR
+                        INITIATED PROGRAMS OR ZERO MDC018
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        176 (B0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBJBNS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBJBNS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO JOBNAME FIELD FOR
+                        START/MOUNT/LOGON OR ZERO MDC019
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        180 (B4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSRQ
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRQ.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - DISPATCHER SERIALIZATION REQUIRED
+                        (MDC312)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        180 (B4)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRQ1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRQ[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FIRST BYTE OF ASCBSRQ
+                        (MDC313)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSG4
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SIGNAL WAITING PROCESSORS WHEN
+                        INTERSECT IS RESET (MDC335)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBDFLT
+
+                    </td>
+                    <td>
+
+                        "X'40'" - DEFAULT LOCAL INTERSECT
+                        (MDC336)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        181 (B5)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRQ2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRQ[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SECOND BYTE OF ASCBSRQ
+                        (MDC315)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSG3
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SIGNAL WAITING PROCESSORS WHEN
+                        INTERSECT IS RESET (MDC337)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBSRM1
+
+                    </td>
+                    <td>
+
+                        "X'02'" - SYSTEM RESOURCE MANAGER (SRM)
+                        INTERSECTING (MDC338)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBQVER
+
+                    </td>
+                    <td>
+
+                        "X'01'" - QUEUE VERIFICATION INTERSECTING
+                        (MDC339)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        182 (B6)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRQ3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRQ[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - THIRD BYTE OF ASCBSRQ
+                        (MDC316)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSG2
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SIGNAL WAITING PROCESSORS WHEN
+                        INTERSECT IS RESET (MDC340)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBRCTI
+
+                    </td>
+                    <td>
+
+                        "X'40'" - REGION CONTROL TASK (RCT)
+                        INTERSECTING (MDC381)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBTCBV
+
+                    </td>
+                    <td>
+
+                        "X'20'" - TCB VERIFICATION INTERSECTING
+                        (MDC342)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBACHA
+
+                    </td>
+                    <td>
+
+                        "X'10'" - ASCB CHAP INTERSECTING
+                        (MDC343)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBMTER
+
+                    </td>
+                    <td>
+
+                        "X'04'" - MEMORY TERMINATION INTERSECTING
+                        (MDC345)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBMINI
+
+                    </td>
+                    <td>
+
+                        "X'02'" - MEMORY INITIALIZATION INTERSECTING
+                        (MDC346)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBCBVE
+
+                    </td>
+                    <td>
+
+                        "X'01'" - CONTROL BLOCK VERIFICATION
+                        INTERSECTING (MDC347)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        183 (B7)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRQ4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRQ[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FOURTH BYTE OF ASCBSRQ
+                        (MDC317)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBDSG1
+
+                    </td>
+                    <td>
+
+                        "X'80'" - SIGNAL WAITING PROCESSORS WHEN
+                        INTERSECT IS RESET (MDC348)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBDETA
+
+                    </td>
+                    <td>
+
+                        "X'40'" - DETACH INTERSECTING
+                        (MDC349)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBATTA
+
+                    </td>
+                    <td>
+
+                        "X'20'" - ATTACH INTERSECTING
+                        (MDC350)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBRTM2
+
+                    </td>
+                    <td>
+
+                        "X'10'" - RTM2 INTERSECTING (MDC351)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBRTM1
+
+                    </td>
+                    <td>
+
+                        "X'08'" - RTM1 INTERSECTING (MDC352)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBCHAP
+
+                    </td>
+                    <td>
+
+                        "X'04'" - CHAP INTERSECTING (MDC353)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBSTAT
+
+                    </td>
+                    <td>
+
+                        "X'02'" - STATUS INTERSECTING
+                        (MDC354)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBPURD
+
+                    </td>
+                    <td>
+
+                        "X'01'" - PURGEDQ INTERSECTING
+                        (MDC355)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        184 (B8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBVGTT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBVGTT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF VSAM GLOBAL TERMINATION
+                        TABLE (VGTT) MDC024
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        188 (BC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBPCTT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBPCTT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF PRIVATE CATALOG
+                        TERMINATION TABLE (PCTT) MDC025
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        192 (C0)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBSSRB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSSRB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - COUNT OF STATUS STOP SRB'S
+                        (MDC324)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        194 (C2)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSMCT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSMCT[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF OUTSTANDING STEP MUST
+                        COMPLETE REQUESTS IN ADDRESS
+                        SPACE MDC016
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        195 (C3)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSRBM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRBM[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - MODEL PSW BYTE 0 USED BY SRB
+                        DISPATCHER (MDC379)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBPER
+
+                    </td>
+                    <td>
+
+                        "X'40'" - PER BIT IN ASCBSRBM - ALSO USED TO
+                        SHOW PER STATUS FOR THE ADDRESS
+                        SPACE (MDC380)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        196 (C4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSWTL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSWTL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - STEP WAIT TIME LIMIT MDC029
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        200 (C8)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBSRBT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRBT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ACCUMULATED SRB TIME MDC030
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        208 (D0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLTCB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLTCB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TCB and preemptable-class SRB
+                        Local lock suspend queue.
+                        Serialization: Adding, CS. Deleting,
+                        ASCB CML promotion WEB lock and CS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        212 (D4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLTCN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLTCN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Count of TCB and preemptable-
+                        class SRB (local and CML)
+                        requestors needing this local lock.
+                        Serialization: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        216 (D8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTCBS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTCBS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF READY TCB'S.
+                        THE ACTUAL NUMBER OF READY TCBS IS
+                        ASCBTCBS-ASCBLSQT.
+                        SERIALIZATION: CS
+                        OWNERSHIP: TASK MANAGEMENT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        220 (DC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLSQT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLSQT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF TCBS ON A LOCAL LOCK
+                        SUSPEND QUEUE.
+                        SERIALIZATION: CS
+                        OWNERSHIP: TASK MANAGEMENT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        224 (E0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBWPRB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBWPRB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF WAIT POST REQUEST BLOCK
+                        (MDC362)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        228 (E4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSRDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRDP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SYSTEM RESOURCE MANAGER (SRM)
+                        DISPATCHING PRIORITY
+                        (MDC363)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        228 (E4)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBNDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRDP[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW DISPATCHING PRIORITY
+                        (MDC364)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        229 (E5)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBTNDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRDP[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW TIME SLICE DISPATCHING PRIORITY
+                        (MDC365)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        230 (E6)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBNTSG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRDP[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW TIME SLICE GROUP
+                        (MDC366)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        231 (E7)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBIODP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRDP[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - I/O PRIORITY (MDC374)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        232 (E8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLOCI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLOCI.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - LOCK IMAGE, ADDRESS OF ASCB
+                        HOLDING THIS ASCB'S LOCAL
+                        LOCK AS A CML LOCK.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - SUPERVISOR.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        236 (EC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBCMLW
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCMLW.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF THE WEB REPRESENTING
+                        THE WORKUNIT THAT IS HOLDING THIS
+                        ASCB'S LOCAL LOCK AS A CML OR LOCAL
+                        LOCK.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - SUPERVISOR CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        240 (F0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBCMLC_PREZOS12(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - COUNT OF CML LOCKS HELD BY
+                        THIS ADDRESS SPACE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        240 (F0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSRBT_DISPS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSRBT_DISPS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Count of SRB dispatches.
+                        Incremented and cache aligned with
+                        ASCBSRBT.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - SUPERVISOR.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        244 (F4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSSOM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSSOM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SPACE SWITCH EVENT OWNER
+                        MASK.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - SUPERVISOR.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        244 (F4)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        ASCBSSO1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSSOM[:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SPACE SWITCH EVENT OWNER
+                        MASK BYTES 1 - 3.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        247 (F7)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBSSO4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSSOM[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SPACE SWITCH EVENT OWNER
+                        MASK BYTE 4. (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBSSSP
+
+                    </td>
+                    <td>
+
+                        "X'02'" - SLIP/PER REQUESTED
+                        NOTIFICATION ON SPACE SWITCH
+                        EVENTS. (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBSSJS
+
+                    </td>
+                    <td>
+
+                        "X'01'" - JOB STEP TERMINATION
+                        REQUESTED SPACE SWITCH EVENTS
+                        FOR BREAKING LATENT ADDRESSING
+                        BINDS (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        248 (F8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBASTE
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBASTE.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - VIRTUAL ADDRESS OF ADDRESS
+                        SPACE SECOND TABLE ENTRY
+                        (ASTE). SERIALIZATION - N/A.
+                        OWNERSHIP - SUPERVISOR.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        252 (FC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLTOV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLTOV.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - VIRTUAL ADDRESS OF THE
+                        LINKAGE TABLE ORIGIN.
+                        (LOCATED IN PC/AUTH ADDRESS
+                        SPACE LSQA).
+                        SERIALIZATION - PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        256 (100)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBATOV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBATOV.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - VIRTUAL ADDRESS OF
+                        AUTHORIZATION TABLE (LOCATED
+                        IN PC/AUTH ADDRESS SPACE
+                        LSQA). SERIALIZATION: PC/AUTH,
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP: XM SERVICES
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        260 (104)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBETC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBETC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF ENTRY TABLES
+                        CURRENTLY OWNED BY THIS
+                        ADDRESS SPACE.
+                        SERIALIZATION - PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        262 (106)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBETCN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBETCN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF CONNECTIONS TO
+                        ENTRY TABLES IN THIS ADDRESS
+                        SPACE CONTAINING ANY SPACE
+                        SWITCH ENTRIES.
+                        SERIALIZATION - PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        264 (108)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBLXR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLXR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF LINKAGE INDEXES
+                        RESERVED BY THIS ADDRESS
+                        SPACE.
+                        SERIALIZATION - PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        266 (10A)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBAXR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBAXR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUMBER OF AUTHORIZATION
+                        INDEXES RESERVED BY THIS
+                        ADDRESS SPACE.
+                        SERIALIZATION - PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        268 (10C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBSTKH
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSTKH.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF LOCAL STACK POOL
+                        HEADER FOR PCLINK SERVICE.
+                        SERIALIZATION - N/A.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC383)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        272 (110)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBCSWD
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSWD.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        CS-serialized word
+                        cleared at step term / start
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        272 (110)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCSW0
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSWD[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Byte 0
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        273 (111)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCSW1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSWD[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Byte 1
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        274 (112)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCSW2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSWD[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Byte 2, Ser: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBZKF
+
+                    </td>
+                    <td>
+
+                        "X'80'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        275 (113)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCSW3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBCSWD[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Byte 3, Ser: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBZU
+
+                    </td>
+                    <td>
+
+                        "X'40'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBZF
+
+                    </td>
+                    <td>
+
+                        "X'20'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBZN
+
+                    </td>
+                    <td>
+
+                        "X'10'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBZM
+
+                    </td>
+                    <td>
+
+                        "X'04'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBZS
+
+                    </td>
+                    <td>
+
+                        "X'02'"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBZC
+
+                    </td>
+                    <td>
+
+                        "X'01'" Checked.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        276 (114)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBR114
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBR114.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Reserved.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        280 (118)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBJAFBADDR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBJAFBADDR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Address of the JAFB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        284 (11C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBXTCB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/tcb/{{ block.content.ASCBXTCB.hex().upper() }}">
+                                {{ block.content.ASCBXTCB.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF THE JOB STEP @G381P9A
+                        TASK TCB WHICH OWNS THE CROSS MEMORY
+                        RESOURCES IN THIS ADDRESS SPACE.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - SUPERVISOR.
+                        (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        288 (120)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFW3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW3.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Fullword label to address bits in
+                        this word.
+                        Serialization - CS.
+                        This word is a programming interface
+                        only for bits ASCBSDBF, ASCBNOFT,
+                        ASCBPO1M, ASCBP1M0
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        288 (120)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCS1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW3[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FIRST BYTE OF COMPARE AND
+                        SWAP FLAGS. (MDC384)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMET
+
+                    </td>
+                    <td>
+
+                        "X'80'" - IF ONE, THE ADDRESS SPACE IS
+                        NON-REUSABLE BECAUSE OF CROSS
+                        MEMORY CONNECTIONS TO IT. THIS
+                        CONDITION MAY NOT BE PERMANENT.
+                        SERIALIZATION - CS AND PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMEC
+
+                    </td>
+                    <td>
+
+                        "X'40'" - CROSS MEMORY ENTRY TABLES
+                        CONTAINING SPACE SWITCH ENTRIES
+                        HAVE BEEN CREATED BY THIS ADDRESS
+                        SPACE.
+                        SERIALIZATION - CS AND PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+                        (MDC390)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMPA
+
+                    </td>
+                    <td>
+
+                        "X'20'" - IF ONE, THE ADDRESS SPACE IS
+                        PERMANENTLY NON-REUSABLE BECAUSE
+                        OF INCOMPLETE TERMINATION
+                        PROCESSING OF PC/AUTH RESOURCE
+                        MANAGER.
+                        SERIALIZATION - CS AND PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMLK
+
+                    </td>
+                    <td>
+
+                        "X'10'" - IF ONE, THE ADDRESS SPACE IS
+                        PERMANENTLY NON-REUSABLE BECAUSE
+                        OF A CML BIND.
+                        SERIALIZATION - CS AND PC/AUTH
+                        ADDRESS SPACE LOCAL LOCK.
+                        OWNERSHIP - XM SERVICES.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBPERS
+
+                    </td>
+                    <td>
+
+                        "X'08'" - COMMUNICATION BIT FOR
+                        SLIP/PER SRB ROUTINES.
+                        IF 1, THE LOCAL SRB ROUTINE WILL
+                        ACTIVATE PER FOR THE SPECIFIED
+                        ADDRESS SPACE/JOB/CROSS MEMORY
+                        REFERENCES.
+                        IF 0, THE LOCAL SRB ROUTINE WILL
+                        DEACTIVATE PER FOR THE ADDRESS
+                        SPACE.
+                        SERIALIZATION - CS AND SLIP
+                        SERIALIZATION WORD, SHDRSEQ.
+                        OWNERSHIP - SLIP/PER.
+                        (MDC390)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBDTER
+
+                    </td>
+                    <td>
+
+                        "X'04'" - A DAT ERROR HAS OCCURRED
+                        FOR THIS ADDRESS SPACE.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - RTM. (MDC390)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBPERO
+
+                    </td>
+                    <td>
+
+                        "X'02'" - PER PROCESSING NEEDS TO BE
+                        DONE WHEN ADDRESS SPACE IS SWAPPED
+                        IN.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - SLIP.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBSWOP
+
+                    </td>
+                    <td>
+
+                        "X'01'" - ADDRESS SPACE IS SWAPPED OUT
+                        WITH RESPECT TO PER PROCESSING BEING
+                        DONE.
+                        SERIALIZATION - CS.
+                        OWNERSHIP - RCT.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        289 (121)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCS2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW3[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SECOND BYTE OF COMPARE AND SWAP
+                        FLAGS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBSAS
+
+                    </td>
+                    <td>
+
+                        "X'80'" - INDICATES THAT STORAGE
+                        ALTERATION SELECTION (PER 2) IS ON
+                        FOR EITHER A DATA SPACE ASSOCIATED
+                        WITH THE ADDRESS SPACE, OR THE
+                        ADDRESS SPACE ITSELF.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        ASCBSMGR
+
+                    </td>
+                    <td>
+
+                        "X'40'" - This space is or has been associated
+                        with the session manager
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        ASCBDTIN
+
+                    </td>
+                    <td>
+
+                        "X'20'" - This space is or has been associated
+                        with ISPF
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMNR
+
+                    </td>
+                    <td>
+
+                        "X'10'" - The address space is
+                        permanently non-reusable because of
+                        cross memory connections to a
+                        system LX.
+                        Serialization - CS and PC/AUTH
+                        address space Local lock.
+                        Ownership - XM services
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        ASCBSDBF
+
+                    </td>
+                    <td>
+
+                        "X'08'" - A work unit in this address space
+                        has set CVTSDBF bit 0 to 1. If this address
+                        space is memtermed when this bit is on, the
+                        system will reset CVTSDBF. ASCBSDBF must be
+                        set on only by the work unit that has just set
+                        CVTSDBF bit 0 to 1. ASCBSDBF must be reset
+                        just prior to resetting CVTSDBF. ASCBSDBF must
+                        be set in the home address space. The SVC Dump
+                        request must properly indicate BUFFER=YES.
+                        Serialization: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        ASCBNOFT
+
+                    </td>
+                    <td>
+
+                        "X'04'" - Set this to exempt all tasks in this address
+                        space from being affected by the FORCE TCB
+                        command.
+                        Serialization: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBPO1M
+
+                    </td>
+                    <td>
+
+                        "X'02'" - Set this to indicate that
+                        the RMODE 31 portion of program
+                        objects is to be backed by 1M pages
+                        (when available). The bit is reset
+                        at jobstep start.
+                        It applies only to modules loaded
+                        into private storage.
+                        Serialization: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBP1M0
+
+                    </td>
+                    <td>
+
+                        "X'01'" - Set this to indicate that
+                        the RMODE 31 portion of program
+                        objects is to be backed by 1M pages
+                        (when available), but only when the
+                        module will be placed into SP252.
+                        The bit is reset at jobstep start.
+                        It applies only to modules loaded
+                        into private storage.
+                        Do not also set ASCBPO1M.
+                        Serialization: CS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        290 (122)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCS3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW3[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - 3rd byte of CS flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBXMSO
+
+                    </td>
+                    <td>
+
+                        "X'80'" - This address space has owned a
+                        XM table with a space-switch PC
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        291 (123)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBCS4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW3[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - 4th byte of CS flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        292 (124)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBGXL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBGXL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF GLOBALLY LOADED MODULE
+                        EXTENT INFORMATION CONTROL BLOCK.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - CONTENTS SUPERVISION
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        296 (128)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBEATT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBEATT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - EXPENDED AND ACCOUNTED TASK TIME.
+                        SERIALIZATION - N/A.
+                        OWNERSHIP - SCHEDULER.
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        304 (130)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBINTS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBINTS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - JOB SELECTION TIME STAMP.
+                        SERIALIZATION - N/A.
+                        OWNERSHIP - SCHEDULER.
+                        (MDC387)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        312 (138)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBFW4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW4.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FULLWORD LABEL TO ADDRESS
+                        BITS IN THIS WORD.
+                        SERIALIZATION - LOCAL LOCK.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        312 (138)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLL1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW4[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FIRST BYTE OF FLAGS.
+                        SERIALIZATION - LOCAL LOCK.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBSSPC
+
+                    </td>
+                    <td>
+
+                        "X'80'" - STATUS STOP TASKS PENDING
+                        A CML LOCK RELEASE.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        313 (139)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLL2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW4[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SECOND BYTE OF FLAGS.
+                        SERIALIZATION - LOCAL LOCK.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        314 (13A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLL3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW4[2:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - THIRD BYTE OF FLAGS.
+                        SERIALIZATION - LOCAL LOCK.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        315 (13B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBLL4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBFW4[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FOURTH BYTE OF FLAGS.
+                        SERIALIZATION - LOCAL LOCK.
+                        (MDC389)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBNRLL
+
+                    </td>
+                    <td>
+
+                        "X'80'" - No release of Local Lock OK.
+                        Set only after obtaining LL.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        ASCBTYP1
+
+                    </td>
+                    <td>
+
+                        "X'02'" - TYPE 1 SVC HAS CONTROL. THIS OFFSET
+                        FIXED BY ARCHITECTURE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        316 (13C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRCMS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRCMS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        ADDRESS OF THE REQUESTED
+                        CMS CLASS LOCK FOR WHICH
+                        THE LOCAL LOCK HOLDER IS
+                        SUSPENDED.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - SUPERVISOR.
+                        (MDC391)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        320 (140)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBIOSC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBIOSC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - I/O SERVICE MEASURE.
+                        SERIALIZATION - CS.
+                        UPDATED BY JES2,JES3,SMF.
+                        READ BY RMF,SMF,SRM.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        324 (144)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBPKML
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBPKML.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - PKM OF LAST TASK DISPATCHED
+                        IN THIS ADDRESS SPACE.
+                        SERIALIZATION - NONE.
+                        OWNERSHIP - DISPATCHER.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        326 (146)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBXCNT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBXCNT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - EXCP COUNT FIELD.
+                        SERIALIZATION - LOCAL LOCK.
+                        OWNERSHIP - EXCP.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        328 (148)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBNSQA
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBNSQA.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF THE SQA RESIDENT
+                        NSSA CHAIN.
+                        SERIALIZATION - DISPATCHER LOCK.
+                        OWNERSHIP - DISPATCHER.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        332 (14C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBASM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBASM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF THE ASM HEADER.
+                        SERIALIZATION - NONE.
+                        OWNERSHIP - ASM.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        336 (150)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBASSB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/assb/{{ block.content.ASCBASSB.hex().upper() }}">
+                                {{ block.content.ASCBASSB.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO ADDRESS SPACE
+                        SECONDARY BLOCK (ASSB).
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        340 (154)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBTCME
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBTCME.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO TCXTB.
+                        OWNERSHIP - TCAM.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        344 (158)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBGQIR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBGQIR.hex().upper() }} </code>
+                    </td>
+                    <td>
+
+                        - ISGQSCAN INFORMATION
+                        ROUTINE ADDRESS.
+                        SERIALIZATION - COMPARE AND SWAP.
+                        OWNERSHIP - GRS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        344 (158)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBGQIR[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - BYTE 0 OF ASCBGQIR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        ASCBGQAB
+
+                    </td>
+                    <td>
+
+                        "X'80'" - ISGQSCAN INFORMATION
+                        ROUTINE ABENDED FLAG. IF ON,
+                        ISGQSCAN INFORMATION ROUTINE
+                        UNEXPECTEDLY ABENDED.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        345 (159)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBGQIR[1:3].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - BYTE 1 AND 2 OF ASCBGQIR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        347 (15B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBGQI3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBGQIR[3:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - BYTE 3 OF ASCBGQIR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        ASCBGQDS
+
+                    </td>
+                    <td>
+
+                        "X'01'" - ISGQSCAN INFORMATION
+                        ROUTINE DISABLED FLAG. IF ON,
+                        ISGQSCAN WILL NOT INVOKE THE
+                        ISGQSCAN INFORMATION ROUTINE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        348 (15C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBLSQE
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBLSQE.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Number of Enclave TCBs that are on
+                        a Local Lock Suspend Queue.
+                        Ownership: Task Management
+                        Serialization: Compare and Swap
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        352 (160)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ASCBIOSX
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBIOSX.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - I/O service measure extended.
+                        This is like ASCBIOSC but it is
+                        extended to 8 bytes, so its
+                        value continuestto grow past the
+                        4GB ASCBIOSC maximum capacity.
+                        Serialization - CSG.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        360 (168)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBR168
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBR168.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RESERVED.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        362 (16A)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBSVCN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBSVCN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SVC Number for type-1 SVC
+                        Serialization - local lock
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        364 (16C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRSME
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRSME.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - POINTER TO RSM ADDRESS SPACE
+                        BLOCK EXTENSION.
+                        SERIALIZATION: RSMAD LOCK
+                        OWNERSHIP: RSM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        368 (170)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBAVM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBAVM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - AVAILABILITY MANAGER ADDRESS
+                        SPACE RELATED DATA.
+                        SERIALIZATION: CS.
+                        OWNERSHIP: AVM.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        368 (170)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBAVM1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBAVM[:1].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - FIRST BYTE OF ASCBAVM.
+                        RESERVED.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        369 (171)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ASCBAVM2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBAVM[1:2].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SECOND BYTE OF ASCBAVM.
+                        RESERVED.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        370 (172)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ASCBAGEN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBAVM[2:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - AVM ASID REUSE GENERATION
+                        NUMBER.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        372 (174)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBARC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBARC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - REASON CODE ON MEMTERM.
+                        SERIALIZATION - N/A.
+                        OWNERSHIP - RTM.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        376 (178)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRSM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRSM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF RSM'S CONTROL BLOCK
+                        HEADER.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        376 (178)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBRSMA
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBRSM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ADDRESS OF RSM'S CONTROL BLOCK
+                        HEADER.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        380 (17C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ASCBDCTI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.ASCBDCTI.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ACCUMULATED CHANNEL CONNECT TIME
+                        INCURRED BY THIS MEMORY
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

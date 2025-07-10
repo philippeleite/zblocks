@@ -7,6 +7,7 @@ from app.models.pcca import PCCA
 from app.models.cvt import CVT
 from app.models.ecvt import ECVT
 from app.models.asvt import ASVT
+from app.models.ascb import ASCB
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -53,7 +54,8 @@ def asvt():
 @app.route('/ascb')
 @app.route('/ascb/<address>')
 def ascb(address=None):
-    _ = address
+    ascb = ASCB(int(address, 16) if address else None)
+    return render_template("ascb.html", block=ascb)
 
 @app.route('/assb')
 @app.route('/assb/<address>')

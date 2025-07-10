@@ -1,0 +1,498 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ block.name }}</h1>
+<h2>{{ block.long_name }}</h2>
+<div class="table-container">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            {% include "_colgroup.html" %}
+            <thead>
+            <tr>
+                <th>
+                    <div>
+                        <samp>
+                            Offset
+                            <br/>
+                            Dec(Hex)
+                        </samp>
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Len
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Name
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Content
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        Description
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr>
+                <td>
+                    0 (0)
+                </td>
+                <td>
+                    464
+                </td>
+                <td>
+                    ASVTPRFX
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTPRFX.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        Reserved for future expansion
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    464 (1D0)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    ASVTBEGN(0)
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        - BEGINNING OF ASVT
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    464 (1D0)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTHWMASID
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTHWMASID.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        Highest ASID used since IPL
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    468 (1D4)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTCURHIGHASID
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTCURHIGHASID.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        Highest ASID currently used
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    472 (1D8)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTREUA
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTREUA.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        ADDRESS OF ASVTREUS BITS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    476 (1DC)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTRAVL
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTRAVL.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        ADDRESS OF FIRST AVAILABLE
+                        REUSABLE ASID SLOT
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    480 (1E0)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTAAV
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTAAV.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        NUMBER OF FREE SLOTS ON THE
+                        ASVT AVAILABLE QUEUE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    484 (1E4)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTAST
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTAST.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        NUMBER OF FREE SLOTS ON THE
+                        START/SASI QUEUE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    488 (1E8)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTANR
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTANR.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        NUMBER OF FREE SLOTS ON THE
+                        NON-REUSABLE REPLACEMENT
+                        QUEUE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    492 (1EC)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTSTRT
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTSTRT.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        ORIGINAL SIZE OF START/SASI
+                        QUEUE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    496 (1F0)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTNONR
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTNONR.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        ORIGINAL SIZE OF NON-REUSABLE
+                        REPLACEMENT QUEUE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    500 (1F4)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTMAXI
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTMAXI.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - ORIGINAL MAX USERS COUNT AS
+                        INPUT TO IEAVNP09.
+                        OWNERSHIP - SUPERVISOR CONTROL
+                        SERIALIZATION - NIP RIM PROCESS
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    504 (1F8)
+                </td>
+                <td>
+                    8
+                </td>
+                <td>
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTRSHD.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - RESERVED. WAS ASVTRSHD/DSHD
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    512 (200)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTASVT
+                </td>
+                <td data-bs-toggle="tooltip"
+                    data-bs-title='EBCDIC: "{{ block.content.ASVTASVT.decode("cp037") }}"'>
+                   <code class="text-primary">
+                       {{ block.content.ASVTASVT.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - ACRONYM IN EBCDIC -ASVT-
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    516 (204)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTMAXU
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTMAXU.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - MAXIMUM NUMBER OF ADDRESS SPACES
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    520 (208)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTMDSC
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTMDSC.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - MAXUSER DEFICIT SLOT COUNT.
+                        ASVTMDSC = ASVTMAXI - ASVTAAV
+                        - NUMBER OF ACTIVE A.S.
+                        INCREMENTED WHEN WE TRY TO TAKE A
+                        REPLACEMENT SLOT BUT THERE AREN'T
+                        ANY. DECREMENTED WHEN NON-ZERO
+                        AND A NONREUSEABLE ASID BECOMES
+                        REUSEABLE AND WE ADD A SLOT TO
+                        THE MAXUSER POOL WHEN AN ADDRESS
+                        SPACE BECOMES REUSEABLE.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    524 (20C)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTFRST
+                </td>
+                <td>
+                   <code class="text-primary">
+                       {{ block.content.ASVTFRST.hex().upper() }}
+                   </code>
+                </td>
+                <td>
+
+                        - ADDRESS OF FIRST AVAILABLE ASVT
+                        ENTRY (MDC300)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        ASVTAVAI
+
+                </td>
+                <td>
+
+                        "X'80'" - BIT ONE IF ASID IS AVAILABLE AND
+                        ZERO IF ASID IS ASSIGNED MDC002
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    528 (210)
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    ASVTENTY
+                </td>
+                <td>
+                   <code class="text-primary">
+                       <a href="/ascb/{{ block.content.ASVTENTY.hex().upper() }}">
+                            {{ block.content.ASVTENTY.hex().upper() }}
+                       </a>
+                   </code>
+                </td>
+                <td>
+
+                        - ENTRY FOR EACH POSSIBLE ASID.
+                        IF ADDRESS SPACE ASSIGNED, ENTRY
+                        CONTAINS ADDRESS OF ASCB. IF NOT
+                        ASSIGNED, ENTRY CONTAINS EITHER
+                        ADDRESS OF NEXT AVAILABLE ASID OR
+                        ZEROS WITH HIGH-ORDER BIT ON IF
+                        LAST ENTRY. (MDC301)
+                        IF THE ADDRESS SPACE IS MARKED
+                        NON-REUSABLE, THE ENTRY CONTAINS
+                        THE ADDRESS OF MASTER'S ASVT ENTRY
+                        WITH THE HIGH BIT ON.
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+
+                        1... ....
+
+                </td>
+                <td>
+
+                        ASVTAVAL
+
+                </td>
+                <td>
+
+                        "X'80'" - BIT ONE IF ASID IS AVAILABLE AND
+                        ZERO IF ASID IS ASSIGNED
+
+                </td>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

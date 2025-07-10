@@ -6,6 +6,7 @@ from app.models.lcca import LCCA
 from app.models.pcca import PCCA
 from app.models.cvt import CVT
 from app.models.ecvt import ECVT
+from app.models.asvt import ASVT
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -46,7 +47,8 @@ def ecvt():
 
 @app.route('/asvt')
 def asvt():
-    pass
+    asvt = ASVT()
+    return render_template("asvt.html", block=asvt)
 
 @app.route('/ascb')
 @app.route('/ascb/<address>')

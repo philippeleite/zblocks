@@ -51,7 +51,8 @@
                 <td>
                     PCCAPCCA
                 </td>
-                <td>
+                <td data-bs-toggle="tooltip"
+                    data-bs-title='EBCDIC: "{{ block.content.PCCAPCCA.decode("cp037") }}"'>
                    <code class="text-primary">
                        {{ block.content.PCCAPCCA.hex().upper() }}
                    </code>

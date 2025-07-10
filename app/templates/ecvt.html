@@ -1223,7 +1223,8 @@
                     <td>
                         ECVTLOAD
                     </td>
-                    <td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ECVTLOAD.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.ECVTLOAD.hex().upper() }}
                         </code>
@@ -1246,7 +1247,8 @@
                     <td>
                         ECVTMLPR
                     </td>
-                    <td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ECVTMLPR.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.ECVTMLPR.hex().upper() }}
                         </code>

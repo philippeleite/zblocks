@@ -5,6 +5,7 @@ from app.models.psa import PSA
 from app.models.lcca import LCCA
 from app.models.pcca import PCCA
 from app.models.cvt import CVT
+from app.models.ecvt import ECVT
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -40,7 +41,8 @@ def cvt_address():
 
 @app.route('/ecvt')
 def ecvt():
-    pass
+    ecvt = ECVT()
+    return render_template("ecvt.html", block=ecvt)
 
 @app.route('/asvt')
 def asvt():

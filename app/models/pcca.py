@@ -49,20 +49,17 @@ pcca_pattern = Struct(
     "4s"  # PCCAPWAR
     "4s"  # PCCALRBV
     "4s"  # PCCALRBR
-    "1s"  # PCCARIOS(208)
+    "208s"  # PCCARIOS
     "1s"  # PCCAATTR
     "1s"  # PCCAMFA
     "1s"  # PCCAACRN
     "1s"  # PCCARCFF
     "1s"  # PCCA_PHYSICAL_CPUID
-    "1s"  # 
+    "1s"  # PCCARSV1
     "2s"  # PCCAPROCCLASS
-    "2s"  # PCCA_BYLPAR_PROCCLASS
-    "1s"  # PCCAPROCCLASS_BYTE0
-    "1s"  # PCCAPROCCLASS_BYTE1
     "2s"  # PCCAR180
     "2s"  # PCCA_PARTIALCPUMASKOFFSET
-    "196s"  # 
+    "196s"  # PCCARSV2
 )
 pcca_field_names = (
     "PCCAPCCA",
@@ -107,20 +104,17 @@ pcca_field_names = (
     "PCCAPWAR",
     "PCCALRBV",
     "PCCALRBR",
-    "PCCARIOS(208)",
+    "PCCARIOS",
     "PCCAATTR",
     "PCCAMFA",
     "PCCAACRN",
     "PCCARCFF",
     "PCCA_PHYSICAL_CPUID",
-    "",
+    "PCCARSV1",
     "PCCAPROCCLASS",
-    "PCCA_BYLPAR_PROCCLASS",
-    "PCCAPROCCLASS_BYTE0",
-    "PCCAPROCCLASS_BYTE1",
     "PCCAR180",
     "PCCA_PARTIALCPUMASKOFFSET",
-    "",
+    "PCCARSV2",
 )
 pcca_offset_length = (
     info(0,4),  # PCCAPCCA
@@ -165,20 +159,17 @@ pcca_offset_length = (
     info(156,4),  # PCCAPWAR
     info(160,4),  # PCCALRBV
     info(164,4),  # PCCALRBR
-    info(168,1),  # PCCARIOS(208)
+    info(168,208), # PCCARIOS
     info(376,1),  # PCCAATTR
     info(377,1),  # PCCAMFA
     info(378,1),  # PCCAACRN
     info(379,1),  # PCCARCFF
     info(380,1),  # PCCA_PHYSICAL_CPUID
-    info(381,1),  # 
+    info(381,1),  # PCCARSV1
     info(382,2),  # PCCAPROCCLASS
-    info(382,2),  # PCCA_BYLPAR_PROCCLASS
-    info(382,1),  # PCCAPROCCLASS_BYTE0
-    info(383,1),  # PCCAPROCCLASS_BYTE1
     info(384,2),  # PCCAR180
     info(386,2),  # PCCA_PARTIALCPUMASKOFFSET
-    info(388,196),  # 
+    info(388,196),  # PCCARSV2
 )
 
 pcca_fields = namedtuple("cvt", pcca_field_names)

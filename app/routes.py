@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from app import app
 from app.models.base import zblocks_list
+from app.models.pcca import PCCA
 from app.models.psa import PSA
 from app.models.lcca import LCCA
 from app.models.cvt import CVT
@@ -29,7 +30,8 @@ def lcca():
 
 @app.route('/pcca')
 def pcca():
-    pass
+    pcca = PCCA()
+    return render_template("pcca.html", block=pcca)
 
 @app.route('/cvt')
 def cvt_address():

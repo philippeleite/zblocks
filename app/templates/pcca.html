@@ -73,7 +73,8 @@
                 <td>
                     PCCACPID
                 </td>
-                <td>
+                <td data-bs-toggle="tooltip"
+                    data-bs-title='EBCDIC: "{{ block.content.PCCACPID.decode("cp037") }}"'>
                    <code class="text-primary">
                        {{ block.content.PCCACPID.hex().upper() }}
                    </code>

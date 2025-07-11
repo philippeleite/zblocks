@@ -631,7 +631,8 @@
                     <td>
                         JSABGPNM
                     </td>
-                    <td>
+                     <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABGPNM.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.JSABGPNM.hex().upper() }}
                         </code>

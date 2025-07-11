@@ -93,7 +93,7 @@ def get_asvt_entries() -> list:
     read_memory(buffer, len(buffer), get_asvt_address() + 528)
     entries = []
     for i in range(0, len(buffer), 4):
-        entries.append(int.from_bytes(buffer[i:i+4], byteorder='big'))
+        entries.append(buffer[i:i+4])
     return entries
 
 class ASVT:

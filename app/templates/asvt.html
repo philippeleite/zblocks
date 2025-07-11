@@ -497,15 +497,18 @@
                         ASVTENTY
                     </td>
                     <td>
-                        <code class="text-primary">
+
                         {% if entry[0] is flag(0x80) %}
-                            <code href="#">
+                            <code class="text-primary">
+                                {{ entry.hex().upper() }}
+                            </code>
                         {% else %}
-                            <a href="/ascb/{{ entry.hex().upper() }}">
+                            <code class="text-success">
+                                <a href="/ascb/{{ entry.hex().upper() }}">
+                                {{ entry.hex().upper() }}
+                                </a>
+                            </code>
                         {% endif %}
-                            {{ entry.hex().upper() }}
-                        </a>
-                        </code>
                     </td>
                     <td></td>
                 </tr>

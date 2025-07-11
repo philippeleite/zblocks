@@ -491,6 +491,24 @@
                         ZERO IF ASID IS ASSIGNED
 
                 </td>
+            </tr>
+            {% for entry in block.entries %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        {% if entry[0] is flag(0x80) %}
+                            <a href="#">
+                        {% else %}
+                            <a href="/ascb/{{ entry.hex().upper() }}">
+                        {% endif %}
+                            {{ entry.hex().upper() }}
+                        </a>
+                    </td>
+                    <td></td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

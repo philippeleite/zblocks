@@ -64,7 +64,7 @@ asvt_offset_length = (
     info(528,4),  # ASVTENTY
 )
 
-asvt_fields = namedtuple("cvt", asvt_field_names)
+asvt_fields = namedtuple("asvt", asvt_field_names)
 asvt_info = asvt_fields._make(asvt_offset_length)
 
 
@@ -83,6 +83,18 @@ def get_asvt() -> bytearray:
     read_memory(buffer, len(buffer), address)
     return buffer
 
+def get_asvt_number_of_entries() -> int:
+    buffer = get_asvt()
+    return int.from_bytes(buffer[516:520], byteorder='big')
+
+def get_asvt_entries() -> list:
+    number_of_entries = get_asvt_number_of_entries()
+    buffer = bytearray(number_of_entries * 4)
+    read_memory(buffer, len(buffer), get_asvt_address() + 528)
+    entries = []
+    for i in range(0, len(buffer), 4):
+        entries.append(int.from_bytes(buffer[i:i+4], byteorder='big'))
+    return entries
 
 class ASVT:
     name = "ASVT"
@@ -92,3 +104,4 @@ class ASVT:
     def __init__(self):
         content = asvt_fields._make(asvt_pattern.unpack(get_asvt()))
         self.content = content
+        self.entries = get_asvt_entries()

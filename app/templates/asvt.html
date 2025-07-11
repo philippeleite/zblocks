@@ -499,11 +499,11 @@
                     <td>
 
                         {% if entry[0] is flag(0x80) %}
-                            <code class="text-primary">
+                            <code class="text-success">
                                 {{ entry.hex().upper() }}
                             </code>
                         {% else %}
-                            <code class="text-success">
+                            <code class="text-primary">
                                 <a href="/ascb/{{ entry.hex().upper() }}">
                                 {{ entry.hex().upper() }}
                                 </a>

@@ -319,7 +319,7 @@ ascb_offset_length = (
     info(380,4),  # ASCBDCTI
 )
 
-ascb_fields = namedtuple("cvt", ascb_field_names)
+ascb_fields = namedtuple("ascb", ascb_field_names)
 ascb_info = ascb_fields._make(ascb_offset_length)
 
 

@@ -1043,7 +1043,7 @@ psa_offset_length = (
 )
 
 
-psa_fields = namedtuple("cvt", psa_field_names)
+psa_fields = namedtuple("psa", psa_field_names)
 cvt_info = psa_fields._make(psa_offset_length)
 
 def get_psa() -> bytearray:

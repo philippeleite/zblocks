@@ -1153,7 +1153,7 @@ lcca_offset_length = (
     info(2656,8),  # LCCARA60
 )
 
-lcca_fields = namedtuple("cvt", lcca_field_names)
+lcca_fields = namedtuple("lcca", lcca_field_names)
 lcca_info = lcca_fields._make(lcca_offset_length)
 
 

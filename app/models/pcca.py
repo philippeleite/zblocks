@@ -172,7 +172,7 @@ pcca_offset_length = (
     info(388,196),  # PCCARSV2
 )
 
-pcca_fields = namedtuple("cvt", pcca_field_names)
+pcca_fields = namedtuple("pcca", pcca_field_names)
 pcca_info = pcca_fields._make(pcca_offset_length)
 
 

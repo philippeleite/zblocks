@@ -733,7 +733,7 @@ ecvt_offset_length = (
     info(1072,8),  # ECVTR430
 )
 
-ecvt_fields = namedtuple("cvt", ecvt_field_names)
+ecvt_fields = namedtuple("ecvt", ecvt_field_names)
 ecvt_info = ecvt_fields._make(ecvt_offset_length)
 
 

@@ -652,7 +652,7 @@ assb_offset_length = (
     info(2488,8),  # ASSB_TIME_JAVA_ON_CP
 )
 
-assb_fields = namedtuple("cvt", assb_field_names)
+assb_fields = namedtuple("assb", assb_field_names)
 assb_info = assb_fields._make(assb_offset_length)
 
 

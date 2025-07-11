@@ -445,7 +445,7 @@
                     4
                 </td>
                 <td>
-                    ASVTENTY
+                    ASVTENTY(0)
                 </td>
                 <td>
                    <code class="text-primary">
@@ -494,13 +494,23 @@
             </tr>
             {% for entry in block.entries %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td>
-                        <a href="#">
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ASVTENTY
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                        {% if entry[0] is flag(0x80) %}
+                            <code href="#">
+                        {% else %}
+                            <a href="/ascb/{{ entry.hex().upper() }}">
+                        {% endif %}
                             {{ entry.hex().upper() }}
                         </a>
+                        </code>
                     </td>
                     <td></td>
                 </tr>

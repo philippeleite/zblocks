@@ -8,6 +8,7 @@ from app.models.cvt import CVT
 from app.models.ecvt import ECVT
 from app.models.asvt import ASVT
 from app.models.ascb import ASCB
+from app.models.assb import ASSB
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -60,7 +61,8 @@ def ascb(address=None):
 @app.route('/assb')
 @app.route('/assb/<address>')
 def assb(address=None):
-    pass
+    assb = ASSB(int(address, 16) if address else None)
+    return render_template("assb.html", block=assb)
 
 @app.route('/jsab')
 @app.route('/jsab/<address>')

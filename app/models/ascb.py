@@ -332,7 +332,6 @@ def get_ascb_address() -> int:
 
 def get_ascb(address: int | None) -> bytearray:
     buffer = bytearray(ascb_pattern.size)
-    # address = address or get_ascb_address()
     read_memory(buffer, len(buffer), address or get_ascb_address())
     return buffer
 

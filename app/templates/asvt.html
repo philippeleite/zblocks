@@ -498,11 +498,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                        {% if entry[0] is flag(0x80) %}
-                            <a href="#">
-                        {% else %}
-                            <a href="/ascb/{{ entry.hex().upper() }}">
-                        {% endif %}
+                        <a href="#">
                             {{ entry.hex().upper() }}
                         </a>
                     </td>

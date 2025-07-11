@@ -1,0 +1,1554 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <samp>
+                                Len
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABID.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABID.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JSAB ID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4 (4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABNEXT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/jsab/{{ block.content.JSABNEXT.hex().upper() }}">
+                                {{ block.content.JSABNEXT.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        JSAB CHAIN FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 (8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABLEN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABLEN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Length of control block
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        12 (C)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABVERS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABVERS[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        CONTROL BLOCK VERSION
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        12 (C)
+
+                    </td>
+                    <td>
+
+                        0
+
+                    </td>
+                    <td>
+
+                        JSABVRS1
+
+                    </td>
+                    <td>
+
+                        X'1'
+
+                    </td>
+                    <td>
+
+                        "1" JSAB version 1
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        12 (C)
+
+                    </td>
+                    <td>
+
+                        0
+
+                    </td>
+                    <td>
+
+                        JSABVRS2
+
+                    </td>
+                    <td>
+
+                        X'2'
+
+                    </td>
+                    <td>
+
+                        "2" JSAB version 2
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        12 (C)
+
+                    </td>
+                    <td>
+
+                        0
+
+                    </td>
+                    <td>
+
+                        JSABVRSN
+
+                    </td>
+                    <td>
+
+                        X'2'
+
+                    </td>
+                    <td>
+
+                        "2" Current JSAB version
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        13 (D)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABFLG1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABFLG1[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JSAB FLAG 1
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABNVAL
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" This JSAB is not valid
+                        (It is LOGICALLY deleted)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        JSABSTSK
+
+                    </td>
+                    <td>
+
+                        "B'01000000'" Subtask level JSAB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        14 (E)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABFLG2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABFLG2[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JSAB FLAG 2
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        15 (F)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABCLR(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        Start of re-use clear area
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        15 (F)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABCLEV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABCLEV[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        CREATING COMPONENT'S CODE LEVEL
+                        (JSABVRSN LAST TIME JSAB-CREATING
+                        CODE WAS UPDATED)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABBLST(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        START OF CHARACTER DATA
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABSCID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABSCID.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABSCID.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        SCHEDULING COMPONENT'S ID
+                        (JES2, JES3)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABWKID(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        WORK UNIT ID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABJBID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABJBID.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABJBID.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JOB ID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABJBNM
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABJBNM.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABJBNM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JOB NAME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        36 (24)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABPREF
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABPREF.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABPREF.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        PREFIX USED IN MESSAGES
+                        JES2 -&gt; EQUAL TO JSABJBID
+                        JES3 -&gt; EQUAL TO JSABJBNM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        44 (2C)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABUSID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABUSID.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABUSID.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        USERID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        52 (34)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABSSNM
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABSSNM.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.JSABSSNM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Creating Subsystem name
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        16
+                    </td>
+                    <td>
+                        JSABRESC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABRESC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Reserved for future use
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        56 (38)
+
+                    </td>
+                    <td>
+
+                        0
+
+                    </td>
+                    <td>
+
+                        JSABBLND
+
+                    </td>
+                    <td>
+
+                        X'48'
+
+                    </td>
+                    <td>
+
+                        "*" END OF CHARACTER DATA
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        72 (48)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABESTK
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABESTK.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        PROGRAM ENTRY START TIME
+                        (STORE CLOCK TIME - STCK)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        80 (50)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABXSTK
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABXSTK.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        PROGRAM EXECUTION START TIME
+                        (STORE CLOCK TIME - STCK)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSABUSER
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABUSER.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        USER AREA POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        92 (5C)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABGPNM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABGPNM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        XCF group name
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSABJSTA(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        JES Status
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABJFL1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABJFL1[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        JES Status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABJ1SP
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" JES supports JES status
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ1PS
+
+                    </td>
+                    <td>
+
+                        "B'01000000'" Waiting for PSO
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ1CN
+
+                    </td>
+                    <td>
+
+                        "B'00100000'" Waiting for CS (Cancel)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        JSABJ1ST
+
+                    </td>
+                    <td>
+
+                        "B'00010000'" Waiting for CS (Status)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        JSABJ1TR
+
+                    </td>
+                    <td>
+
+                        "B'00001000'" Waiting for job term
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        JSABJ1RQ
+
+                    </td>
+                    <td>
+
+                        "B'00000100'" Waiting for job reenqueue
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        JSABJ1IW
+
+                    </td>
+                    <td>
+
+                        "B'00000010'" Initiator waiting for job
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        JSABJ1SS
+
+                    </td>
+                    <td>
+
+                        "B'00000001'" Waiting for SPOOL space
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        101 (65)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABJFL2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABJFL2[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        More JES Status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABJ2CM
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" Waiting for JES Cross
+                        Memory Lock (JES2 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ2SA
+
+                    </td>
+                    <td>
+
+                        "B'01000000'" Waiting for SAPI
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ2NU
+
+                    </td>
+                    <td>
+
+                        "B'00100000'" Waiting for notify user
+                        (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        JSABJ2ES
+
+                    </td>
+                    <td>
+
+                        "B'00010000'" Waiting for extended
+                        status (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        JSABJ2PC
+
+                    </td>
+                    <td>
+
+                        "B'00001000'" Waiting for JES class
+                        properties (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        JSABJ2PN
+
+                    </td>
+                    <td>
+
+                        "B'00000100'" Waiting for JES nodes
+                        properties (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        JSABJ2PS
+
+                    </td>
+                    <td>
+
+                        "B'00000010'" Waiting for JES spool
+                        properties (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        JSABJ2PI
+
+                    </td>
+                    <td>
+
+                        "B'00000001'" Waiting for JES inits
+                        properties (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        102 (66)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABJFL3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABJFL3[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        More JES Status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABJ3PX
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" Waiting for JES JESPLEX
+                        properties (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ3WO
+
+                    </td>
+                    <td>
+
+                        "B'01000000'" Waiting for WTO
+                        (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ3ER
+
+                    </td>
+                    <td>
+
+                        "B'00100000'" Waiting for ENDREQ
+                        (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        JSABJ3JD
+
+                    </td>
+                    <td>
+
+                        "B'00010000'" Waiting for JDS access
+                        (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        JSABJ3DA
+
+                    </td>
+                    <td>
+
+                        "B'00001000'" Waiting for dynamic
+                        allocation (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        JSABJ3TC
+
+                    </td>
+                    <td>
+
+                        "B'00000100'" Waiting for TCPIP NJE
+                        global services (JES3
+                        only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        JSABJ3FS
+
+                    </td>
+                    <td>
+
+                        "B'00000010'" Waiting for FSS request -
+                        writer (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        JSABJ3CI
+
+                    </td>
+                    <td>
+
+                        "B'00000001'" Waiting for CI driver -
+                        CI FSS (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        103 (67)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABJFL4
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABJFL4[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        More JES Status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABJ4ST
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" Waiting for SETUP
+                        request (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ4VL
+
+                    </td>
+                    <td>
+
+                        "B'01000000'" Waiting for validate
+                        destination (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        JSABJ4SJ
+
+                    </td>
+                    <td>
+
+                        "B'00100000'" Waiting for SJF services
+                        (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        JSABJ4DY
+
+                    </td>
+                    <td>
+
+                        "B'00010000'" Waiting for dynamic
+                        allocation change
+                        of DD (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        JSABJ4DC
+
+                    </td>
+                    <td>
+
+                        "B'00001000'" Waiting for dynamic
+                        allocation via
+                        SSOBDYCD (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        JSABJ4NQ
+
+                    </td>
+                    <td>
+
+                        "B'00000100'" Waiting for change ENQ
+                        use (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        JSABJ4DD
+
+                    </td>
+                    <td>
+
+                        "B'00000010'" Waiting for change DD
+                        name (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        JSABJ4JD
+
+                    </td>
+                    <td>
+
+                        "B'00000001'" Waiting for JES Device
+                        Info (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        104 (68)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSABJFL5
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABJFL5[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        More JES Status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        JSABJ5JM
+
+                    </td>
+                    <td>
+
+                        "B'10000000'" Waiting for Job
+                        Modify (JES3 only)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        105 (69)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABRSV1.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Reserved for status flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        108 (6C)
+                    </td>
+                    <td>
+                        20
+                    </td>
+                    <td>
+                        JSABRESV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABRESV.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Reserved for future use
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        128 (80)
+                    </td>
+                    <td>
+                        64
+                    </td>
+                    <td>
+                        JSABCORR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.JSABCORR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Job correlator
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

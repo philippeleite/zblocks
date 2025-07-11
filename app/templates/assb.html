@@ -6972,7 +6972,8 @@
                     <td>
                         ASSBINITIATORJOBID
                     </td>
-                    <td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ASSBINITIATORJOBID.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.ASSBINITIATORJOBID.hex().upper() }}
                         </code>

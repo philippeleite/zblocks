@@ -273,7 +273,7 @@ assb_field_names = (
     "ASSBSPIN",
     "ASSBECT1",
     "ASSBECT2",
-    "ASSBMT#",
+    "ASSBMT",
     "ASSBDFP",
     "ASSBSASI",
     "ASSBSNEW",

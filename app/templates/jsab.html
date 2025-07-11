@@ -1537,7 +1537,8 @@
                     <td>
                         JSABCORR
                     </td>
-                    <td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.JSABCORR.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.JSABCORR.hex().upper() }}
                         </code>

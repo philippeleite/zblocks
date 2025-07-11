@@ -9,6 +9,7 @@ from app.models.ecvt import ECVT
 from app.models.asvt import ASVT
 from app.models.ascb import ASCB
 from app.models.assb import ASSB
+from app.models.jsab import JSAB
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -67,7 +68,8 @@ def assb(address=None):
 @app.route('/jsab')
 @app.route('/jsab/<address>')
 def jsab(address=None):
-    pass
+    jsab = JSAB(int(address, 16) if address else None)
+    return render_template("jsab.html", block=jsab)
 
 @app.route('/asxb')
 @app.route('/asxb/<address>')

@@ -106,10 +106,9 @@ def get_jsab_address() -> int:
     return address
 
 
-def get_jsab() -> bytearray:
+def get_jsab(address: int | None) -> bytearray:
     buffer = bytearray(jsab_pattern.size)
-    address = get_jsab_address()
-    read_memory(buffer, len(buffer), address)
+    read_memory(buffer, len(buffer), address or get_jsab_address())
     return buffer
 
 
@@ -118,6 +117,6 @@ class JSAB:
     long_name = "Job Scheduler Address Space Control Block"
     fields = jsab_field_names
     info = jsab_info
-    def __init__(self):
-        content = jsab_fields._make(jsab_pattern.unpack(get_jsab()))
+    def __init__(self, address):
+        content = jsab_fields._make(jsab_pattern.unpack(get_jsab(address)))
         self.content = content

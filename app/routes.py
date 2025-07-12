@@ -11,6 +11,7 @@ from app.models.ascb import ASCB
 from app.models.assb import ASSB
 from app.models.jsab import JSAB
 from app.models.asxb import ASXB
+from app.models.acee import ACEE
 from app.models.tcb import TCB
 
 @app.template_test()
@@ -91,7 +92,8 @@ def oucb(address=None):
 @app.route('/acee')
 @app.route('/acee/<address>')
 def acee(address=None):
-    pass
+    acee = ACEE(int(address, 16) if address else None)
+    return render_template("acee.html", block=acee)
 
 @app.route('/tcb/<address>')
 def tcb(address):

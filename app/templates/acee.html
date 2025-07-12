@@ -1,0 +1,1874 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <samp>
+                                Len
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEACEE
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEEACEE.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEEACEE.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Acronym in EBCDIC -ACEE-
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4 (4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEECORE
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECORE.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        ACEE subpool and length
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4 (4)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEESP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECORE[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        ACEE subpool number
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        5 (5)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        ACEELEN
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECORE[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Length of ACEE
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 (8)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEVRSN
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEVRSN[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Version = 1.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        9
+
+
+                        (9)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        ACEESBVR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEESBVR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                        Reserved for use by security product
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        12 (C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEIEP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEIEP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Reserved for installation. See "Notes" above for information
+                        on using the ACEEIEP
+                        field.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEINST
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEINST.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        User data address: Points to a 1-byte length field followed
+                        by the installation data
+                        specified in the user profile. The length includes the 1-byte length field. The address is zero
+                        if
+                        (1) no valid user ID was provided or (2) no data was present in the profile.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        9
+                    </td>
+                    <td>
+                        ACEEUSER(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        User ID information
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEUSRL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEUSRL[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        User ID length
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        21 (15)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEEUSRI
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEEUSRI.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEEUSRI.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Contains the valid RACF user ID unless (1) the user ID on the
+                        verify call was
+                        '*BYPASS*' for auditable work that bypasses authorization checking, or (2) no user ID was given
+                        so
+                        the field contains an '*'.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        29 (1D)
+                    </td>
+                    <td>
+                        9
+                    </td>
+                    <td>
+                        ACEEGRP(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Group name information
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        29 (1D)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEGRPL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEGRPL[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Group name length
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        30 (1E)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEEGRPN
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEEGRPN.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEEGRPN.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Valid connect group unless ACEEUSRI is "*" or "BYPASS". For
+                        these two cases, ACEEGRPN
+                        is "*'".
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        38 (26)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEFLG1
+                    </td>
+                    <td>
+                       <code class="text-primary"> 
+                           {{ block.content.ACEEFLG1[0:].hex().upper() }} 
+                       </code>
+                    </td>
+                    <td>
+                        User flags
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        ACEESPEC
+                    </td>
+                    <td>
+                        1 - Special attribute
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        ACEEADSP
+                    </td>
+                    <td>
+                        1 - Automatic data security protection
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        ACEEOPER
+                    </td>
+                    <td>
+                        1 - Operations attribute
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        ACEEAUDT
+                    </td>
+                    <td>
+                        1 - Auditor attribute
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        ACEELOGU
+                    </td>
+                    <td>
+                        1 - User is to have most RACF functions logged
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .1..
+                    </td>
+                    <td>
+                        ACEEROA
+                    </td>
+                    <td>
+                        1 - Read-only auditor attribute
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ..1.
+                    </td>
+                    <td>
+                        ACEEPRIV
+                    </td>
+                    <td>
+                        1 - User is a started procedure with the privileged attribute
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ...1
+                    </td>
+                    <td>
+                        ACEERACF
+                    </td>
+                    <td>
+                        1 - RACF-defined user
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        39 (27)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEFLG2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG2[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Default universal access
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        ACEEALTR
+                    </td>
+                    <td>
+                        1 - Alter authority to resource
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        ACEECNTL
+                    </td>
+                    <td>
+                        1 - Control authority to resource
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        ACEEUPDT
+                    </td>
+                    <td>
+                        1 - Update authority to resource
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        ACEEREAD
+                    </td>
+                    <td>
+                        1 - Read authority to resource
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved for compatibility
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .1..
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ..1.
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ...1
+                    </td>
+                    <td>
+                        ACEENONE
+                    </td>
+                    <td>
+                        1 - No authority to resource
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        40 (28)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEFLG3
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG3[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Miscellaneous flags
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        ACEEGRPA
+                    </td>
+                    <td>
+                        Access list of group DS to
+                        contain
+                        <div class="lines">
+                            0 - User ID or 1 - Group name and user ID
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        ACEERASP
+                    </td>
+                    <td>
+                        1 - RACF address space
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        ACEECLNT
+                    </td>
+                    <td>
+                        1 - Unauthenticated client
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        ACEEACLT
+                    </td>
+                    <td>
+                        1 - Authenticated client
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        ACEETSKP
+                    </td>
+                    <td>
+                        1 - Task level process
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .1..
+                    </td>
+                    <td>
+                        ACEEIUSP
+                    </td>
+                    <td>
+                        1 - INITUSP has been done
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ..1.
+                    </td>
+                    <td>
+                        ACEEDUID
+                    </td>
+                    <td>
+                        1 - Default UID being used
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ...1
+                    </td>
+                    <td>
+                        ACEENPWR
+                    </td>
+                    <td>
+                        1 - This is a protected user ID that cannot enter the system
+                        with a
+                        password
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        41 (29)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        ACEEDATE
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEDATE.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Date of RACINIT
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        44 (2C)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEEPROC
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEEPROC.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEEPROC.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Name of started procedure or blanks if not started procedure
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        52 (34)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEETRMP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEETRMP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address that points to the terminal ID. The field is zero for
+                        non-terminal users.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        ACEEFLG4
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG4.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Miscellaneous flags 2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        ACEEUATH
+                    </td>
+                    <td>
+                        1 - User is authorized to define other users
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        ACEEDASD
+                    </td>
+                    <td>
+                        1 - User is authorized to protect DASD volumes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .1..
+                    </td>
+                    <td>
+                        ACEETAPE
+                    </td>
+                    <td>
+                        .... .1.. ACEETAPE 1 - User is authorized to protect tape
+                        volumes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ..1.
+                    </td>
+                    <td>
+                        ACEETERM
+                    </td>
+                    <td>
+                        1 - User is authorized to protect terminals
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG4[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Reserved.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        58 (3A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEAPLV
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEAPLV[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Application level: Contains the level value from the
+                        application
+                        profile.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        59 (3B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEETRLV
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEETRLV[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        POE level: Contains the level value from the general resource
+                        profile that protects
+                        the port of entry.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60 (3C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEETRDA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEETRDA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        POE data address: Points to a 1-byte length field followed by
+                        the installation data
+                        from the profile that protects the port of entry. The length includes the 1-byte length
+                        field.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        64 (40)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEETRID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEETRID.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEETRID.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        An 8-byte area containing the terminal ID. The name is
+                        left-aligned and padded on the
+                        right with blanks. This field is blank when (1) termid is not specified and (2) either the POE
+                        is
+                        not specified or the POE class is not terminal.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        72 (48)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEAMP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEAMP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address first anchored model.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        76 (4C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEECLTH
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECLTH.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        User class authorizations - these bit positions are mapped by
+                        the class descriptor
+                        entries anchored off the RACF CVT.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        80 (50)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEECLCP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECLCP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Anchor for in-storage profile trees built by the RACLIST
+                        function.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        84 (54)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEAPTR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEAPTR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address field reserved for application usage
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEEAPLN
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEEAPLN.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEEAPLN.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Name of application to which user is connected, or blanks if
+                        no application
+                        specified
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        96 (60)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEAPDA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEAPDA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Application data address: Points to a 1-byte length field
+                        followed by the data from
+                        the application profile. The length includes the 1-byte length field.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEUNAM
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEUNAM.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of user name string. The first byte is a length field
+                        followed by the name
+                        string. The length includes the 1-byte length field.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        104 (68)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEMDLS
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEMDLS.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of the data set model name array. If array not
+                        obtained by RACINIT or
+                        RACROUTE
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        108 (6C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEECGRP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEECGRP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of connect group table.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        112 (70)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEGATA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEGATA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of the generic anchor table
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        116 (74)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEFCGP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFCGP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of table containing the list of groups this user ID
+                        is a member of. Built by
+                        RACINIT and used by FRACHECK, it is not automatically refreshed.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        120 (78)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEDSLP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEDSLP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of the list of categories to which this user is
+                        allowed
+                        access
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        124 (7C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEDAT4
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEDAT4.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        4-byte date field formatted ccyydddF where cc is 00 for years
+                        1971-1999 or 01 for
+                        years 2000-2070.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        128 (80)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEPADS
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEPADS.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of the list of data sets accessed by controlled
+                        programs executed by this
+                        user.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        132 (84)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEESLVL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEESLVL[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Maximum security level accessible by this user
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        133 (85)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEFLG5
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG5[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Miscellaneous flags
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        ACEEMODE
+                    </td>
+                    <td>
+                        1 - ACEE mode is in 31-bit mode
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        ACEEVMSK
+                    </td>
+                    <td>
+                        0 - If ACEEPLCL is not zero, it points to a 128-bit mask1 -
+                        ACEEPLCL points
+                        to a 1024-bit mask
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        ACEED4OK
+                    </td>
+                    <td>
+                        1 - ACEEDAT4 contains data 0 - ACEEDAT4 not used
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        ACEEXNVR
+                    </td>
+                    <td>
+                        ENVR object created by another system
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        ACEESTOK
+                    </td>
+                    <td>
+                        1 - An ACEE was built from a TOKEN with a SERVAUTH port of
+                        entry, and the SERVAUTH
+                        resource name is no longer available.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .1..
+                    </td>
+                    <td>
+                        ACEENSTE
+                    </td>
+                    <td>
+                        On if nested ENVR object (in ACEENSTA field) should be used
+                        in auth
+                        check
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... ..1.
+                    </td>
+                    <td>
+                        ACEEDALY
+                    </td>
+                    <td>
+                        1 - User logged on to an application which only records daily
+                        logon statistics
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        134 (86)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        ACEEFLG6
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEFLG6[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        More miscellaneous flags
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1... ....
+                    </td>
+                    <td>
+                        ACEERAUI
+                    </td>
+                    <td>
+                        Restricted access user ID
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .1.. ....
+                    </td>
+                    <td>
+                        ACEERUAA
+                    </td>
+                    <td>
+                        "On" if the RESTRICTED user ID can gain UNIX file access by
+                        virtue of the OTHER bits
+                        (for example, the user ID has READ access to RESTRICTED.FILESYS.ACCESS in the UNIXPRIV
+                        class)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ...1 ....
+                    </td>
+                    <td>
+                        ACEERUAV
+                    </td>
+                    <td>
+                        A check was made to RESTRICTED.FILESYS.ACCESS for this
+                        process so the value of
+                        ACEERUAA can be used
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... 1...
+                    </td>
+                    <td>
+                        ACEEMFAU
+                    </td>
+                    <td>
+                        User must authenticate with MFA. On when the user has an
+                        active MFA factor and MFADEF
+                        class is active.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        .... .111
+                    </td>
+                    <td>
+                        ACEEMFAA
+                    </td>
+                    <td>
+                        User authenticated with MFA.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ..1. ....
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        135 (87)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        *
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEERSV1[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Reserved
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        136 (88)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEE3PTY
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEE3PTY.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of ACEE created by third-party RACHECK SVC processing
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        140 (8C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEPLCL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEPLCL.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Pointer to extended class authorization mask, or 0
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        144 (90)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        ACEESUID
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ACEESUID.decode("cp037") }}"'>
+                       <code class="text-primary">
+                           {{ block.content.ACEESUID.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Surrogate user ID (AUDIT)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        152 (98)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEOCOX
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEOCOX.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Pointer to O.C.O. extend
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        156 (9C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEPTDS
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEPTDS.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Pointer to first TDS table
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        160 (A0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEX5PR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEX5PR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Pointer to X500 name pair structure. Structure contains a
+                        4-byte length of structure,
+                        followed by two 2-byte lengths, followed by up to 255 bytes of issuers name and up to 255 bytes
+                        of
+                        subjects name. Name pair storage is the same subpool and addressing mode as the
+                        ACEE.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        164 (A4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEETOKP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEETOKP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Pointer to UTOKEN in external format
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        168 (A8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEESRVA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEESRVA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of an area containing a 1-byte length followed by the
+                        SERVAUTH resource
+                        name.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        172 (AC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEESRVP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEESRVP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of an area containing a 1-byte length followed by the
+                        SERVAUTH profile name
+                        that granted access to the SERVAUTH resource.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        176 (B0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEENSTA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           { block.content.ACEENSTA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of ENVR object representing the address space which
+                        created this
+                        ACEE
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        180 (B4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEICTX
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEICTX.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of the identity context extension.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        184 (B8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEEIDID
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEEIDID.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        Address of distributed identity data (IDID).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        188 (BC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        ACEETIME
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.ACEETIME.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+                        ACEE creation time
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

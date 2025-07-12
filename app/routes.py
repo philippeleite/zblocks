@@ -17,6 +17,10 @@ from app.models.tcb import TCB
 def flag(value, flags) -> bool:
     return value & flags != 0
 
+@app.template_test()
+def all_zero(value) -> bool:
+    return int.from_bytes(value, byteorder='big') == 0
+
 @app.route('/')
 def index():
     return render_template(

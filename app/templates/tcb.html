@@ -2595,9 +2595,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.TCBNTC.hex().upper() }}">
+                            {% if block.content.TCBNTC is all_zero %}
                                 {{ block.content.TCBNTC.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.TCBNTC.hex().upper() }}">
+                                    {{ block.content.TCBNTC.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -2623,9 +2627,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.TCBOTC.hex().upper() }}">
+                            {% if block.content.TCBOTC is all_zero %}
                                 {{ block.content.TCBOTC.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.TCBOTC.hex().upper() }}">
+                                    {{ block.content.TCBOTC.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -2648,9 +2656,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.TCBLTC.hex().upper() }}">
+                            {% if block.content.TCBLTC is all_zero %}
                                 {{ block.content.TCBLTC.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.TCBLTC.hex().upper() }}">
+                                    {{ block.content.TCBLTC.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>

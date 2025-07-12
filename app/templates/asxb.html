@@ -781,7 +781,8 @@
                     <td>
                         ASXBUSR8
                     </td>
-                    <td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.ASXBUSR8.decode("cp037") }}"'>
                         <code class="text-primary">
                             {{ block.content.ASXBUSR8.hex().upper() }} </code>
                     </td>

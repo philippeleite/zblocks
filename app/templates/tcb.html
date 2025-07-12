@@ -8341,10 +8341,14 @@
                         TCBSENV
                     </td>
                     <td>
-                        <code class="text-primary">
-                            <a href="/acee/{{ block.content.TCBSENV.hex().upper() }}">
+                         <code class="text-primary">
+                            {% if block.content.TCBSENV is all_zero %}
                                 {{ block.content.TCBSENV.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/acee/{{ block.content.TCBSENV.hex().upper() }}">
+                                    {{ block.content.TCBSENV.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>

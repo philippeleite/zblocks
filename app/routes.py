@@ -1,7 +1,6 @@
 from flask import render_template
 from app import app
 from app.models.base import zblocks_list
-from app.models.oucb import OUCB
 from app.models.psa import PSA
 from app.models.lcca import LCCA
 from app.models.pcca import PCCA
@@ -12,6 +11,7 @@ from app.models.ascb import ASCB
 from app.models.assb import ASSB
 from app.models.jsab import JSAB
 from app.models.asxb import ASXB
+from app.models.oucb import OUCB
 from app.models.acee import ACEE
 from app.models.tcb import TCB
 

@@ -11,6 +11,7 @@ from app.models.ascb import ASCB
 from app.models.assb import ASSB
 from app.models.jsab import JSAB
 from app.models.asxb import ASXB
+from app.models.tcb import TCB
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -87,3 +88,8 @@ def oucb(address=None):
 @app.route('/acee/<address>')
 def acee(address=None):
     pass
+
+@app.route('/tcb/<address>')
+def tcb(address):
+    tcb = TCB(address)
+    return render_template("tcb.html", block=tcb)

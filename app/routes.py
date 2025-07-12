@@ -91,5 +91,5 @@ def acee(address=None):
 
 @app.route('/tcb/<address>')
 def tcb(address):
-    tcb = TCB(address)
+    tcb = TCB(int(address,16))
     return render_template("tcb.html", block=tcb)

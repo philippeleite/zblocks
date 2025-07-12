@@ -1,0 +1,4917 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <samp>
+                                Len
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBNAME
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.OUCBNAME.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNAME.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - BLOCK IDENTIFICATION
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4 (4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBFWD
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBFWD.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SWAP CHAIN FORWARD POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 (8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBBCK
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBBCK.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SWAP CHAIN BCKWARD POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        12 (C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTMA
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTMA.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME OF LAST ANALYSYS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBQFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBQFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SWAPPABILITY TRANSITION FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBGOO
+
+                    </td>
+                    <td>
+
+                        "BIT0" - Address space is being swapped
+                        out or logically swapped
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBGOI
+
+                    </td>
+                    <td>
+
+                        "BIT1" - TRANSITIONING INTO CORE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBGOB
+
+                    </td>
+                    <td>
+
+                        "BIT2" - TRANSITIONING BETWEEN STATES
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBQSFL
+
+                    </td>
+                    <td>
+
+                        "BIT3" - QSCEFL RECURSION FLAG
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBOFF
+
+                    </td>
+                    <td>
+
+                        "BIT4" - REQUESTING ENTER WAIT STATE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBOUT
+
+                    </td>
+                    <td>
+
+                        "BIT5" - REQUESTING ENTER OUT STATE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBLSW
+
+                    </td>
+                    <td>
+
+                        "BIT6" - LOGICALLY SWAPPED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBDLYB
+
+                    </td>
+                    <td>
+
+                        "BIT7" - DELAYED BY RTO ON OUT QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        17 (11)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBSFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SWAPOUT CONTINUATION FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBNSW
+
+                    </td>
+                    <td>
+
+                        "BIT0" - NON-SWAPPABLE STATUS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBCTI
+
+                    </td>
+                    <td>
+
+                        "BIT1" - CTL INHIBITS QUIESCE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBBIB
+
+                    </td>
+                    <td>
+
+                        "BIT2" - BRING IN FOR CANCEL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBINV
+
+                    </td>
+                    <td>
+
+                        "BIT3" - =1 IF OUCB IS INVALID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBNSWI
+
+                    </td>
+                    <td>
+
+                        "BIT4" - PREVENT SWAP IN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBPVL
+
+                    </td>
+                    <td>
+
+                        "BIT5" - PRIVILEGED PROGRAM RUNNING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBENQ
+
+                    </td>
+                    <td>
+
+                        "BIT6" - ENQ RESIDENT STATUS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBSCN
+
+                    </td>
+                    <td>
+
+                        "BIT7" - SWAP CHAIN TERMINATION MARK
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        18 (12)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBYFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBYFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - USER TYPE FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBPSTE
+
+                    </td>
+                    <td>
+
+                        "BIT0" - POST ERROR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBSTT
+
+                    </td>
+                    <td>
+
+                        "BIT1" - START CREATED USER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBLOG
+
+                    </td>
+                    <td>
+
+                        "BIT2" - LOGON CREATED USER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBMNT
+
+                    </td>
+                    <td>
+
+                        "BIT3" - MOUNT CREATED USER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBRSFL
+
+                    </td>
+                    <td>
+
+                        "BIT4" - Restore Fail
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBAXS
+
+                    </td>
+                    <td>
+
+                        "BIT5" - AUX SHORTAGE FORCED SWAP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBDTA
+
+                    </td>
+                    <td>
+
+                        "BIT6" - DATA ACCUMULATION IMPACTED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBFXS
+
+                    </td>
+                    <td>
+
+                        "BIT7" - FIXED STORAGE FORCED SWAP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        19 (13)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBAFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBAFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ALGORITHM STATUS FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBIRSW
+
+                    </td>
+                    <td>
+
+                        "BIT0" - REALSWAP IN PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBAPG
+
+                    </td>
+                    <td>
+
+                        "BIT1" - APG ALGORITHM APPLICABLE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBREPT
+
+                    </td>
+                    <td>
+
+                        "BIT2" - RPGNS ARE PRESENT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBENQI
+
+                    </td>
+                    <td>
+
+                        "BIT3" - OUCBENQ WAS ON AT SOME POINT
+                        DURING THE POLICY ADJUSTMENT
+                        INTERVAL (goal mode ONLY)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBJSR
+
+                    </td>
+                    <td>
+
+                        "BIT4" - JOBSELECT RECEIVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBMXS
+
+                    </td>
+                    <td>
+
+                        "BIT5" - Memory Pool shortage forced swap
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBNWT
+
+                    </td>
+                    <td>
+
+                        "BIT6" - MSO DETECTED NONSWAPPABLE WAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBASW
+
+                    </td>
+                    <td>
+
+                        "BIT7" - AUTHORIZED FOR DONTSWAP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBTFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRANSACTION STATUS FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBATR
+
+                    </td>
+                    <td>
+
+                        "BIT0" - TRANSACTION IN EXISTENCE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBSTR
+
+                    </td>
+                    <td>
+
+                        "BIT1" - TRANSACTION START PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBNTR
+
+                    </td>
+                    <td>
+
+                        "BIT2" - TRANSACTION STOP PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBRTR
+
+                    </td>
+                    <td>
+
+                        "BIT3" - TRANSACTION RESUME PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBPCH
+
+                    </td>
+                    <td>
+
+                        "BIT4" - PERF GRP PERIOD CHANGE PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBMAR
+
+                    </td>
+                    <td>
+
+                        "BIT5" - ACTIVITY RECORDING SUBTRACT FLG
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBINP
+
+                    </td>
+                    <td>
+
+                        "BIT6" - INITIATOR ATTACH PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBINC
+
+                    </td>
+                    <td>
+
+                        "BIT7" - INITIATOR ATTACH CURRENT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        21 (15)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBEFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBEFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - EVENT STATUS FALGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBLWT
+
+                    </td>
+                    <td>
+
+                        "BIT0" - LONG WAIT STATUS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBQSFLP2
+
+                    </td>
+                    <td>
+
+                        "BIT2" - QSCEFL Swap-Out Phase 2
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBQSC
+
+                    </td>
+                    <td>
+
+                        "BIT6" - QSCECMP EVENT PROCESSED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBMWT
+
+                    </td>
+                    <td>
+
+                        "BIT7" - MSO DETECTED WAIT STATUS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        22 (16)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBASSTATUS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBASSTATUS[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Address Space Status
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBASINIT
+
+                    </td>
+                    <td>
+
+                        "BIT0" - Address space initialization done
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBASTERM
+
+                    </td>
+                    <td>
+
+                        "BIT1" - Address space termination started
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBASSINIT
+
+                    </td>
+                    <td>
+
+                        "BIT2" - Address space - Step initialization
+                        done
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBASSTERM
+
+                    </td>
+                    <td>
+
+                        "BIT3" - Address space - Step termination
+                        done
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBASRSV4
+
+                    </td>
+                    <td>
+
+                        "BIT4" - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBASRSV5
+
+                    </td>
+                    <td>
+
+                        "BIT5" - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBASRSV6
+
+                    </td>
+                    <td>
+
+                        "BIT6" - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBASRSV7
+
+                    </td>
+                    <td>
+
+                        "BIT7" - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        23 (17)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBUFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBUFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - USER TYPE FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBJSFS
+
+                    </td>
+                    <td>
+
+                        "BIT0" - JOB SELECT DELAYED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBJSAS
+
+                    </td>
+                    <td>
+
+                        "BIT1" - JOB SELECT DELAYED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBNSWDP
+
+                    </td>
+                    <td>
+
+                        "BIT2" - NSW Address Space currently non
+                        dispachable
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBTSWP
+
+                    </td>
+                    <td>
+
+                        "BIT3" - TRANSWAP IN PROGRESS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBTSWC
+
+                    </td>
+                    <td>
+
+                        "BIT4" - TRANSWAP COMPLETE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBSI
+
+                    </td>
+                    <td>
+
+                        "BIT5" - STORAGE ISOL CONTROL ACTIVE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBENQR
+
+                    </td>
+                    <td>
+
+                        "BIT6" - OucbEnq on during RA interval
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBSIFX
+
+                    </td>
+                    <td>
+
+                        "BIT7" - FIXED TARGET WORKING SET SIZE FOR
+                        GRS STORAGE ISOLATION
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        24 (18)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBLFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBLFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ALGORITHM STATUS FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBEAS
+
+                    </td>
+                    <td>
+
+                        "BIT0" - Early address space that has not
+                        been through InitAtt yet
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBQSRV
+
+                    </td>
+                    <td>
+
+                        "BIT1" - Space was managed as a server
+                        when it was quiesced
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBRQSC
+
+                    </td>
+                    <td>
+
+                        "BIT2" - QUIESCED BY RESET COMMAND
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBFWA
+
+                    </td>
+                    <td>
+
+                        "BIT3" - FAST WORKLOAD ACCEPTANCE APPL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBTET
+
+                    </td>
+                    <td>
+
+                        "BIT4" - TRANSWAP EXPIRATION TIMER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBREDP
+
+                    </td>
+                    <td>
+
+                        "BIT5" - Reduced preemption required
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBPRF
+
+                    </td>
+                    <td>
+
+                        "BIT6" - PREVIOUS RESOURCE FAILURE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBSTGI
+
+                    </td>
+                    <td>
+
+                        "BIT7" - Address space has been recognized
+                        initializing storage
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        25 (19)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBRFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - MORE USER FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBCSFS
+
+                    </td>
+                    <td>
+
+                        "BIT0" - SWAP IN FAIL DEFER BIT -USER ON
+                        WAIT QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBCSFM
+
+                    </td>
+                    <td>
+
+                        "BIT1" - SWAP IN MESSAGE REQUIRED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBEASI
+
+                    </td>
+                    <td>
+
+                        "BIT2" - EARLY ADDRESS SPACE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBHIDP
+
+                    </td>
+                    <td>
+
+                        "BIT3" - EARLY A.S. NEEDS HIGH PRTY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBBJOB
+
+                    </td>
+                    <td>
+
+                        "BIT4" - Address space is running a batch
+                        job
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBSTFX
+
+                    </td>
+                    <td>
+
+                        "BIT5" - FIXED BELOW FRAMES ARE STELABLE
+                        INDICATOR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBDFSW
+
+                    </td>
+                    <td>
+
+                        "BIT6" - SWAP IN FAIL SPECIAL PROCESSING
+                        Real thresholds raised on behalf of
+                        the address space's primary working
+                        set.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBLLSW
+
+                    </td>
+                    <td>
+
+                        "BIT7" - LAST SWAP WAS LOGICAL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        26 (1A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBNDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNDP[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW ASCB DISPATCHING PRIORITY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        27 (1B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBTNDP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTNDP[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW TS DISPATCHING PRIORITY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBMFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBMFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - MISCELLANEOUS FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBSBT
+
+                    </td>
+                    <td>
+
+                        "BIT0" - STOLE BELOW THRESHOLD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBAFAP
+
+                    </td>
+                    <td>
+
+                        "BIT1" - Auxiliary swap-in frame allocation
+                        is pending for primary working set
+                        (MCVCAPWS was raised)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBDFS2
+
+                    </td>
+                    <td>
+
+                        "BIT2" - THRES RAISED BY SEC WORKING SET
+                        SIZE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBMGSW
+
+                    </td>
+                    <td>
+
+                        "BIT3" - SELECTED FOR MIG SWAP
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBDISC
+
+                    </td>
+                    <td>
+
+                        "BIT4" - Frames are included in the logical
+                        (ESA Mode Only, do not use in z/OS)
+                        swap discretionary count
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBASAP
+
+                    </td>
+                    <td>
+
+                        "BIT5" - SEC WORKING SET ALLOC PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBMPUR
+
+                    </td>
+                    <td>
+
+                        "BIT6" - SELECTED FOR MIG PURGE
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBACNT
+
+                    </td>
+                    <td>
+
+                        "BIT7" - ACCOUNT NUMBER SPECIFIED ON JOB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        29 (1D)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBIAC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBIAC[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INITIATOR ATTACH COUNT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        30 (1E)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBRSV1
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRSV1[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        31 (1F)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBPGP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPGP[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CURRENT WPGP OFFSET IN WPGD
+                        goal mode: period number
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBWMG(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        WPGD OFFSET IN WPGD TABLE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBWSCI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBWSCI.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        goal mode: service class index
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        34 (22)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBWRCI
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBWRCI.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        goal mode: report class index
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        36 (24)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBMFL2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBMFL2[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - More miscellaneous flags. These
+                        are serialized by the SRM lock.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBVFMG
+
+                    </td>
+                    <td>
+
+                        "BIT0" - MESSAGE ISSUED ON BEHALF OF A.S.
+                        SWAPPED OUT DUE TO VECTOR WAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBMGIN
+
+                    </td>
+                    <td>
+
+                        "BIT1" - SRM has requested that RSM inhibit
+                        migration of DREF pages
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBAFPD
+
+                    </td>
+                    <td>
+
+                        "BIT2" - Auxiliary swap-in frame allocation
+                        is pending for swap-in of DREF pages
+                        (MCVCAPWS was raised)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBDFDR
+
+                    </td>
+                    <td>
+
+                        "BIT3" Real thresholds were raised on
+                        behalf of the DREF pages in the
+                        address space.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBDFDE
+
+                    </td>
+                    <td>
+
+                        "BIT4" Expanded storage thresholds were
+                        raised on behalf of the DREF pages
+                        in the address space.
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBMIGP
+
+                    </td>
+                    <td>
+
+                        "BIT5" - MIGPURGE indicator
+                        ON- indicates this address space
+                        has been returned to RSM for
+                        this instance of MIGPURGE
+                        OFF- address space has not been
+                        returned to RSM
+                        added by @YA65372, moved by
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBRPT1
+
+                    </td>
+                    <td>
+
+                        "BIT6" The first time of entry into RPT -
+                        Raise Processor Threshold
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBERST
+
+                    </td>
+                    <td>
+
+                        "BIT7" Eligible for restart flag
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        37 (25)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBMFL3
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBMFL3[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - More miscellaneous flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBAPPC
+
+                    </td>
+                    <td>
+
+                        "BIT0" APPC transaction program
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBPMON
+
+                    </td>
+                    <td>
+
+                        "BIT1" Indicate that this address space
+                        is being monitored
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBVALV
+
+                    </td>
+                    <td>
+
+                        "BIT2" Working set management recommendation
+                        value is valid
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBOMVS
+
+                    </td>
+                    <td>
+
+                        "BIT3" OpenMVS transaction program
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBTBMN
+
+                    </td>
+                    <td>
+
+                        "BIT4" address space is to be monitored
+                        when enough data has been gathered
+                        about it
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBSTTA
+
+                    </td>
+                    <td>
+
+                        "BIT5" When ON, OUCBWKTM for this address
+                        space has been added to the
+                        system transaction time in the
+                        workload activity reporting
+                        table for the pg period.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBGWRK
+
+                    </td>
+                    <td>
+
+                        "BIT6" Initiator started using
+                        GETWORK interface.
+                        Distinction is important for
+                        workload activity reporting.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBINIT
+
+                    </td>
+                    <td>
+
+                        "BIT7" Started task is an initiator.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        38 (26)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBDMO
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDMO.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - OFFSET INTO DOMAIN TABLE,
+                        VALID ONLY IN compatibility mode
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        40 (28)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBDMN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDMN[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        DOMAIN NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        41 (29)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBSRC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSRC[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        SWAP OUT REASON CODE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        42 (2A)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBSWC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSWC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRANSACTION SWAP COUNT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        44 (2C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBASCB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            <a href="/ascb/{{ block.content.OUCBASCB.hex().upper() }}">
+                                {{ block.content.OUCBASCB.hex().upper() }}
+                            </a>
+                        </code>
+                    </td>
+                    <td>
+
+                        - ASCB ADDRESS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        48 (30)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBPAGP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPAGP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Pointer to the APAG for this address
+                        space
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        52 (34)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTMW
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTMW.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - WLM INTERVAL START TIME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBWMS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBWMS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INTERVAL SERVICE ACCUMULATOR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60 (3C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBCPU
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCPU.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INTERVAL CPU SERVICE ACCUM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        64 (40)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBIOC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBIOC.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Deprecated (Interval I/O service
+                        no longer accumulated)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        68 (44)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBMSO
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBMSO.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Deprecated (Interval MSO service
+                        no longer accumulated)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        72 (48)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTMS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTMS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME OF LAST SWAP ACTION
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        76 (4C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTMO
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTMO.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRANSACTION START TIME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        80 (50)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBDRFR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDRFR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Count of DREF pages in real storage.
+                        Updated from values returned from
+                        RSM IARXCNTF routine.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        84 (54)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBACT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBACT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ACTION QUEUE FORWARD POINTER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBCSW(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        - COMPARE AND SWAP FIELD NAME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBACN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBACN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - DEFERRED ACTION FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        90 (5A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBCFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - MULTIPROCESS CONDITION FLAGS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBRDY
+
+                    </td>
+                    <td>
+
+                        "BIT0" - USERRDY EVENT RECEIVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBRSM
+
+                    </td>
+                    <td>
+
+                        "BIT1" - RSM SERVICE OUTSTANDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBESSS
+
+                    </td>
+                    <td>
+
+                        "BIT2" - SUSPENDED FOR SWAPOUT TO EXT
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBESSW
+
+                    </td>
+                    <td>
+
+                        "BIT3" - HAS BEEN OR WILL BE SWAPPED TO
+                        EXTENDED
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBASSW
+
+                    </td>
+                    <td>
+
+                        "BIT4" - Has been or will be swapped to
+                        Auxiliary
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBCSMF
+
+                    </td>
+                    <td>
+
+                        "BIT5" - On = SMF needs to be notified that
+                        the address space is swapped in
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBSHBN
+
+                    </td>
+                    <td>
+
+                        "BIT6" Server history block needed
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBHITR
+
+                    </td>
+                    <td>
+
+                        "BIT7" HIT has run since UserRdy
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        91 (5B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBCSBT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCSBT[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Compare and swap bits
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBTRM
+
+                    </td>
+                    <td>
+
+                        "BIT0" - TERMINAL WAIT STATUS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBOWT
+
+                    </td>
+                    <td>
+
+                        "BIT1" - OUTPUT TERMINAL WAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBCIM
+
+                    </td>
+                    <td>
+
+                        "BIT2" - COMPOSITE INPUT MESSAGE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBPSTR
+
+                    </td>
+                    <td>
+
+                        "BIT3" - IF POST ERROR, RECOVER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBSTA
+
+                    </td>
+                    <td>
+
+                        "BIT4" Swap turn around
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBQSS
+
+                    </td>
+                    <td>
+
+                        "BIT5" - QSCEST EVENT PROCESSED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBOIW
+
+                    </td>
+                    <td>
+
+                        "BIT6" - If on, indicates that a detected
+                        wait should be treated as an
+                        OpenMVS input wait
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBOOW
+
+                    </td>
+                    <td>
+
+                        "BIT7" - If on, indicates that a OpenMVS
+                        output wait condition is present
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        92 (5C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBCMRV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCMRV.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - COMPOSITE RECOM VALUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        96 (60)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBWMRL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBWMRL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Workload recommendation value saved
+                        at swap-out
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        100 (64)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBVAL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBVAL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Working set management
+                        recommendation value
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        102 (66)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBPFL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPFL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Processing flags
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBFTDN
+
+                    </td>
+                    <td>
+
+                        "BIT0" - On = Trimming has been completed for
+                        this address space
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .1.. ....
+
+                    </td>
+                    <td>
+
+                        OUCBPSD
+
+                    </td>
+                    <td>
+
+                        "BIT1" - On = This address space is a direct
+                        physical swap
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBDPSW
+
+                    </td>
+                    <td>
+
+                        "BIT2" - On = Delayed Physical Swap
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBSRP
+
+                    </td>
+                    <td>
+
+                        "BIT3" - On = Steal recently referenced pages
+                        pages on the next steal attempt from
+                        the Address Space
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBPTDN
+
+                    </td>
+                    <td>
+
+                        "BIT4" - On = Preliminary trimming has been
+                        completed for this address spac
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBFTDNNOSWAP
+
+                    </td>
+                    <td>
+
+                        "BIT5" - On = Trimming has been completed for
+                        this address space no swapping
+                        will be done
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        103 (67)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBACTL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBACTL[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Length of storage allocated to save
+                        accounting data. Note that this
+                        length can be larger than the
+                        account data actually saved.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        104 (68)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBIOCL
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBIOCL.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Deprecated (I/O service no
+                        longer accumulated)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        112 (70)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBDSPC
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDSPC[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CURRENT DISPATCHING CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBMTW
+
+                    </td>
+                    <td>
+
+                        "BIT0" - CURRENT CONTROL IS MTW
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBTS
+
+                    </td>
+                    <td>
+
+                        "BIT2" - CURRENT CTL IS TIME SLICING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBTSC3
+
+                    </td>
+                    <td>
+
+                        "BIT3" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBTSC4
+
+                    </td>
+                    <td>
+
+                        "BIT4" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBTSC5
+
+                    </td>
+                    <td>
+
+                        "BIT5" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBTSC6
+
+                    </td>
+                    <td>
+
+                        "BIT6" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBTSC7
+
+                    </td>
+                    <td>
+
+                        "BIT7" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        113 (71)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBDSPN
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDSPN[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW DISPATCHING CONTROL
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        1... ....
+
+                    </td>
+                    <td>
+
+                        OUCBNMTW
+
+                    </td>
+                    <td>
+
+                        "BIT0" - NEW CONTROL IS MTW
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ..1. ....
+
+                    </td>
+                    <td>
+
+                        OUCBNTS
+
+                    </td>
+                    <td>
+
+                        "BIT2" - NEW CONTROL IS TIME SLICING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        ...1 ....
+
+                    </td>
+                    <td>
+
+                        OUCBTSN3
+
+                    </td>
+                    <td>
+
+                        "BIT3" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... 1...
+
+                    </td>
+                    <td>
+
+                        OUCBTSN4
+
+                    </td>
+                    <td>
+
+                        "BIT4" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... .1..
+
+                    </td>
+                    <td>
+
+                        OUCBTSN5
+
+                    </td>
+                    <td>
+
+                        "BIT5" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ..1.
+
+                    </td>
+                    <td>
+
+                        OUCBTSN6
+
+                    </td>
+                    <td>
+
+                        "BIT6" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        .... ...1
+
+                    </td>
+                    <td>
+
+                        OUCBTSN7
+
+                    </td>
+                    <td>
+
+                        "BIT7" - WORKAREA FOR TS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        114 (72)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBNTSP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNTSP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUM OF ADD'L TRANSWAPS PENDING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        116 (74)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBPSS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPSS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - CPU PAGE SECONDS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        124 (7C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBPST
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPST.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME OF LAST WORKING SET CHANGE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        128 (80)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBRCT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRCT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Interval RCT service accum
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        132 (84)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBIIT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBIIT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Interval I/O Interrupt service
+                        accumulator
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        136 (88)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBNDS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNDS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NUM OUTSTANDING DONTSWAPS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        138 (8A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBNTSG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNTSG[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW TIME SLICE GROUP NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        139 (8B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBRSV2
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRSV2[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - reserved
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        140 (8C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTME
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTME.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - LAST RESPONSE TIME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        144 (90)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTML
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTML.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TIME OF LAST TERMWAIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        148 (94)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBDWMS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDWMS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INTVL DMN SVCE ACCUM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        152 (98)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBSRB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSRB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - INTERVAL SRB SERVICE ACCUM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        156 (9C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTWSS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTWSS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TARGET WORKING SET SIZE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        160 (A0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTMP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTMP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - PERF GRP PERIOD START TIME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        164 (A4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBDLYT
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDLYT.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RTO DELAY END TIME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        168 (A8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBHST
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBHST.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Interval Hiperspace service
+                        accumulator
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        172 (AC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBCFS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCFS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Accumulated sample of RAXFMCT for
+                        determing avg central storage
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        176 (B0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBSUBN
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.OUCBSUBN.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSUBN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - Subsystem name used by SMF and
+                        for workload activity reporting
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        180 (B4)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBRPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - RESET PERFORMANCE GROUP NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        182 (B6)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBSPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SPECIFIED PERFORMANCE GROUP
+                        NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        184 (B8)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBNPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - NEW PERFORMANCE GROUP NUMBER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        186 (BA)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBSRPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSRPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SUBSYSTEM RPGN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        188 (BC)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBNRPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBNRPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRXNAME RPGN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        190 (BE)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBURPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBURPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - USERID RPGN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        192 (C0)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBCRPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCRPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRXCLASS RPGN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        194 (C2)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBARPG
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBARPG.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - ACCOUNT NUMBER RPGN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        196 (C4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBDRFP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBDRFP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        Count of DREF pages in processor
+                        storage. Updated from values
+                        returned from RSM IARXCNTF
+                        routine.
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        200 (C8)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBTRXN
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.OUCBTRXN.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTRXN.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRANSACTION NAME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        208 (D0)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBUSRD
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.OUCBUSRD.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.OUCBUSRD.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - USERID
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        216 (D8)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBCLS
+                    </td>
+                    <td data-bs-toggle="tooltip"
+                        data-bs-title='EBCDIC: "{{ block.content.OUCBCLS.decode("cp037") }}"'>
+                        <code class="text-primary">
+                            {{ block.content.OUCBCLS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - TRANSACTION CLASS NAME
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        224 (E0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTRS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTRS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        accumulated transaction service
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        228 (E4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBTRR
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBTRR.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        transaction residency time
+                        accumulator
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        232 (E8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBACTP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBACTP.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        pointer to accounting info (mapped
+                        by IRAACNT). OUCBACNT bit should be
+                        interrogated before referencing
+                        the accounting data.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        236 (EC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBSWSS
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBSWSS.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - SEC WORKING SET SIZE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        240 (F0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        OUCBPSUM
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBPSUM.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        BASE VALUE FOR PAGEIN COUNT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        244 (F4)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        OUCBFIXB
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBFIXB.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        CNT OF BELOW FRAMES NEEDED FOR
+                        FIXED/LSQA PAGES
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        246 (F6)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBAPLV
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBAPLV[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        APPC optimization level
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        247 (F7)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        OUCBESAP
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBESAP[0:].hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        individual expanded storage access
+                        policy, goal mode only
+                        (ESA Mode Only, do not use in z/OS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        248 (F8)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        OUCBRST
+                    </td>
+                    <td>
+                        <code class="text-primary">
+                            {{ block.content.OUCBRST.hex().upper() }}
+                        </code>
+                    </td>
+                    <td>
+
+                        - PAGE RESIDENCY TIME IN 1024
+                        MICROSECOND UNITS
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

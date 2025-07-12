@@ -1,6 +1,7 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template
 from app import app
 from app.models.base import zblocks_list
+from app.models.oucb import OUCB
 from app.models.psa import PSA
 from app.models.lcca import LCCA
 from app.models.pcca import PCCA
@@ -87,7 +88,8 @@ def asxb(address=None):
 @app.route('/oucb')
 @app.route('/oucb/<address>')
 def oucb(address=None):
-    pass
+    oucb = OUCB(int(address, 16) if address else None)
+    return render_template("oucb.html", block=oucb)
 
 @app.route('/acee')
 @app.route('/acee/<address>')

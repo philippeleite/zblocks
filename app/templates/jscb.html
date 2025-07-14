@@ -229,9 +229,13 @@
                     </td>
                     <td>
                        <code class="text-primary">
-                           <a href="/jscb/{{ block.content.JSCBIJSC.hex().upper() }}">
-                                {{ block.content.JSCBIJSC.hex().upper() }}
-                           </a>
+                           {% if block.content.JSCBIJSC is all_zero %}
+                               {{ block.content.JSCBIJSC.hex().upper() }}
+                           {% else %}
+                                <a href="/jscb/{{ block.content.JSCBIJSC.hex().upper() }}">
+                                    {{ block.content.JSCBIJSC.hex().upper() }}
+                                </a>
+                           {% endif %}
                        </code>
                     </td>
                     <td>

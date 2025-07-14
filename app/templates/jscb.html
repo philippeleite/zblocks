@@ -1,2874 +1,2457 @@
-<html>
- <body>
-  <table class="cds--data-table" summary="This table contains six columns: Decimal offset, Hexadecimal offset, Type, Length, Name (Dim), and Description.">
-   <caption class="cds--data-table-header">
-    <span class="tablecap cds--data-table-header__title">
-     Table 1. Structure
-            IEZJSCB
-    </span>
-   </caption>
-   <colgroup>
-    <col/>
-    <col/>
-    <col/>
-    <col/>
-    <col/>
-    <col/>
-   </colgroup>
-   <thead>
-    <tr>
-     <th class="nrule thright" id="JSCB__JSCB-map__entry__1">
-      <div class="cds--table-header-label">
-       <samp>
-        Offset
-        <br/>
-        Dec
-       </samp>
-      </div>
-     </th>
-     <th class="nrule thright" id="JSCB__JSCB-map__entry__2">
-      <div class="cds--table-header-label">
-       <samp>
-        Offset
-        <br/>
-        Hex
-       </samp>
-      </div>
-     </th>
-     <th class="nrule thleft" id="JSCB__JSCB-map__entry__3">
-      <div class="cds--table-header-label">
-       <code class="ph codeph">
-        Type
-       </code>
-      </div>
-     </th>
-     <th class="nrule thright" id="JSCB__JSCB-map__entry__4">
-      <div class="cds--table-header-label">
-       <code class="ph codeph">
-        Len
-       </code>
-      </div>
-     </th>
-     <th class="nrule thleft" id="JSCB__JSCB-map__entry__5">
-      <div class="cds--table-header-label">
-       <code class="ph codeph">
-        Name(Dim)
-       </code>
-      </div>
-     </th>
-     <th class="nrule thleft" id="JSCB__JSCB-map__entry__6">
-      <div class="cds--table-header-label">
-       <code class="ph codeph">
-        Description
-       </code>
-      </div>
-     </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (0)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       STRUCTURE
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       IEZJSCB
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">   SECTION 1 DATA ITEMS USED IN OS/VS1 AND OS/VS2
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r37:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r37:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <samp>
+                                Len
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        188 (BC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCRSV01
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCRSV01.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        192 (C0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCHPCE
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCHPCE.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF OPTIONAL JOB ENTRY SUBSYSTEM
+                            (JES) PROCESSOR CONTROL ELEMENT ICB459
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        192 (C0)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV32
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCHPCE[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED ICB459
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        193 (C1)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCHPCEA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCHPCE[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF OPTIONAL JOB ENTRY SUBSYSTEM
+                            (JES) PROCESSOR CONTROL ELEMENT ICB459
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        196 (C4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBSHR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSHR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF ASSEMBLY CHAIN (VSAM) ICB434
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        200 (C8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBTCP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBTCP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF TIOT CHAINING ELEMENT CHAIN
+                            (VSAM) ICB434
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        204 (CC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBPCC
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBPCC.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF PRIVATE CATALOG CONTROL BLOCK
+                            CHAIN (VSAM) ICB434
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        208 (D0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBTCBP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           <a href="/tcb/{{ block.content.JSCBTCBP.hex().upper() }}">
+                                {{ block.content.JSCBTCBP.hex().upper() }}
+                           </a>
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF INITIATOR'S TCB (VSAM) ICB434
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        212 (D4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBIJSC
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           <a href="/jscb/{{ block.content.JSCBIJSC.hex().upper() }}">
+                                {{ block.content.JSCBIJSC.hex().upper() }}
+                           </a>
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF JSCB OF THE INITIATOR THAT
+                            ATTACHED THIS JOB STEP (OS/VS1) MDC003
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        216 (D8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBDBTB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBDBTB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF THE DEB TABLE FOR THIS JOB
+                            STEP (OS/VS1) MDC029
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        220 (DC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBID
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBID.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - JOB SERIAL NUMBER (OS/VS1)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        224 (E0)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBDCB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBDCB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF DCB FOR DATA SET CONTAINING
+                            SCHEDULER TABLES FOR THIS JOB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        224 (E0)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV02
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBDCB[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        225 (E1)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCBDCBA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBDCB[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF DCB FOR DATA SET CONTAINING
+                            SCHEDULER TABLES FOR THIS JOB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        228 (E4)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBSTEP
+                    </td>
+                    <td>
+                       <code class="text-primary"> 
+                           {{ block.content.JSCBSTEP[0:].hex().upper() }} 
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - CURRENT STEP NUMBER. THE FIRST STEP IS
+                            NUMBER 1.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        229 (E5)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCRSV03
+                    </td>
+                    <td>
+                       <code class="text-primary"> 
+                           {{ block.content.JSCRSV03.hex().upper() }} 
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        232 (E8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBSECB
+                    </td>
+                    <td>
+                       <code class="text-primary"> 
+                           {{ block.content.JSCBSECB.hex().upper() }} 
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ECB FOR COMMUNICATION BETWEEN
+                            MAIN STORAGE SUPERVISOR AND THE
+                            INITIATOR WHILE WAITING FOR A
+                            REGION.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        236 (EC)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBOPTS
+                    </td>
+                    <td>
+                       <code class="text-primary"> 
+                           {{ block.content.JSCBOPTS[0:].hex().upper() }} 
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - OPTION SWITCHES
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            1... ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV04
+
+                    </td>
+                    <td>
+ 
+                            "X'80',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .1.. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV05
+
+                    </td>
+                    <td>
+ 
+                            "X'40',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ..1. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBLONG
+
+                    </td>
+                    <td>
+ 
+                            "X'20'" - THE PARTITION CANNOT BE REDEFINED BECAUSE
+                            THE JOB OCCUPYING IT IS DEFINED AS LONG
+                            RUNNING (OS/VS1) ICB351
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ...1 ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV06
+
+                    </td>
+                    <td>
+ 
+                            "X'10',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... 1...
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV07
+
+                    </td>
+                    <td>
+ 
+                            "X'08',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... .1..
+
+                    </td>
+                    <td>
+ 
+                            JSCBTIOD
+
+                    </td>
+                    <td>
+ 
+                            "X'04'" - WHEN SET BY PROGRAM, EXCLUSIVE ENQS FOR
+                            THE SYSZTIOT RESOURCE MAY DEFER TO
+                            SHARED REQUESTS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ..1.
+
+                    </td>
+                    <td>
+ 
+                            JSCSIOTS
+
+                    </td>
+                    <td>
+ 
+                            "X'02'" - CHECKPOINT MUST SCAN SIOT MDC018
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ...1
+
+                    </td>
+                    <td>
+ 
+                            JSCBAUTH
+
+                    </td>
+                    <td>
+ 
+                            "X'01'" - The step represented by this
+                            JSCB is authorized to issue the MODESET
+                            macro instruction. Although this bit has
+                            been designated PI, IBM recommends that
+                            very careful design consideration be
+                            given to its use.
+                            To avoid the likelihood of creating
+                            a system integrity exposure, do not turn
+                            on JSCBAUTH.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        237 (ED)
+                    </td>
+                    <td>
+                        6
+                    </td>
+                    <td>
+                        JSCBCRB6
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBCRB6.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - LOW ORDER 6 BYTES OF THE SHR RBA USED
+                            FOR CONTINUE RESTART. THE HIGH ORDER
+                            2 BYTES OF THIS RBA RESIDE IN
+                            JSCBCRB2.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        243 (F3)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBSWT1
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSWT1[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - STATUS SWITCHES (OS/VS2) ICB351
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            1... ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBPASS
+
+                    </td>
+                    <td>
+ 
+                            "X'80'" - WHEN THIS BIT IS SET TO ONE AND A
+                            CORRESPONDING BIT IN THE DCB IS SET TO
+                            ONE, OPEN WILL BYPASS PASSWORD
+                            PROTECTION FOR THE DATA SET BEING OPENED
+                            (OS/VS2).
+                            ALTHOUGH THIS BIT HAS BEEN DESIGNATED
+                            PSPI, IBM RECOMMENDS THAT VERY CAREFUL
+                            DESIGN CONSIDERATION BE GIVEN TO ITS
+                            USE.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .1.. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBUNIN
+
+                    </td>
+                    <td>
+ 
+                            "X'40'" - When ON, indicates that Allocation
+                            received control directly from the
+                            Initiator. Set/Reset by IEFBB410
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ..1. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV12
+
+                    </td>
+                    <td>
+ 
+                            "X'20',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ...1 ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV13
+
+                    </td>
+                    <td>
+ 
+                            "X'10',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... 1...
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV14
+
+                    </td>
+                    <td>
+ 
+                            "X'08',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... .1..
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV15
+
+                    </td>
+                    <td>
+ 
+                            "X'04',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ..1.
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV16
+
+                    </td>
+                    <td>
+ 
+                            "X'02',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ...1
+
+                    </td>
+                    <td>
+ 
+                            JSCBPMSG
+
+                    </td>
+                    <td>
+ 
+                            "X'01'" - A MESSAGE HAS BEEN ISSUED BECAUSE THE
+                            DUMP DATA SET WAS NOT SUCCESSFULLY
+                            OPENED. PREVENTS USE OF MULTIPLE SMB'S
+                            FOR MULTIPLE OPEN FAILURES IN JOB STEP.
+                            (OS/VS2) ICB351
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        244 (F4)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBQMPI
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBQMPI.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF THE QUEUE MANAGER PARAMETER
+                            AREA (QMPA) FOR THE JOB'S INPUT QUEUE
+                            TABLE ENTRIES (OS/VS2)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        248 (F8)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBJESW
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJESW.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF THE JES WORKAREA
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        252 (FC)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBWTP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBWTP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - WRITE-TO-PROGRAMMER (WTP) DATA
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        252 (FC)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBWTFG
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBWTP[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - FLAGS USED BY WTP SUPPORT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            1... ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBIOFG
+
+                    </td>
+                    <td>
+ 
+                            "X'80'" - THE PREVIOUS WTP I/O OPERATION HAD AN
+                            I/O ERROR
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .1.. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBRET
+
+                    </td>
+                    <td>
+ 
+                            "X'40'" - TEXT BREAKING INDICATOR, ADDITIONAL
+                            MESSAGE TEXT SCANNING REQUIRED
+                            (OS/VS1) ICB470
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ..1. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBBMO
+
+                    </td>
+                    <td>
+ 
+                            "X'20'" - Buffer Messages Only flag. Set
+                            by IEFAB4B2 when an SMS Message
+                            is being processed that is being
+                            directed to the Programmer when
+                            Monitor Status is active.
+                            Checked by IEEAB400 to avoid a
+                            WTO that was already issued by
+                            IEFAB4B2.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ...1 ....
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV19
+
+                    </td>
+                    <td>
+ 
+                            "X'10',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... 1...
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV20
+
+                    </td>
+                    <td>
+ 
+                            "X'08',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... .1..
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV21
+
+                    </td>
+                    <td>
+ 
+                            "X'04',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ..1.
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV22
+
+                    </td>
+                    <td>
+ 
+                            "X'02',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ...1
+
+                    </td>
+                    <td>
+ 
+                            JSCRSV23
+
+                    </td>
+                    <td>
+ 
+                            "X'01',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        253 (FD)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBWTSP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBWTP[1:2].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - NUMBER OF THE LAST JOB STEP TO ISSUE WTP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        254 (FE)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBPMG
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBWTP[2:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - NUMBER OF WTP OPERATIONS ISSUED FOR THE
+                            STEP IDENTIFIED BY JSCBWTSP
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        256 (100)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBCSCB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBCSCB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF COMMAND SCHEDULING CONTROL
+                            BLOCK (CSCB) USED TO PROCESS COMMANDS
+                            RECEIVED FOR THIS JOB STEP ICB351
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        260 (104)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBJCT
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJCT.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Structure containing SVA of JCT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        260 (104)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV24
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJSCL[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED ICB351
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        261 (105)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCBJCTA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJCT[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - SVA of JCT, use SWAREQ to convert
+                            to a pointer
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        264 (108)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBPSCB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBPSCB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF TSO PROTECTED STEP CONTROL
+                            BLOCK
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        268 (10C)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBASID(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS SPACE IDENTIFIER (MDC028) YM0446
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        268 (10C)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBTJID
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBTJID.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - TSO TERMINAL JOB IDENTIFIER
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        270 (10E)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBFBYT
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBFBYT[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - FLAG BYTE (MDC300)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            1... ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBRV01
+
+                    </td>
+                    <td>
+ 
+                            "X'80',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .1.. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBADSP
+
+                    </td>
+                    <td>
+ 
+                            "X'40'" - AUTOMATIC DATA SET PROTECTION FOR THIS
+                            USER (MDC302)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ..1. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBLGDF
+
+                    </td>
+                    <td>
+ 
+                            "X'20',,C'X'" - IAZLGDAT invocation failed and IFA044I
+                            was issued for this job (was JSCBRV02)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ...1 ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBRV03
+
+                    </td>
+                    <td>
+ 
+                            "X'10',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... 1...
+
+                    </td>
+                    <td>
+ 
+                            JSCBSJFY
+
+                    </td>
+                    <td>
+ 
+                            "X'08'" - Used by BB131
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... .1..
+
+                    </td>
+                    <td>
+ 
+                            JSCBSJFN
+
+                    </td>
+                    <td>
+ 
+                            "X'04'" - Used by BB131
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ..1.
+
+                    </td>
+                    <td>
+ 
+                            JSCBRV06
+
+                    </td>
+                    <td>
+ 
+                            "X'02',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ...1
+
+                    </td>
+                    <td>
+ 
+                            JSCBRV07
+
+                    </td>
+                    <td>
+ 
+                            "X'01',,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        271 (10F)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBRV08
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBRV08[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        272 (110)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBIECB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBIECB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ECB USED FOR COMMUNICATION BETWEEN
+                            DYNAMIC ALLOCATION AND THE INITIATOR
+                            IN ORDER TO PERFORM DATA SET INTEGRITY
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        276 (114)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSCBJRBA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJRBA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - JOB JOURNAL RELATIVE BYTE ADDRESS (RBA)
+                            (MDC031) YM7086
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        284 (11C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBALOC
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBALOC.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF THE ALLOCATION WORK
+                            AREA
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        288 (120)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBJNL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJNL.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - INITIATOR JSCB ONLY - ADDRESS OF JSCB
+                            FOR STEP BEING INITIATED. OTHERWISE,
+                            ZERO ICB431
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        288 (120)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBJJSB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJNL[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - JOB JOURNAL STATUS INDICATORS ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            1... ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBJNLN
+
+                    </td>
+                    <td>
+ 
+                            "X'80'" - NOTHING SHOULD BE WRITTEN IN
+                            JOURNAL ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .1.. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBJNLF
+
+                    </td>
+                    <td>
+ 
+                            "X'40'" - NO JOB JOURNAL MDC017
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            ..1. ....
+
+                    </td>
+                    <td>
+ 
+                            JSCBJNLE
+
+                    </td>
+                    <td>
+ 
+                            "X'20'" - ERROR IN JOURNAL, DO NOT WRITE ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... 1...
+
+                    </td>
+                    <td>
+ 
+                            JSCBJSBI
+
+                    </td>
+                    <td>
+ 
+                            "X'08'" - JOB HAS NOT ENTERED ALLOCATION FOR THE
+                            FIRST TIME ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... .1..
+
+                    </td>
+                    <td>
+ 
+                            JSCBJSBA
+
+                    </td>
+                    <td>
+ 
+                            "X'04'" - JOB HAS ENTERED ALLOCATION ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ..1.
+
+                    </td>
+                    <td>
+ 
+                            JSCBJSBX
+
+                    </td>
+                    <td>
+ 
+                            "X'02'" - JOB HAS COMPLETED ALLOCATION ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+ 
+                            .... ...1
+
+                    </td>
+                    <td>
+ 
+                            JSCBJSBT
+
+                    </td>
+                    <td>
+ 
+                            "X'01'" - JOB HAS ENTERED TERMINATION ICB332
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        289 (121)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCBJNLA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJNL[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - INITIATOR JSCB ONLY - ADDRESS OF JSCB
+                            FOR STEP BEING INITIATED. OTHERWISE,
+                            ZERO ICB431
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        292 (124)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBJNLR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBJNLR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - POINTER TO JOB JOURNAL RPL MDC023
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        296 (128)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBSMLR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSMLR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF SYSTEM MESSAGE DATA
+                            SET RPL MDC024
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        300 (12C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBSUB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSUB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF JES-SUBTL FOR THIS JOB
+                            STEP ICB333
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        300 (12C)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV31
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSUB[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED ICB333
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        301 (12D)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCBSUBA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSUB[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF JES-SUBTL FOR THIS JOB
+                            STEP ICB333
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        304 (130)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBSONO
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSONO.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - THE NUMBER OF SYSOUT DATA SETS PLUS
+                            ONE ICB335
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        306 (132)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBCRB2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBCRB2.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - HIGH ORDER 2 BYTES OF THE SHR RBA USED
+                            FOR CONTINUE RESTART. THE LOW ORDER
+                            6 BYTES OF THIS RBA RESIDE IN
+                            JSCBCRB6.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        308 (134)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSCBFRBA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBFRBA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RELATIVE BYTE ADDRESS (RBA) OF THE FIRST
+                            JOURNAL BLOCK (MDC032) YM7086
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        316 (13C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBSSIB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSSIB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF THE SUBSYSTEM IDENTIFICATION
+                            BLOCK MDC021
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        320 (140)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCDSABQ
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCDSABQ.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Address of QDB for DSAB chain.
+                            This field is an interface only for using
+                            the value to construct the SYSZTIOT
+                            resource name.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        324 (144)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCGDDNO
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCGDDNO.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Counter used by Dynamic Allocation to
+                            generate DD names
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        328 (148)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCSCT
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCSCT.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Structure containing SVA of SCT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        328 (148)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV55
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCSCT[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        329 (149)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        JSCSCTP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCSCT[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - SVA of SCT, use SWAREQ to convert
+                            to a pointer
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        332 (14C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCTMCOR
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCTMCOR.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF TIOT MAIN STORAGE MANAGEMENT
+                            AREA MDC010
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        336 (150)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBVATA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBVATA.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF VAT USED DURING SYSTEM RESTART
+                            OR AUTOMATIC RESTART MDC011
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        340 (154)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCRSV08
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCRSV08.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Reserved, was JSCDDNNO
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        342 (156)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCBODNO
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBODNO.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - COUNTER USED BY DYNAMIC OUTPUT TO
+                            GENERATE OUTPUT DESCRIPTOR NAMES.
+                            THIS NUMBER INCREASES OVER THE LIFE
+                            OF THE JOB AND WRAPS.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        344 (158)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        JSCDDNUM
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCDDNUM.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - NUMBER OF DD ENTRIES CURRENTLY ALLOCATED
+                            INCLUDING IN USE AND NOT IN USE ENTRIES
+                            MDC022
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        346 (15A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCRSV33
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCRSV33[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - RESERVED MDC019
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        347 (15B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        JSCBSWSP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBSWSP[0:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - SWA SUBPOOL MDC015
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        348 (15C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBACT
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           <a href="/jscb/{{ block.content.JSCBACT.hex().upper() }}">
+                                {{ block.content.JSCBACT.hex().upper() }}
+                           </a>
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - POINTER TO ACTIVE JSCB MDC014
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        352 (160)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCRSV09
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCRSV09.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Reserved, was JSCBUFPT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        356 (164)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBEACB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBEACB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Address of event log ACB.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        360 (168)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        JSCBPGMN
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBPGMN.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - JOB STEP PROGRAM NAME (MDC304)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        360 (168)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBECB1
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBPGMN[:4].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDR OF CANCEL ECB WHILE
+                            WAITING FOR A REGION (IEFSD363)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        364 (16C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBECB2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBPGMN[4:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDR OF WAIT FOR REGION ECB
+                            WHILE WAITING FOR A REGION
+                            (IEFSD263)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        368 (170)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCDSNQP
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCDSNQP.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - Pointer to the first DSENQ Table
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        372 (174)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCBCSCX
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCBCSCX.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ADDRESS OF CSCX EXTENSION TO CSCB
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        376 (178)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        JSCAMCPL
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.JSCAMCPL.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+ 
+                            - ALLOCATION MESSAGE CELLPOOL ID
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       188
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (BC)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'BC'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBSEC1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "*" - START OF JSCB SECTION 1
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      188 (BC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV01
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV01.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      192 (C0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCHPCE(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCHPCE(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF OPTIONAL JOB ENTRY SUBSYSTEM
-(JES) PROCESSOR CONTROL ELEMENT ICB459
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      192 (C0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV32
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV32.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED ICB459
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      193 (C1)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCHPCEA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCHPCEA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF OPTIONAL JOB ENTRY SUBSYSTEM
-(JES) PROCESSOR CONTROL ELEMENT ICB459
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      196 (C4)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSHR
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSHR.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF ASSEMBLY CHAIN (VSAM) ICB434
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      200 (C8)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBTCP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBTCP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF TIOT CHAINING ELEMENT CHAIN
-(VSAM) ICB434
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      204 (CC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBPCC
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBPCC.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF PRIVATE CATALOG CONTROL BLOCK
-CHAIN (VSAM) ICB434
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      208 (D0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBTCBP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBTCBP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF INITIATOR'S TCB (VSAM) ICB434
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      212 (D4)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBIJSC
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBIJSC.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF JSCB OF THE INITIATOR THAT
-ATTACHED THIS JOB STEP (OS/VS1) MDC003
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      216 (D8)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBDBTB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBDBTB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF THE DEB TABLE FOR THIS JOB
-STEP (OS/VS1) MDC029
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      220 (DC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBID
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBID.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - JOB SERIAL NUMBER (OS/VS1)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      224 (E0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBDCB(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBDCB(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF DCB FOR DATA SET CONTAINING
-SCHEDULER TABLES FOR THIS JOB
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      224 (E0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV02
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV02.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      225 (E1)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBDCBA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBDCBA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF DCB FOR DATA SET CONTAINING
-SCHEDULER TABLES FOR THIS JOB
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      228 (E4)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSTEP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSTEP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - CURRENT STEP NUMBER. THE FIRST STEP IS
-NUMBER 1.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      229 (E5)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV03
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV03.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      232 (E8)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSECB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSECB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ECB FOR COMMUNICATION BETWEEN
-MAIN STORAGE SUPERVISOR AND THE
-INITIATOR WHILE WAITING FOR A
-REGION.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      236 (EC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBOPTS
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBOPTS.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - OPTION SWITCHES
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       1...  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV04
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'80',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       .1..  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV05
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'40',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ..1.  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBLONG
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'20'" - THE PARTITION CANNOT BE REDEFINED BECAUSE
-THE JOB OCCUPYING IT IS DEFINED AS LONG
-RUNNING (OS/VS1) ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ...1  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV06
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'10',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  1...
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV07
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'08',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  .1..
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBTIOD
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'04'" - WHEN SET BY PROGRAM, EXCLUSIVE ENQS FOR
-THE SYSZTIOT RESOURCE MAY DEFER TO
-SHARED REQUESTS.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ..1.
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCSIOTS
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'02'" - CHECKPOINT MUST SCAN SIOT MDC018
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ...1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBAUTH
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'01'" - The step represented by this
-JSCB is authorized to issue the MODESET
-macro instruction. Although this bit has
-been designated PI, IBM recommends that
-very careful design consideration be
-given to its use.
-To avoid the likelihood of creating
-a system integrity exposure, do not turn
-on JSCBAUTH.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      237 (ED)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      6
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBCRB6
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBCRB6.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - LOW ORDER 6 BYTES OF THE SHR RBA USED
-FOR CONTINUE RESTART. THE HIGH ORDER
-2 BYTES OF THIS RBA RESIDE IN
-JSCBCRB2.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      243 (F3)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSWT1
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSWT1.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - STATUS SWITCHES (OS/VS2) ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       1...  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBPASS
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'80'" - WHEN THIS BIT IS SET TO ONE AND A
-CORRESPONDING BIT IN THE DCB IS SET TO
-ONE, OPEN WILL BYPASS PASSWORD
-PROTECTION FOR THE DATA SET BEING OPENED
-(OS/VS2).
-ALTHOUGH THIS BIT HAS BEEN DESIGNATED
-PSPI, IBM RECOMMENDS THAT VERY CAREFUL
-DESIGN CONSIDERATION BE GIVEN TO ITS
-USE.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       .1..  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBUNIN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'40'" - When ON, indicates that Allocation
-received control directly from the
-Initiator. Set/Reset by IEFBB410
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ..1.  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV12
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'20',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ...1  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV13
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'10',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  1...
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV14
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'08',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  .1..
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV15
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'04',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ..1.
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV16
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'02',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ...1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBPMSG
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'01'" - A MESSAGE HAS BEEN ISSUED BECAUSE THE
-DUMP DATA SET WAS NOT SUCCESSFULLY
-OPENED. PREVENTS USE OF MULTIPLE SMB'S
-FOR MULTIPLE OPEN FAILURES IN JOB STEP.
-(OS/VS2) ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      244 (F4)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBQMPI
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBQMPI.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF THE QUEUE MANAGER PARAMETER
-AREA (QMPA) FOR THE JOB'S INPUT QUEUE
-TABLE ENTRIES (OS/VS2)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      248 (F8)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJESW
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJESW.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF THE JES WORKAREA
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      252 (FC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBWTP(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBWTP(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - WRITE-TO-PROGRAMMER (WTP) DATA
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      252 (FC)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBWTFG
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBWTFG.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - FLAGS USED BY WTP SUPPORT
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       1...  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBIOFG
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'80'" - THE PREVIOUS WTP I/O OPERATION HAD AN
-I/O ERROR
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       .1..  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBRET
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'40'" - TEXT BREAKING INDICATOR, ADDITIONAL
-MESSAGE TEXT SCANNING REQUIRED
-(OS/VS1) ICB470
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ..1.  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBBMO
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'20'" - Buffer Messages Only flag. Set
-by IEFAB4B2 when an SMS Message
-is being processed that is being
-directed to the Programmer when
-Monitor Status is active.
-Checked by IEEAB400 to avoid a
-WTO that was already issued by
-IEFAB4B2.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ...1  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV19
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'10',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  1...
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV20
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'08',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  .1..
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV21
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'04',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ..1.
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV22
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'02',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ...1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCRSV23
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'01',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      253 (FD)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBWTSP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBWTSP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - NUMBER OF THE LAST JOB STEP TO ISSUE WTP
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      254 (FE)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBPMG
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBPMG.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - NUMBER OF WTP OPERATIONS ISSUED FOR THE
-STEP IDENTIFIED BY JSCBWTSP
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      256 (100)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBCSCB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBCSCB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF COMMAND SCHEDULING CONTROL
-BLOCK (CSCB) USED TO PROCESS COMMANDS
-RECEIVED FOR THIS JOB STEP ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       256
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (100)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'48'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBS1LN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "(*-JSCBSEC1)" - LENGTH OF SECTION 1
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">   SECTION 2 DATA ITEMS USED ONLY IN OS/VS1
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r3a:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r3a:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
-        </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       256
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (100)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'104'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBSEC2
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "*" - START OF JSCB SECTION 2 ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">   CURRENTLY NO OS/VS1 ONLY DATA ITEMS ICB351
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r3d:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r3d:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
-        </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       256
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (100)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'0'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBS2LN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "(*-JSCBSEC2)" - LENGTH OF SECTION 2 ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">   SECTION 3 DATA ITEMS USED ONLY IN OS/VS2
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r3g:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r3g:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
-        </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       260
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (104)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'104'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBSEC3
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "*" - START OF JSCB SECTION 3 ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      260 (104)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJCT(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJCT(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Structure containing SVA of JCT
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      260 (104)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV24
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV24.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      261 (105)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCJCTP(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCJCTP(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ALIAS FOR JSCBJCTA MDC025
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      261 (105)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJCTA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJCTA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - SVA of JCT, use SWAREQ to convert
-to a pointer
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      264 (108)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBPSCB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBPSCB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF TSO PROTECTED STEP CONTROL
-BLOCK
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      268 (10C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBASID(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBASID(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS SPACE IDENTIFIER (MDC028) YM0446
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      268 (10C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBTJID
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBTJID.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - TSO TERMINAL JOB IDENTIFIER
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      270 (10E)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBFBYT
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBFBYT.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - FLAG BYTE (MDC300)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       1...  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBRV01
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'80',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       .1..  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBADSP
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'40'" - AUTOMATIC DATA SET PROTECTION FOR THIS
-USER (MDC302)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ..1.  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBLGDF
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'20',,C'X'" - IAZLGDAT invocation failed and IFA044I
-was issued for this job (was JSCBRV02)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ...1  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBRV03
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'10',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  1...
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBSJFY
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'08'" - Used by BB131
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  .1..
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBSJFN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'04'" - Used by BB131
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ..1.
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBRV06
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'02',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ...1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBRV07
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'01',,C'X'" - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      271 (10F)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBRV08
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBRV08.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      272 (110)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBIECB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBIECB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ECB USED FOR COMMUNICATION BETWEEN
-DYNAMIC ALLOCATION AND THE INITIATOR
-IN ORDER TO PERFORM DATA SET INTEGRITY
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      276 (114)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      8
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJRBA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJRBA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - JOB JOURNAL RELATIVE BYTE ADDRESS (RBA)
-(MDC031) YM7086
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      284 (11C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBALOC
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBALOC.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF THE ALLOCATION WORK
-AREA
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      288 (120)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJNL(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJNL(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - INITIATOR JSCB ONLY - ADDRESS OF JSCB
-FOR STEP BEING INITIATED. OTHERWISE,
-ZERO ICB431
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      288 (120)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJJSB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJJSB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - JOB JOURNAL STATUS INDICATORS ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       1...  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJNLN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'80'" - NOTHING SHOULD BE WRITTEN IN
-JOURNAL ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       .1..  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJNLF
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'40'" - NO JOB JOURNAL MDC017
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ..1.  ....
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJNLE
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'20'" - ERROR IN JOURNAL, DO NOT WRITE ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">         EQU X'10' - RESERVED (WAS JSCBJSBJ) MDC001
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r3j:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r3j:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
-        </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  1...
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJSBI
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'08'" - JOB HAS NOT ENTERED ALLOCATION FOR THE
-FIRST TIME ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  .1..
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJSBA
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'04'" - JOB HAS ENTERED ALLOCATION ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ..1.
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJSBX
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'02'" - JOB HAS COMPLETED ALLOCATION ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-     </td>
-     <td class="nrule tdleft" colspan="2" headers="JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       ....  ...1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBJSBT
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "X'01'" - JOB HAS ENTERED TERMINATION ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      289 (121)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJNLA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJNLA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - INITIATOR JSCB ONLY - ADDRESS OF JSCB
-FOR STEP BEING INITIATED. OTHERWISE,
-ZERO ICB431
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      292 (124)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBJNLR
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBJNLR.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - POINTER TO JOB JOURNAL RPL MDC023
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      296 (128)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSMLR
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSMLR.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF SYSTEM MESSAGE DATA
-SET RPL MDC024
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      300 (12C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSUB(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSUB(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF JES-SUBTL FOR THIS JOB
-STEP ICB333
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      300 (12C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV31
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV31.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED ICB333
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      301 (12D)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSUBA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSUBA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF JES-SUBTL FOR THIS JOB
-STEP ICB333
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      304 (130)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSONO
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSONO.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - THE NUMBER OF SYSOUT DATA SETS PLUS
-ONE ICB335
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      306 (132)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBCRB2
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBCRB2.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - HIGH ORDER 2 BYTES OF THE SHR RBA USED
-FOR CONTINUE RESTART. THE LOW ORDER
-6 BYTES OF THIS RBA RESIDE IN
-JSCBCRB6.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      308 (134)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      8
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBFRBA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBFRBA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RELATIVE BYTE ADDRESS (RBA) OF THE FIRST
-JOURNAL BLOCK (MDC032) YM7086
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      316 (13C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSSIB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSSIB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF THE SUBSYSTEM IDENTIFICATION
-BLOCK MDC021
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      320 (140)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCDSABQ
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCDSABQ.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Address of QDB for DSAB chain.
-This field is an interface only for using
-the value to construct the SYSZTIOT
-resource name.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      324 (144)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCGDDNO
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCGDDNO.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Counter used by Dynamic Allocation to
-generate DD names
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      328 (148)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCSCT(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCSCT(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Structure containing SVA of SCT
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      328 (148)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV55
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV55.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      329 (149)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      3
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCSCTP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCSCTP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - SVA of SCT, use SWAREQ to convert
-to a pointer
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      332 (14C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCTMCOR
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCTMCOR.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF TIOT MAIN STORAGE MANAGEMENT
-AREA MDC010
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      336 (150)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBVATA
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBVATA.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF VAT USED DURING SYSTEM RESTART
-OR AUTOMATIC RESTART MDC011
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      340 (154)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV08
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV08.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Reserved, was JSCDDNNO
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      342 (156)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBODNO
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBODNO.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - COUNTER USED BY DYNAMIC OUTPUT TO
-GENERATE OUTPUT DESCRIPTOR NAMES.
-THIS NUMBER INCREASES OVER THE LIFE
-OF THE JOB AND WRAPS.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      344 (158)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      2
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCDDNUM
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCDDNUM.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - NUMBER OF DD ENTRIES CURRENTLY ALLOCATED
-INCLUDING IN USE AND NOT IN USE ENTRIES
-MDC022
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      346 (15A)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV33
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV33.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - RESERVED MDC019
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      347 (15B)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      1
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBSWSP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBSWSP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - SWA SUBPOOL MDC015
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      348 (15C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBACT
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBACT.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - POINTER TO ACTIVE JSCB MDC014
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      352 (160)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCRSV09
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCRSV09.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Reserved, was JSCBUFPT
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      356 (164)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBEACB
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBEACB.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Address of event log ACB.
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      360 (168)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      8
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBPGMN(0)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBPGMN(0).hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - JOB STEP PROGRAM NAME (MDC304)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      360 (168)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBECB1
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBECB1.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDR OF CANCEL ECB WHILE
-WAITING FOR A REGION (IEFSD363)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      364 (16C)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBECB2
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBECB2.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDR OF WAIT FOR REGION ECB
-WHILE WAITING FOR A REGION
-(IEFSD263)
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      368 (170)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCDSNQP
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCDSNQP.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - Pointer to the first DSENQ Table
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      372 (174)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCBCSCX
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCBCSCX.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ADDRESS OF CSCX EXTENSION TO CSCB
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      376 (178)
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      4
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      JSCAMCPL
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      {{ block.content.JSCAMCPL.hex().upper() }}
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       - ALLOCATION MESSAGE CELLPOOL ID
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       376
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (178)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'78'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBS3LN
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "(*-JSCBSEC3)" - LENGTH OF SECTION 3 ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       376
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (178)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'BC'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBDISP
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "(260-JSCBS1LN)" - DISPLACEMENT OF FIRST JSCB DATA BYTE
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       376
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (178)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'48'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBAOS1
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "JSCBS1LN+JSCBS2LN" - OS/VS1 JSCB LENGTH ICB351
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__1">
-      <code class="ph codeph">
-       376
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__2">
-      <code class="ph codeph">
-       (178)
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__3">
-      <code class="ph codeph">
-       X'C0'
-      </code>
-     </td>
-     <td class="nrule tdright" headers="JSCB__JSCB-map__entry__4">
-      <code class="ph codeph">
-       0
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__5">
-      <code class="ph codeph">
-       JSCBAOS2
-      </code>
-     </td>
-     <td class="nrule tdleft" headers="JSCB__JSCB-map__entry__6">
-      <code class="ph codeph">
-       "JSCBS1LN+JSCBS3LN" - OS/VS2 JSCB LENGTH ICB332
-      </code>
-     </td>
-    </tr>
-    <tr>
-     <td class="nrule tdleft" colspan="6" headers="JSCB__JSCB-map__entry__1 JSCB__JSCB-map__entry__2 JSCB__JSCB-map__entry__3 JSCB__JSCB-map__entry__4 JSCB__JSCB-map__entry__5 JSCB__JSCB-map__entry__6">
-      <div class="cds--snippet docs--snippet-v10 cds--snippet--multi cds--snippet--expand">
-       <div aria-label="Code snippet" class="cds--snippet-container" tabindex="0">
-        <pre class="codeblock"><code class="hljs language-plaintext-ibm">               END OF JSCB
-</code></pre>
-       </div>
-       <div class="docs--copy-btn">
-        <div class="cds--layout-constraint--size__default-md cds--layout-constraint--size__max-lg">
-         <span class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--left cds--tooltip cds--icon-tooltip">
-          <div class="cds--tooltip-trigger__wrapper">
-           <button aria-labelledby="tooltip-:r3m:" class="cds--btn--icon-only cds--copy-btn cds--copy cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary" type="button">
-            <svg aria-hidden="true" class="cds--snippet__icon" fill="currentColor" focusable="false" height="16" preserveaspectratio="xMidYMid meet" viewbox="0 0 32 32" width="16" xmlns="http://www.w3.org/2000/svg">
-             <path d="M28,10V28H10V10H28m0-2H10a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2Z">
-             </path>
-             <path d="M4,18H2V4A2,2,0,0,1,4,2H18V4H4Z">
-             </path>
-            </svg>
-           </button>
-          </div>
-          <span aria-hidden="true" class="cds--popover" id="tooltip-:r3m:" role="tooltip">
-           <span class="cds--popover-content cds--tooltip-content">
-            Copy to
-                                        clipboard
-           </span>
-           <span class="cds--popover-caret">
-           </span>
-          </span>
-         </span>
-        </div>
-       </div>
-      </div>
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </body>
-</html>
+    </div>
+{% endblock %}

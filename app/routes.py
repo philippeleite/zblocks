@@ -15,6 +15,7 @@ from app.models.oucb import OUCB
 from app.models.acee import ACEE
 from app.models.tcb import TCB
 from app.models.rb import RB
+from app.models.jscb import JSCB
 
 @app.template_test()
 def flag(value, flags) -> bool:
@@ -107,3 +108,8 @@ def tcb(address):
 def rb(address):
     rb = RB(int(address,16))
     return render_template("rb.html", block=rb)
+
+@app.route('/jscb/<address>')
+def rb(address):
+    jscb = JSCB(int(address,16))
+    return render_template("jscb.html", block=jscb)

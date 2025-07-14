@@ -6,7 +6,7 @@ void read_memory(char* buffer, int length, intptr_t address);
 void read_memory_auth(char* buffer, int length, intptr_t address); 
  ''')
 
-ffi.set_source("zutils", '''                                   
+ffi.set_source("zutils", r'''                                   
 #include <stdint.h>                                           
 #include <string.h>                                           
 
@@ -32,13 +32,13 @@ void read_memory_auth(char *buffer,
     plist[1] = (unsigned int)(void * __ptr32) name;
     plist[2] = (unsigned int)(void * __ptr32) token;
     plist[3] = (unsigned int)(void * __ptr32) &wk_rc;  
-    __asm(" SAM31"
-          " L 15,x'10'"
-          " L 15,x'220'(15,0)"
-          " L 15,x'14'(15,0)"
-          " L 15,x'08'(15,0)"
-          " BAS 14,15"
-          " SAM64"
+    __asm(" SAM31\n"
+          " L 15,x'10'\n"
+          " L 15,x'220'(15,0)\n"
+          " L 15,x'14'(15,0)\n"
+          " L 15,x'08'(15,0)\n"
+          " BAS 14,15\n"
+          " SAM64\n"
           : 
           : "NR:r1"(plist)
           : "r1", "r14", "r15");
@@ -48,9 +48,9 @@ void read_memory_auth(char *buffer,
         plist[0] = (unsigned int)(void * __ptr32)buffer;
         plist[1] = (unsigned int)(void * __ptr32)&length;
         plist[2] = (unsigned int)(void * __ptr32)&address; 
-        __asm(" SAM31"
-              " PC  0(%[pc])"
-              " SAM64" 
+        __asm(" SAM31\n"
+              " PC  0(%[pc])\n"
+              " SAM64\n" 
               : 
               : [pc] "r"(lx[1]),
                 "NR:r1"(plist)

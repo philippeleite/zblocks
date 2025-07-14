@@ -1,4 +1,4 @@
-from app.models.base import info, zblocks_list
+from app.models.base import info
 from app.utils import read_memory
 from struct import Struct
 from collections import namedtuple

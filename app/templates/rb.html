@@ -1,0 +1,1370 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ block.name }}</h1>
+    <h2>{{ block.long_name }}</h2>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                {% include "_colgroup.html" %}
+                <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <samp>
+                                Offset
+                                <br/>
+                                Dec(Hex)
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <samp>
+                                Len
+                            </samp>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Content
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            Description
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        RBEXRTNM
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBEXRTNM.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - EIGHT-CHARACTER NAME OF ERROR EXIT
+                            ROUTINE (SIRB)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        0 (0)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBTMFLD
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBEXRTNM[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - INDICATORS FOR TIMER ROUTINES. WHEN
+                            THERE ARE NO TIMER ROUTINES, THIS FIELD
+                            IS ZERO. (IRB)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            1... ....
+
+                    </td>
+                    <td>
+
+                            RBTMQUE
+
+                    </td>
+                    <td>
+
+                            "BIT0" - TIMER ELEMENT NOT ON QUEUE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .1.. ....
+
+                    </td>
+                    <td>
+
+                            RBTMTOD
+
+                    </td>
+                    <td>
+
+                            "BIT1" - LOCAL TIME-OF-DAY OPTION IS USED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            ..1. ....
+
+                    </td>
+                    <td>
+
+                            RBRSV005
+
+                    </td>
+                    <td>
+
+                            "BIT2,,C'X'" - RESERVED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            ...1 ....
+
+                    </td>
+                    <td>
+
+                            RBWLIM
+
+                    </td>
+                    <td>
+
+                            "BIT3" - WAIT LIMIT EXCEEDED MDC001
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... 1...
+
+                    </td>
+                    <td>
+
+                            RBTMCMP
+
+                    </td>
+                    <td>
+
+                            "BIT4" - INTERVAL HAS EXPIRED
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... .1..
+
+                    </td>
+                    <td>
+
+                            RBTMIND2
+
+                    </td>
+                    <td>
+
+                            "BIT5" - EXIT SPECIFIED WITH TASK OR REAL REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ..11
+
+                    </td>
+                    <td>
+
+                            RBTMIND3
+
+                    </td>
+                    <td>
+
+                            "BIT6+BIT7" - TYPE OF REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ....
+
+                    </td>
+                    <td>
+
+                            RBTREQ
+
+                    </td>
+                    <td>
+
+                            "X'00'" - TASK REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ...1
+
+                    </td>
+                    <td>
+
+                            RBWREQ
+
+                    </td>
+                    <td>
+
+                            "BIT7" - WAIT REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ..11
+
+                    </td>
+                    <td>
+
+                            RBRREQ
+
+                    </td>
+                    <td>
+
+                            "BIT6+BIT7" - REAL REQUEST
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        1 (1)
+                    </td>
+                    <td>
+                        7
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBEXRTNM[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - LAST 7 BYTES OF RBEXRTNM
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 (8)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSYSDP1.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SYSTEM-DEPENDENT FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        10 (A)
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        RBSTAB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSTAB.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - STATUS AND ATTRIBUTE BITS (ALL RB'S)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        10 (A)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBSTAB1
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSTAB[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - FIRST BYTE OF STATUS AND ATTRIBUTE BITS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... .1..
+
+                    </td>
+                    <td>
+
+                            RBFTCKPT
+
+                    </td>
+                    <td>
+
+                            "BIT5" - A CHECKPOINT MAY BE TAKEN IN A USER EXIT
+                            FROM THIS SVC ROUTINE (SVRB-BOTH)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... .1..
+
+                    </td>
+                    <td>
+
+                            XRBCKPT
+
+                    </td>
+                    <td>
+
+                            "BIT5" - SAME AS RBFTCKPT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        11 (B)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBSTAB2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSTAB[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SECOND BYTE OF STATUS AND ATTRIBUTE BITS
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            1... ....
+
+                    </td>
+                    <td>
+
+                            RBTCBNXT
+
+                    </td>
+                    <td>
+
+                            "BIT0" - RBLINK FIELD POINTS TO TCB (ALL RB'S)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            1... ....
+
+                    </td>
+                    <td>
+
+                            XRBTCBP
+
+                    </td>
+                    <td>
+
+                            "BIT0" - SAME AS RBTCBNXT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .1.. ....
+
+                    </td>
+                    <td>
+
+                            RBFACTV
+
+                    </td>
+                    <td>
+
+                            "BIT1" - IRB OR SIRB IS QUEUED TO TCB - PROGRAM IS
+                            ACTIVE
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .1.. ....
+
+                    </td>
+                    <td>
+
+                            XRBACTV
+
+                    </td>
+                    <td>
+
+                            "BIT1" - ACTIVE PROGRAM (ALL RB'S EXCEPT LPRB AND
+                            LRB FOR OS/VS1) (MDC300)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ..1.
+
+                    </td>
+                    <td>
+
+                            RBFDYN
+
+                    </td>
+                    <td>
+
+                            "BIT6" - RB STORAGE CAN BE FREED AT EXIT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ..1.
+
+                    </td>
+                    <td>
+
+                            XRBFRRB
+
+                    </td>
+                    <td>
+
+                            "BIT6" - SAME AS RBFDYN
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ...1
+
+                    </td>
+                    <td>
+
+                            RBECBWT
+
+                    </td>
+                    <td>
+
+                            "BIT7" - IF ZERO, WAIT FOR A SINGLE EVENT OR ALL
+                            OF A NUMBER OF EVENTS ---
+                            IF ONE, WAIT FOR A NUMBER OF EVENTS THAT
+                            IS LESS THAN THE TOTAL NUMBER OF EVENTS
+                            WAITING
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ...1
+
+                    </td>
+                    <td>
+
+                            XRBWAIT
+
+                    </td>
+                    <td>
+
+                            "BIT7" - SAME AS RBECBWT
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        12 (C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSYSDP2.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SYSTEM-DEPENDENT FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        RBOPSW
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - USER'S OLD PSW. THIS OFFSET FIXED BY
+                            ARCHITECTURE. (ALL RB'S EXCEPT FRB)
+                            (MDC306)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        16 (10)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBOPSWB1
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - OLD PSW BYTE 1 (MDC309)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .1.. ....
+
+                    </td>
+                    <td>
+
+                            RBOPER
+
+                    </td>
+                    <td>
+
+                            "X'40'" - PER BIT IN RBOPSWB1 (MDC310)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        17 (11)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBOPSWB2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW[1:2].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - OLD PSW BYTE 2 (MDC304)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ...1
+
+                    </td>
+                    <td>
+
+                            RBOPSWPS
+
+                    </td>
+                    <td>
+
+                            "X'01'" - PROBLEM STATE BIT IN OLD PSW
+                            (MDC305)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        18 (12)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW[2:3].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - OLD PSW BYTE 3
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        19 (13)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBOPSWB4
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW[3:4].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - OLD PSW BYTE 4
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            .... ...1
+
+                    </td>
+                    <td>
+
+                            RBOPSW64
+
+                    </td>
+                    <td>
+
+                            "X'01'" AMODE 64
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        20 (14)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBOPSWA
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBOPSW[4:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - OLD PSW BYTES 5-8 (ADDRESS)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            1... ....
+
+                    </td>
+                    <td>
+
+                            RBOPSWM
+
+                    </td>
+                    <td>
+
+                            "X'80'" - ADDRESSING MODE OF OLD PSW
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            1... ....
+
+                    </td>
+                    <td>
+
+                            RBOPSW31
+
+                    </td>
+                    <td>
+
+                            "X'80'" - ADDRESSING MODE OF OLD PSW
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        24 (18)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBSYSDP3.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SYSTEM-DEPENDENT FIELD
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBLINK
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           <a href="/rb/{{ block.content.RBLINK.hex().upper() }}">
+                                {{ block.content.RBLINK.hex().upper() }}
+                           </a>
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAME AS RBLINKB BELOW. THIS OFFSET FIXED
+                            BY ARCHITECTURE. (MDC307)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        28 (1C)
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        RBWCF
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBLINK[:1].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - NUMBER OF REQUESTS WAITING (WAIT COUNT)
+                            (ALL RB'S FOR OS/VS2)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        29 (1D)
+                    </td>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        RBLINKB
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBLINK[1:].hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - ADDRESS OF PREVIOUS RB, OR ADDRESS OF TCB
+                            WHEN THIS IS FIRST RB ON THE QUEUE
+                            (ALL RB'S FOR OS/VS2)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        64
+                    </td>
+                    <td>
+                        RBGRSAVE(0)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            - GENERAL REGISTER SAVE AREA. THIS OFFSET
+                            FIXED BY ARCHITECTURE. (SVRB-BOTH, IRB,
+                            TIRB FOR OS/VS2) (MDC308)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        32 (20)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS0
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS0.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 0
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        36 (24)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS1
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS1.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 1
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        40 (28)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS2
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS2.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 2
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        44 (2C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS3
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS3.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 3
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        48 (30)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS4
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS4.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 4
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        52 (34)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS5
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS5.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 5
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 (38)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS6
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS6.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 6
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60 (3C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS7
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS7.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 7
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        64 (40)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS8
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS8.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 8
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        68 (44)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS9
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS9.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 9
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        72 (48)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS10
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS10.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 10
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        76 (4C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS11
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS11.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 11
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        80 (50)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS12
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS12.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 12
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        84 (54)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS13
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS13.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 13
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        88 (58)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS14
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS14.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 14
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        92 (5C)
+                    </td>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        RBGRS15
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBGRS15.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - SAVE AREA FOR GENERAL REGISTER 15
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        96 (60)
+                    </td>
+                    <td>
+                        80
+                    </td>
+                    <td>
+                        RBEXSAVE
+                    </td>
+                    <td>
+                       <code class="text-primary">
+                           {{ block.content.RBEXSAVE.hex().upper() }}
+                       </code>
+                    </td>
+                    <td>
+
+                            - EXTENDED SAVE AREA FOR SVC ROUTINES
+                            (SVRB-BOTH) (OS/VS2)
+                            RBEXSAVE is an interface only
+                            for the owner of the type 2,3,4
+                            SVC for which this RB was
+                            created. That owner may use this
+                            area as it chooses.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        96 (60)
+                    </td>
+                    <td>
+                        8
+                    </td>
+                    <td>
+                        XRBESA(10)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                            - SVRB - EXTENDED SAVE AREA OF UP TO TEN
+                            DOUBLEWORDS REQUESTED FOR SVC ROUTINE
+                            (OS/VS1) (MDC303)
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -73,9 +73,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/ascb/{{ block.content.ASCBFWDP.hex().upper() }}">
+                            {% if block.content.ASCBFWDP is all_zero %}
                                 {{ block.content.ASCBFWDP.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/ascb/{{ block.content.ASCBFWDP.hex().upper() }}">
+                                    {{ block.content.ASCBFWDP.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -97,8 +101,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/ascb/{{ block.content.ASCBBWDP.hex().upper() }}">
+                            {% if block.content.ASCBBWDP is all_zero %}
                                 {{ block.content.ASCBBWDP.hex().upper() }}
+                            {% else %}
+                                <a href="/ascb/{{ block.content.ASCBBWDP.hex().upper() }}">
+                                    {{ block.content.ASCBBWDP.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>

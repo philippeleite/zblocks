@@ -903,9 +903,15 @@
                     </td>
                     <td>
                        <code class="text-primary">
-                           <a href="/rb/{{ block.content.RBLINK.hex().upper() }}">
-                                {{ block.content.RBLINK.hex().upper() }}
-                           </a>
+                           {% if block.content.RBSTAB[1:] is flag(0x80) %}
+                                <a href="/tcb/{{ block.content.RBLINK.hex().upper() }}">
+                                    {{ block.content.RBLINK.hex().upper() }}
+                                </a>
+                           {% else %}
+                                <a href="/rb/{{ block.content.RBLINK.hex().upper() }}">
+                                    {{ block.content.RBLINK.hex().upper() }}
+                                </a>
+                           {% endif %}
                        </code>
                     </td>
                     <td>

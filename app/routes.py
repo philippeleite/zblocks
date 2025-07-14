@@ -110,6 +110,6 @@ def rb(address):
     return render_template("rb.html", block=rb)
 
 @app.route('/jscb/<address>')
-def rb(address):
+def jscb(address):
     jscb = JSCB(int(address,16))
     return render_template("jscb.html", block=jscb)

@@ -31,13 +31,13 @@ void read_memory_auth(char *buffer,
     plist[1] = (unsigned int * __ptr32)(void *) name;
     plist[2] = (unsigned int * __ptr32)(void *) token;
     plist[3] = (unsigned int * __ptr32)(void *) &wk_rc;  
-    __asm(" SAM31\n"
-          " L 15,x'10'\n"
-          " L 15,x'220'(15,0)\n"
-          " L 15,x'14'(15,0)\n"
-          " L 15,x'08'(15,0)\n"
-          " BAS 14,15\n"
-          " SAM64\n"
+    __asm(" SAM31"
+          " L 15,x'10'"
+          " L 15,x'220'(15,0)"
+          " L 15,x'14'(15,0)"
+          " L 15,x'08'(15,0)"
+          " BAS 14,15"
+          " SAM64"
           : 
           : "NR:r1"(plist)
           : "r1", "r14", "r15");
@@ -47,9 +47,9 @@ void read_memory_auth(char *buffer,
         plist[0] = (unsigned int * __ptr32)(void *)buffer;
         plist[1] = (unsigned int * __ptr32)(void *)&length;
         plist[2] = (unsigned int * __ptr32)(void *)&address; 
-        __asm(" SAM31\n"
-              " PC  0(%[pc])\n"
-              " SAM64\n" 
+        __asm(" SAM31"
+              " PC  0(%[pc])"
+              " SAM64" 
               : 
               : [pc] "r"(lx[1]),
                 "NR:r1"(plist)

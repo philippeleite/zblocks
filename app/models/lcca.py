@@ -39,7 +39,8 @@ lcca_pattern = Struct(
     "8s"  # LCCAP3C0
     "8s"  # LCCAP3C1
     "8s"  # LCCAP3C2
-    "16s"  # LCCAP3XM
+    "8s"  # LCCAP3C3
+    "8s"  # LCCAP3C4
     "8s"  # LCCAP3C5
     "8s"  # LCCAP3C6
     "8s"  # LCCAP3C7
@@ -130,6 +131,7 @@ lcca_pattern = Struct(
     "4s"  # LCCAIOR1
     "4s"  # LCCAIOR2
     "4s"  # LCCAIOR3
+    "2s"  # LCCA_0OR4INTOPARTIALCPUMASK
     "1s"  # LCCAR2F2
     "1s"  # LCCAWFL2
     "64s"  # LCCARSGR
@@ -421,7 +423,8 @@ lcca_field_names = (
     "LCCAP3C0",
     "LCCAP3C1",
     "LCCAP3C2",
-    "LCCAP3XM",
+    "LCCAP3C3",
+    "LCCAP3C4",
     "LCCAP3C5",
     "LCCAP3C6",
     "LCCAP3C7",
@@ -512,6 +515,7 @@ lcca_field_names = (
     "LCCAIOR1",
     "LCCAIOR2",
     "LCCAIOR3",
+    "LCCA_0OR4INTOPARTIALCPUMASK",
     "LCCAR2F2",
     "LCCAWFL2",
     "LCCARSGR",
@@ -803,7 +807,8 @@ lcca_offset_length = (
     info(288,8),  # LCCAP3C0
     info(296,8),  # LCCAP3C1
     info(304,8),  # LCCAP3C2
-    info(312,16),  # LCCAP3XM
+    info(312,8),  # LCCAP3C3
+    info(320,8),  # LCCAP3C4
     info(328,8),  # LCCAP3C5
     info(336,8),  # LCCAP3C6
     info(344,8),  # LCCAP3C7
@@ -894,6 +899,7 @@ lcca_offset_length = (
     info(740,4),  # LCCAIOR1
     info(744,4),  # LCCAIOR2
     info(748,4),  # LCCAIOR3
+    info(752,2),  # LCCA_0OR4INTOPARTIALCPUMASK
     info(754,1),  # LCCAR2F2
     info(755,1),  # LCCAWFL2
     info(756,64),  # LCCARSGR

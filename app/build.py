@@ -47,6 +47,7 @@ void read_memory_auth(char *buffer,
            
     printf("wk_rc = %d\n", wk_rc);
     unsigned char *plist31 = (char *)__malloc31(12);
+    unsigned int *parm; 
     if (wk_rc == 0) {
         lx = (unsigned int *)(void *)token;
         parm = (unsigned int *)(void *)plist31; 

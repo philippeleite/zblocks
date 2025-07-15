@@ -77,7 +77,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            {{ block.content.OUCBFWD.hex().upper() }}
+                            {% if block.content.OUCBFWD is all_zero %}
+                                {{ block.content.OUCBFWD.hex().upper() }}
+                            {% else %}
+                                <a href="/oucb/{{ block.content.OUCBFWD.hex().upper() }}">
+                                    {{ block.content.OUCBFWD.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -98,7 +104,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            {{ block.content.OUCBBCK.hex().upper() }}
+                            {% if block.content.OUCBBCK is all_zero %}
+                                {{ block.content.OUCBBCK.hex().upper() }}
+                            {% else %}
+                                <a href="/oucb/{{ block.content.OUCBBCK.hex().upper() }}">
+                                    {{ block.content.OUCBBCK.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -3035,7 +3047,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            {{ block.content.OUCBACT.hex().upper() }}
+                            {% if block.content.OUCBACT is all_zero %}
+                                {{ block.content.OUCBACT.hex().upper() }}
+                            {% else %}
+                                <a href="/oucb/{{ block.content.OUCBACT.hex().upper() }}">
+                                    {{ block.content.OUCBACT.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>

@@ -45,26 +45,25 @@ void read_memory_auth(char *buffer,
           : "NR:r1"(plist)
           : "r1", "r14", "r15");
            
-    printf("wk_rc = %d\n", wk_rc);
-    unsigned long plist31[3];
+    // printf("wk_rc = %d\n", wk_rc);
+    unsigned long plistpc[3];
     if (wk_rc == 0) {
         lx = (unsigned int *)(void *)token;
-        plist31[0] = (unsigned long)(void *)buffer;
-        plist31[1] = (unsigned long)length;
-        plist31[2] = (unsigned long)address;
-        printf("plist31 = %016x\n", plist31);
-        printf("plist31[0] = %016x\n", plist31[0]);     
-        printf("plist31[1] = %016x\n", plist31[1]);     
-        printf("plist31[2] = %016x\n", plist31[2]);     
-        printf("lx[1] = %08x\n", lx[1]);  
+        plistpc[0] = (unsigned long)(void *)buffer;
+        plistpc[1] = (unsigned long)length;
+        plistpc[2] = (unsigned long)address;
+        // printf("plistpc = %016x\n", plistpc);
+        // printf("plistpc[0] = %016x\n", plistpc[0]);     
+        // printf("plistpc[1] = %016x\n", plistpc[1]);     
+        // printf("plistpc[2] = %016x\n", plistpc[2]);     
+        // printf("lx[1] = %08x\n", lx[1]);  
         __asm(" LLGT 14,%[pc]\n" 
               " PC  0(14)\n"
               : 
               : [pc] "m"(lx[1]),
-                "NR:r1"(plist31)
+                "NR:r1"(plistpc)
               : "r1", "r14", "r15");   
-    }
-    free(plist31);       
+    }       
 }                                                               
 ''')
 

@@ -1264,9 +1264,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.ASCBDUMP.hex().upper() }}">
+                            {% if block.content.ASCBDUMP is all_zero %}
                                 {{ block.content.ASCBDUMP.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.ASCBDUMP.hex().upper() }}">
+                                    {{ block.content.ASCBDUMP.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -2229,9 +2233,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.ASCBRCTP.hex().upper() }}">
+                            {% if block.content.ASCBRCTP is all_zero %}
                                 {{ block.content.ASCBRCTP.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.ASCBRCTP.hex().upper() }}">
+                                    {{ block.content.ASCBRCTP.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>
@@ -4499,9 +4507,13 @@
                     </td>
                     <td>
                         <code class="text-primary">
-                            <a href="/tcb/{{ block.content.ASCBXTCB.hex().upper() }}">
+                            {% if block.content.ASCBXTCB is all_zero %}
                                 {{ block.content.ASCBXTCB.hex().upper() }}
-                            </a>
+                            {% else %}
+                                <a href="/tcb/{{ block.content.ASCBXTCB.hex().upper() }}">
+                                    {{ block.content.ASCBXTCB.hex().upper() }}
+                                </a>
+                            {% endif %}
                         </code>
                     </td>
                     <td>

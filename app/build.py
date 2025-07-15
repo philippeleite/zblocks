@@ -8,7 +8,8 @@ void read_memory_auth(char* buffer, int length, intptr_t address);
 
 ffi.set_source("zutils", r'''                                   
 #include <stdint.h>                                           
-#include <string.h>                                           
+#include <stdio.h>                                           
+#include <string.h>                                                                                      
 
 #pragma export(read_memory)                                   
 void read_memory(char *buffer,                                
@@ -40,7 +41,8 @@ void read_memory_auth(char *buffer,
           : 
           : "NR:r1"(plist)
           : "r1", "r14", "r15");
-    
+           
+    printf("wk_rc = %d\n", wk_rc);
     unsigned int plist31[3];
     if (wk_rc == 0) {
         lx = (unsigned int *)(void *)token;
@@ -48,10 +50,11 @@ void read_memory_auth(char *buffer,
         plist31[1] = (unsigned int)(void * __ptr32)&length;
         plist31[2] = (unsigned int)(void * __ptr32)&address; 
         __asm(" SAM31\n"
-              " PC  0(%[pc])\n"
+              " LLGT 14,%[pc]\n" 
+              " PC  0(14)\n"
               " SAM64\n" 
               : 
-              : [pc] "r"(lx[1]),
+              : [pc] "m"(lx[1]),
                 "NR:r1"(plist31)
               : "r1", "r15");   
     }      

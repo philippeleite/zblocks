@@ -1,5 +1,5 @@
 from app.models.base import info, zblocks_list
-from app.utils import read_memory_auth
+from app.utils import read_memory,read_memory_auth
 from struct import Struct
 from collections import namedtuple
 
@@ -1159,7 +1159,7 @@ lcca_info = lcca_fields._make(lcca_offset_length)
 
 def get_lcca_address() -> int:
     address_buffer = bytearray(4)
-    read_memory_auth(address_buffer, len(address_buffer), 528)
+    read_memory(address_buffer, len(address_buffer), 528)
     address = int.from_bytes(address_buffer, byteorder='big')
     return address
 

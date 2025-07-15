@@ -32,7 +32,7 @@ void read_memory_auth(char *buffer,
     plist[1] = (unsigned long)(void *) name;
     plist[2] = (unsigned long)(void *) token;
     plist[3] = (unsigned long)(void *) &wk_rc;  
-    __asm(" L 15,x'10'\n"
+    __asm(" LLGT 15,x'10'\n"
           " L 15,x'220'(15,0)\n"
           " L 15,x'14'(15,0)\n"
           " L 15,x'80'(15,0)\n"

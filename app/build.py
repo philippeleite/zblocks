@@ -8,6 +8,7 @@ void read_memory_auth(char* buffer, int length, intptr_t address);
 
 ffi.set_source("zutils", r'''                                   
 #include <stdint.h>                                           
+#include <stdlib.h>                                           
 #include <stdio.h>                                           
 #include <string.h>                                                                                      
 
@@ -45,16 +46,17 @@ void read_memory_auth(char *buffer,
           : "r1", "r14", "r15");
            
     printf("wk_rc = %d\n", wk_rc);
-    unsigned int plist31[3];
+    unsigned char *plist31 = (char *)__malloc31(12);
     if (wk_rc == 0) {
         lx = (unsigned int *)(void *)token;
-        plist31[0] = (unsigned int)(void * __ptr32)buffer;
-        plist31[1] = (unsigned int)length;
-        plist31[2] = (unsigned int)address;
+        parm = (unsigned int *)(void *)plist31; 
+        parm[0] = (unsigned int)(void * __ptr32)buffer;
+        parm[1] = (unsigned int)length;
+        parm[2] = (unsigned int)address;
         printf("plist31 = %016x\n", plist31);
-        printf("plist31[0] = %08x\n", plist31[0]);     
-        printf("plist31[1] = %08x\n", plist31[1]);     
-        printf("plist31[2] = %08x\n", plist31[2]);     
+        printf("parm[0] = %08x\n", parm[0]);     
+        printf("parm[1] = %08x\n", parm[1]);     
+        printf("parm[2] = %08x\n", parm[2]);     
         printf("lx[1] = %08x\n", lx[1]);  
         __asm(" LLGT 14,%[pc]\n" 
               " PC  0(14)\n"
@@ -62,7 +64,8 @@ void read_memory_auth(char *buffer,
               : [pc] "m"(lx[1]),
                 "NR:r1"(plist31)
               : "r1", "r14", "r15");   
-    }      
+    }
+    free(plist31);       
 }                                                               
 ''')
 

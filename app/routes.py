@@ -30,7 +30,7 @@ def index():
     return render_template(
         "index.html",
         title="zBlocks",
-        blocks=zblocks_list,
+        blocks=sorted(zblocks_list),
     )
 
 @app.route('/psa')

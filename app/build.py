@@ -46,18 +46,16 @@ void read_memory_auth(char *buffer,
           : "r1", "r14", "r15");
            
     printf("wk_rc = %d\n", wk_rc);
-    unsigned char *plist31 = (char *)__malloc31(12);
-    unsigned int *parm; 
+    unsigned long plist31[3];
     if (wk_rc == 0) {
         lx = (unsigned int *)(void *)token;
-        parm = (unsigned int *)(void *)plist31; 
-        parm[0] = (unsigned int)(void * __ptr32)buffer;
-        parm[1] = (unsigned int)length;
-        parm[2] = (unsigned int)address;
+        plist31[0] = (unsigned long)(void *)buffer;
+        plist31[1] = (unsigned long)length;
+        plist31[2] = (unsigned long)address;
         printf("plist31 = %016x\n", plist31);
-        printf("parm[0] = %08x\n", parm[0]);     
-        printf("parm[1] = %08x\n", parm[1]);     
-        printf("parm[2] = %08x\n", parm[2]);     
+        printf("plist31[0] = %016x\n", plist31[0]);     
+        printf("plist31[1] = %016x\n", plist31[1]);     
+        printf("plist31[2] = %016x\n", plist31[2]);     
         printf("lx[1] = %08x\n", lx[1]);  
         __asm(" LLGT 14,%[pc]\n" 
               " PC  0(14)\n"

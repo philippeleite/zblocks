@@ -50,7 +50,8 @@ void read_memory_auth(char *buffer,
         lx = (unsigned int *)(void *)token;
         plist31[0] = (unsigned int)(void * __ptr32)buffer;
         plist31[1] = (unsigned int)(void * __ptr32)&length;
-        plist31[2] = (unsigned int)(void * __ptr32)&address; 
+        plist31[2] = (unsigned int)(void * __ptr32)&address;
+        printf("lx[1] = %x\n", lx[1]);  
         __asm(" LLGT 14,%[pc]\n" 
               " PC  0(14)\n"
               : 

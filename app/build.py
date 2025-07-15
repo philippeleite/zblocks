@@ -24,7 +24,9 @@ void read_memory_auth(char *buffer,
                       int length,                                  
                       intptr_t address) {
     unsigned int system_level = 4;    
-    const char *name = "ZBLOCKS         ";
+    // const char *name = "ZBLOCKS         ";
+    const char name[] = {0xe9, 0xc2, 0xd3, 0xd6, 0xc3, 0xd2, 0xe2, 0x40,
+                         0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40};  
     unsigned char token[16];   
     unsigned int wk_rc;  
     unsigned long plist[4];

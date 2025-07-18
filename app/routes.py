@@ -1,5 +1,4 @@
-from flask import render_template
-from app import app
+from flask import render_template,current_app
 from app.models.base import zblocks_list
 from app.models.psa import PSA
 from app.models.lcca import LCCA
@@ -16,6 +15,8 @@ from app.models.acee import ACEE
 from app.models.tcb import TCB
 from app.models.rb import RB
 from app.models.jscb import JSCB
+
+app = current_app
 
 @app.template_test()
 def flag(value, flags) -> bool:

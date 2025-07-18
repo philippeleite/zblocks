@@ -15,8 +15,9 @@ from app.models.acee import ACEE
 from app.models.tcb import TCB
 from app.models.rb import RB
 from app.models.jscb import JSCB
+from app import create_app
 
-app = current_app
+app = create_app()
 
 @app.template_test()
 def flag(value, flags) -> bool:

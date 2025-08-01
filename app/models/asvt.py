@@ -1,5 +1,5 @@
 from app.models.base import info, zblocks_list
-from app.utils import read_memory
+from app.utils import read_memory, read_memory_auth
 from struct import Struct
 from collections import namedtuple
 
@@ -80,7 +80,7 @@ def get_asvt_address() -> int:
 def get_asvt() -> bytearray:
     buffer = bytearray(asvt_pattern.size)
     address = get_asvt_address()
-    read_memory(buffer, len(buffer), address)
+    read_memory_auth(buffer, len(buffer), address)
     return buffer
 
 def get_asvt_number_of_entries() -> int:
@@ -90,7 +90,7 @@ def get_asvt_number_of_entries() -> int:
 def get_asvt_entries() -> list:
     number_of_entries = get_asvt_number_of_entries()
     buffer = bytearray(number_of_entries * 4)
-    read_memory(buffer, len(buffer), get_asvt_address() + 528)
+    read_memory_auth(buffer, len(buffer), get_asvt_address() + 528)
     entries = []
     for i in range(0, len(buffer), 4):
         entries.append(buffer[i:i+4])

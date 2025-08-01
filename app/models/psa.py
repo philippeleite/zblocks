@@ -1,5 +1,5 @@
 from app.models.base import info, zblocks_list
-from app.utils import read_memory
+from app.utils import read_memory, read_memory_auth
 from struct import Struct
 from collections import namedtuple
 
@@ -1048,7 +1048,7 @@ cvt_info = psa_fields._make(psa_offset_length)
 
 def get_psa() -> bytearray:
     buffer = bytearray(psa_pattern.size)
-    read_memory(buffer, len(buffer), 0)
+    read_memory_auth(buffer, len(buffer), 0)
     return buffer
 
 class PSA:
